@@ -17,7 +17,7 @@ sudo add-apt-repository ppa:staticfloat/julia-deps
 sudo apt-get update
 sudo apt-get install julia
 ```
-
+<!-- TEASER_END -->
 You can get installers for other OS's [here](http://julialang.org/downloads/).  
 First, install a few dependencies, including python 2.7 and [matplotlib](http://matplotlib.org/).
 Then, run Julia and add the [PyPlot](https://github.com/stevengj/PyPlot.jl) and [Roots](https://github.com/JuliaLang/Roots.jl) packages, by typing

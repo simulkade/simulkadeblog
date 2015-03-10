@@ -138,8 +138,9 @@ MathJax.Hub.Config({
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>I'm very comfortable with Matlab. It does most of the things that I need to do and I've written so many handy scripts and functions in it that I can barely afford to divorce it. I can easily read my data, which are not so many most of the time, analyze them, plot the results, and export the final figure to a format I prefer. However, I'm going to try and detach myself by learning how I can do all the Matlab stuff in Julia. I've already learned how to work with the arrays, write types, and I almost know all the differences. I'll write a post about it later. Here, I' going to try the root finding and optimization in Julia. Let's star by root finding. Let's say I have a function in Matlab. Most of the time, if it's not a long relation, I write it using <code>@</code>. For instance, consider the fractional flow function:</p>
-<p>$$ f_w = \frac {k_{rw}/\mu_w}{k_{rw}/\mu_w+k_{ro}/\mu_o} $$</p>
-<p>where I'm not going to explain what the parameters are because as my friend Hamid said, you either know it, or you are not going to learn it here anyway!<br>
+<p>$$ f_w = \frac {k_{rw}/\mu_w}{k_{rw}/\mu_w+k_{ro}/\mu_o} $$
+<!-- TEASER_END -->
+where I'm not going to explain what the parameters are because as my friend Hamid said, you either know it, or you are not going to learn it here anyway!<br>
 The relative permeabilities read</p>
 <p>$$ k_{rw}(S_w) = k_{rw}^0 (S_w^*)^{n_w} $$</p>
 <p>and</p>

@@ -11,7 +11,7 @@
 -->
 
 I have started two new blogs to achieve two goals. Write more and share my work. My new blogs are
-
+<!-- TEASER_END -->
 ## A (toy) finite volume toolbox for Matlab
 You can find the blog [here](http://fvt.simulkade.com) and the code [here](https://github.com/simulkade/FVTool)
 

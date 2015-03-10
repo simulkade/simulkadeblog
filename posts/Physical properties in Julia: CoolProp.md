@@ -19,6 +19,8 @@ sudo apt-get install python-dev
 sudo pip install CoolProp
 ```
 
+<!-- TEASER_END -->
+
 It took around a minute on my computer to compile and install the code. Then I found a reply about using `CoolProp` in Julia google group. I'm too lazy to find the link again, but basically this is what you need to do to run `CoolProp` in Julia.
 
 ```jl
