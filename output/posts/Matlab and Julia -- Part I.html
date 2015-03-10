@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matlab and Julia -- Part I | SIMULKADE</title>
+
+                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20I.html">
+
+
+
+
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script>
+
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+    
+    <meta name="author" content="AAE">
+        <meta property="og:site_name" content="SIMULKADE">
+    <meta property="og:title" content="Matlab and Julia -- Part I">
+    <meta property="og:url" content="http://simulkade.com/posts/Matlab and Julia -- Part I.html">
+    <meta property="og:description" content="I'm very comfortable with Matlab. It does most of the things that I need to do and I've written so many handy scripts and functions in it that I can barely afford to divorce it. I can easily read my d">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-09-26T09:25:07+01:00">
+           <meta property="article:tag" content="Julia">
+           <meta property="article:tag" content="Matlab">
+
+    
+    
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://simulkade.com/">
+
+                <span id="blog-title">SIMULKADE</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                                <li>
+<a href="http://fvt.simulkade.com">FVT</a>
+                </li>
+<li>
+<a href="http://energy.simulkade.com">Energy</a>
+                </li>
+<li>
+<a href="http://pvt.simulkade.com">PVT</a>
+                </li>
+<li>
+<a href="http://persian.simulkade.com">فارسی</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+    <li>
+    <a href="Matlab%20and%20Julia%20--%20Part%20I.md" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <header>
+            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Matlab and Julia -- Part I</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-09-26T09:25:07+01:00" itemprop="datePublished" title="2014-09-26 09:25">2014-09-26 09:25</time></a></p>
+                <p class="commentline">            <a href="Matlab%20and%20Julia%20--%20Part%20I.html#disqus_thread" data-disqus-identifier="cache/posts/2014-09-26-matlab-and-julia-part-one.html">Comments</a>
+
+
+                    </p>
+<p class="sourceline"><a href="Matlab%20and%20Julia%20--%20Part%20I.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I'm very comfortable with Matlab. It does most of the things that I need to do and I've written so many handy scripts and functions in it that I can barely afford to divorce it. I can easily read my data, which are not so many most of the time, analyze them, plot the results, and export the final figure to a format I prefer. However, I'm going to try and detach myself by learning how I can do all the Matlab stuff in Julia. I've already learned how to work with the arrays, write types, and I almost know all the differences. I'll write a post about it later. Here, I' going to try the root finding and optimization in Julia. Let's star by root finding. Let's say I have a function in Matlab. Most of the time, if it's not a long relation, I write it using <code>@</code>. For instance, consider the fractional flow function:</p>
+<p>$$ f_w = \frac {k_{rw}/\mu_w}{k_{rw}/\mu_w+k_{ro}/\mu_o} $$
+<!-- TEASER_END -->
+where I'm not going to explain what the parameters are because as my friend Hamid said, you either know it, or you are not going to learn it here anyway!<br>
+The relative permeabilities read</p>
+<p>$$ k_{rw}(S_w) = k_{rw}^0 (S_w^*)^{n_w} $$</p>
+<p>and</p>
+<p>$$ k_{ro}(S_w) = k_{ro}^0 (1-S_w^*)^{n_o} $$</p>
+<p>where</p>
+<p>$$ S_w^* = \frac{S_w - S_{wc}}{1-S_{wc}-S_{or}}. $$</p>
+<p>These equations are perhaps not the simplest example to begin with, but if I cannot work them out in Julia, I'm better of with Matlab/Octave.</p>
+<h3>BL problem</h3>
+<p>The famous Buckley-Leverett equation reads</p>
+<p>$$ \phi \frac{\partial S_w}{\partial t} + u \frac{\partial f_w}{\partial x}=0 $$</p>
+<p>or</p>
+<p>$$ \phi \frac{\partial S_w}{\partial t} + u \frac{d f_w}{d S_w}\frac{\partial S_w}{\partial x}=0. $$</p>
+<p>There is an analytical solution for this problem that I know, but I don't quite understand. Let's say the whole domain is initially at $$S_{w0}$$ and at the left boundary we are injecting with a saturation $$S_{w,in}$$. We plot \(f_w\) versus \(S_w\), plot a tangent from the point [$$(S_{w0}$$, $$f_w(S_{w0})$$] to the curve. This tangent point shows the saturation at the shock front. The rest of the curve from this point to the injection point shows the rarefaction (have no idea what it means) thingy. So from this whole beautiful jiber jaber we derive the following equation:</p>
+<p>$$ (\frac{d f_w}{d S_w})<em>{S</em>{w,shock}} = \frac{f_w(S_{w0})-f_w(S_{w,shock})}{S_{w0}-S_{w,shock}} $$</p>
+<p>that we can solve to find $S_{w,shock}$. Now the story is clear: we move from the injection saturation on the fractional flow curve to the saturation of the shock front and then bang; shock to the initial saturation. The shock moves with a constant speed of $u/\phi$ [m/s].</p>
+<h3>Optimization and root finding in matlab</h3>
+<p>In Matlab, we can do the whole thing in a simple script with a lot of <code>@</code>, which I've found out recently that, believe it or not, freaks the hell out of many students! The functions are easy to define:</p>
+<pre class="code literal-block"><span class="n">clc</span><span class="p">;</span> <span class="n">clear</span><span class="p">;</span> <span class="n">close</span> <span class="n">all</span><span class="p">;</span>
+<span class="c">% viscosities</span>
+<span class="n">muw</span> <span class="p">=</span> <span class="mf">1e-3</span><span class="p">;</span>
+<span class="n">muo</span> <span class="p">=</span> <span class="mf">10e-3</span><span class="p">;</span>
+<span class="c">% initialize the Corey model parameters</span>
+<span class="n">kro0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">krw0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">no</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">nw</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">sor</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">swc</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">u</span> <span class="p">=</span> <span class="mf">1e-3</span><span class="p">;</span>
+<span class="n">phi</span> <span class="p">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<span class="c">% define the functions</span>
+<span class="n">sws</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">sw</span><span class="o">-</span><span class="n">swc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">));</span>
+<span class="n">dsws</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">);</span>
+<span class="n">krw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="n">nw</span><span class="p">);</span>
+<span class="n">kro</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="n">no</span><span class="p">);</span>
+</pre>
+
+
+<p>The above definitions can be used to define the water fractional flow function and then find the shock front saturation. Let's define the fractional flow and its derivative in Matlab:</p>
+<pre class="code literal-block"><span class="n">dkrw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dsws</span><span class="o">*</span><span class="n">nw</span><span class="o">*</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="n">nw</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">dkro</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="o">-</span><span class="n">dsws</span><span class="o">*</span><span class="n">no</span><span class="o">*</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">fw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">));</span>
+<span class="n">dfw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">dkrw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="o">-</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="c">...</span>
+<span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">dkro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+</pre>
+
+
+<p>The shock front is calculated by solving the nonlinear equation in Matlab in the following way:</p>
+<pre class="code literal-block"><span class="c">% define initial conditions</span>
+<span class="n">sw0</span> <span class="p">=</span> <span class="n">swc</span><span class="p">;</span> <span class="c">% the reservoir is filled with oil and connate water</span>
+<span class="c">% solve the nl equation to find the shock front saturation</span>
+<span class="n">sw_shock</span> <span class="p">=</span> <span class="n">fzero</span><span class="p">(@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">fw</span><span class="p">(</span><span class="n">sw0</span><span class="p">)</span><span class="o">-</span><span class="n">fw</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">./</span><span class="p">(</span><span class="n">sw0</span><span class="o">-</span><span class="n">sw</span><span class="p">)),</span> <span class="mf">0.5</span><span class="p">);</span>
+</pre>
+
+
+<p>This <code>fzero</code> is a very handy function in Matlab. I use it most of the times and it usually works. It mostly works when, I ask the function to look for the root in a specified range, over which, the function value changes sign.
+Let's go on and solve the whole thing and plot the result. I explained that the saturation curve moves on the fractional flow curve from the injection point to the shock front and then shocks to the initial condition. I forgot (or didn't, because I write this post at different times) to mention that the main PDE (somewhere above) can be solved by using a method that is called <em>combination of variables</em> (if I remember correctly), and it shows that the front moves with a velocity $(u/\phi) (df_w/dS_w)$. This can be used in the code to plot the water saturation as a function of $x/t$. Now I'm talking nonsense from a very strict mathematical point of view. But if you stay with me, you will see that it works from a practical point of view. The position of each saturation value in space and time is then calculated by</p>
+<p>$$ \frac{x}{t} = \frac{u}{\phi} (\frac{dF_w}{dS_w})_{S_w} $$</p>
+<p>for $S_w$ between the injection point and shock front. In Matlab, we write it as</p>
+<pre class="code literal-block"><span class="c">% injection saturation</span>
+<span class="n">sw_inj</span> <span class="p">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">;</span> <span class="c">% not to make things too complicated</span>
+<span class="c">% water saturation between injection and shock</span>
+<span class="n">sw_rf</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">sw_inj</span><span class="p">,</span> <span class="n">sw_shock</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">sw_all</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">swc</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="c">% whole range of possible sw</span>
+<span class="n">xt_all</span> <span class="p">=</span> <span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">);</span> <span class="c">% solution over a whole possible range of sw</span>
+<span class="n">xt_rf</span><span class="p">=</span><span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_rf</span><span class="p">);</span> <span class="c">% rarefaction position</span>
+<span class="n">xt_shock</span> <span class="p">=</span> <span class="n">xt_rf</span><span class="p">(</span><span class="k">end</span><span class="p">);</span> <span class="c">% shock front position</span>
+<span class="n">plot</span><span class="p">([</span><span class="n">xt_rf</span> <span class="n">xt_shock</span> <span class="n">max</span><span class="p">(</span><span class="n">xt_all</span><span class="p">)],</span><span class="c">...</span>
+ <span class="p">[</span><span class="n">sw_rf</span> <span class="n">sw0</span> <span class="n">sw0</span><span class="p">],</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">xt_all</span><span class="p">,</span> <span class="n">sw_all</span><span class="p">,</span> <span class="s">'--b'</span><span class="p">);</span>
+</pre>
+
+
+<p>This is the final results, generated in octave saved in the following terrible shape due to the lack of a few converters:</p>
+<p><img alt="BL solution octave" src="../Buckley-Leverett.png"></p>
+<h3>The whole script in Matlab/Octave</h3>
+<p>This is the whole script with a bit more visualization</p>
+<pre class="code literal-block"><span class="c">% A simple compact Matlab/Octave script to solve Buckley-Leverett equation</span>
+<span class="c">% for water flooding.</span>
+<span class="c">% Written by AAE, TU Delft, September 2014</span>
+<span class="c">% Any sort of reproduction and redistribution of this code is highly encouraged.</span>
+<span class="c">% Note: The extrapolation of relperm curves is not included to keep</span>
+<span class="c">% the code as simple as possible.</span>
+<span class="n">clc</span><span class="p">;</span> <span class="n">clear</span><span class="p">;</span>
+<span class="c">% viscosities</span>
+<span class="n">muw</span> <span class="p">=</span> <span class="mf">1e-3</span><span class="p">;</span>
+<span class="n">muo</span> <span class="p">=</span> <span class="mf">10e-3</span><span class="p">;</span>
+<span class="c">% initialize the Corey model parameters</span>
+<span class="n">kro0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">krw0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">no</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">nw</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">sor</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">swc</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">u</span> <span class="p">=</span> <span class="mf">1e-3</span><span class="p">;</span>
+<span class="n">phi</span> <span class="p">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<span class="c">% define the functions</span>
+<span class="n">sws</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">sw</span><span class="o">-</span><span class="n">swc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">));</span>
+<span class="n">dsws</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">);</span>
+<span class="n">krw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="n">nw</span><span class="p">);</span>
+<span class="n">kro</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="n">no</span><span class="p">);</span>
+<span class="c">% derivatives</span>
+<span class="n">dkrw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dsws</span><span class="o">*</span><span class="n">nw</span><span class="o">*</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="n">nw</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">dkro</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="o">-</span><span class="n">dsws</span><span class="o">*</span><span class="n">no</span><span class="o">*</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">fw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">));</span>
+<span class="n">dfw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">dkrw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="o">-</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="c">...</span>
+<span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">dkro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<span class="c">% define initial conditions</span>
+<span class="n">sw0</span> <span class="p">=</span> <span class="n">swc</span><span class="p">;</span> <span class="c">% the reservoir is filled with oil and connate water</span>
+<span class="c">% solve the nl equation to find the shock front saturation</span>
+<span class="n">sw_shock</span> <span class="p">=</span> <span class="n">fzero</span><span class="p">(@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">fw</span><span class="p">(</span><span class="n">sw0</span><span class="p">)</span><span class="o">-</span><span class="n">fw</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">./</span><span class="p">(</span><span class="n">sw0</span><span class="o">-</span><span class="n">sw</span><span class="p">)),</span> <span class="mf">0.5</span><span class="p">);</span>
+<span class="c">% injection saturation</span>
+<span class="n">sw_inj</span> <span class="p">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">;</span> <span class="c">% not to make things too complicated</span>
+<span class="c">% water saturation between injection and shock</span>
+<span class="n">sw_rf</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">sw_inj</span><span class="p">,</span> <span class="n">sw_shock</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">sw_all</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">swc</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="c">% whole range of possible sw</span>
+<span class="n">xt_all</span> <span class="p">=</span> <span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">);</span> <span class="c">% solution over a whole possible range of sw</span>
+<span class="n">xt_rf</span><span class="p">=</span><span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_rf</span><span class="p">);</span>
+<span class="n">xt_shock</span> <span class="p">=</span> <span class="n">xt_rf</span><span class="p">(</span><span class="k">end</span><span class="p">);</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">krw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">),</span> <span class="n">sw_all</span><span class="p">,</span> <span class="n">kro</span><span class="p">(</span><span class="n">sw_all</span><span class="p">));</span> 
+<span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">'S_w'</span><span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">'Relative permeabilities'</span><span class="p">);</span> 
+<span class="n">legend</span><span class="p">(</span><span class="s">'k_{rw}'</span><span class="p">,</span> <span class="s">'k_{ro}'</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">fw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">));</span> <span class="n">axis</span><span class="p">([</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">'S_w'</span><span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">'F_w'</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="n">plot</span><span class="p">([</span><span class="n">xt_rf</span> <span class="n">xt_shock</span> <span class="n">max</span><span class="p">(</span><span class="n">xt_all</span><span class="p">)],</span> <span class="c">...</span>
+<span class="p">[</span><span class="n">sw_rf</span> <span class="n">sw0</span> <span class="n">sw0</span><span class="p">],</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">xt_all</span><span class="p">,</span> <span class="n">sw_all</span><span class="p">,</span> <span class="s">'--b'</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">'x/t'</span><span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">'S_w'</span><span class="p">);</span> <span class="n">legend</span><span class="p">(</span><span class="s">'BL solution'</span><span class="p">);</span>
+</pre>
+
+
+<h3>Next post</h3>
+<p>the same code in Julia, differences with Matlab</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+            <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/julia.html" rel="tag">Julia</a></li>
+           <li><a class="tag p-category" href="../categories/matlab.html" rel="tag">Matlab</a></li>
+        </ul>
+
+            <ul class="pager">
+            <li class="previous">
+                <a href="the-first-test-post.html" rel="prev" title="A New Start">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="Matlab%20and%20Julia%20--%20Part%20II.html" rel="next" title="Matlab and Julia -- Part II">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="simulkade",
+            disqus_url="http://simulkade.com/posts/Matlab and Julia -- Part I.html",
+        disqus_title="Matlab and Julia -- Part I",
+        disqus_identifier="cache/posts/2014-09-26-matlab-and-julia-part-one.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+</article>
+               <script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:a.a.eftekhari@outlook.com">AAE</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+
+
+</body>
+</html>

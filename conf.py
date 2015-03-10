@@ -580,7 +580,7 @@ GITHUB_REMOTE_NAME = 'origin'
 # }
 
 # Show only teasers in the index pages? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -779,7 +779,7 @@ MathJax.Hub.Config({
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
-# SHOW_SOURCELINK = True
+SHOW_SOURCELINK = True
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
 # COPY_SOURCES = True
@@ -798,7 +798,7 @@ MathJax.Hub.Config({
 # RSS_LINK = None
 
 # Show only teasers in the RSS feed? Default to True
-# RSS_TEASERS = True
+RSS_TEASERS = True
 
 # Strip HTML in the RSS feed? Default to False
 # RSS_PLAIN = False
