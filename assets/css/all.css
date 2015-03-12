@@ -819,6 +819,11 @@ body {
   border-bottom: 1px solid #e1e1e8;
 }
 
+#content
+{
+/*margin-left: 130px;*/
+width: 800px;
+}
 
 /*pre {
   padding: 0.4em;
@@ -893,6 +898,11 @@ div.text_cell_render {
 
 .page-content > .content p {
   margin: 0 0 0px;
+}
+
+.postindex article {
+border-bottom: 1px solid #4F5151;
+padding-bottom: 1em;
 }
 
 h1, h2, h3, .metadata p {
