@@ -1,0 +1,126 @@
+<p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
+<pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/julianightlies
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
+</pre>
+
+
+<!-- TEASER_END -->
+
+<p>You can get installers for other OS's <a href="http://julialang.org/downloads/">here</a>.<br />
+First, install a few dependencies, including python 2.7 and <a href="http://matplotlib.org/">matplotlib</a>.
+Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPlot</a> and <a href="https://github.com/JuliaLang/Roots.jl">Roots</a> packages, by typing</p>
+<pre class="code literal-block"><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Roots&quot;</span><span class="p">)</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;PyPlot&quot;</span><span class="p">)</span>
+</pre>
+
+
+<p>Now, you can proceed to the next step, writing the code in Julia. There are a few things that you need to now when you start working with Julia as a Matlab user. In Matlab, you write</p>
+<pre class="code literal-block"><span class="n">a</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">b</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">c</span><span class="p">=</span><span class="nb">rand</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c">% 0</span>
+<span class="n">a</span><span class="p">(</span><span class="k">end</span><span class="p">)</span> <span class="c">% 1</span>
+<span class="nb">length</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c">% 100</span>
+<span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c">% 1   100</span>
+<span class="nb">size</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c">% 1   1</span>
+<span class="n">b</span><span class="o">*</span><span class="n">a</span>
+<span class="n">a</span><span class="o">.*</span><span class="n">c</span>
+</pre>
+
+
+<p>and in Julia, you write</p>
+<pre class="code literal-block"><span class="n">a</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">c</span><span class="o">=</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="k">end</span><span class="p">]</span>
+<span class="n">length</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># 100</span>
+<span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c"># (100,)</span>
+<span class="n">size</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c"># ()</span>
+<span class="n">b</span><span class="o">*</span><span class="n">a</span>
+<span class="n">a</span><span class="o">.*</span><span class="n">c</span>
+</pre>
+
+
+<p>In Matlab, all the variables are 2D matrices. In Julia, they are not. Now try to get used to it. For me, it was the hardest part, next to the fact that there is not a good IDE for Julia yet.<br />
+No I convert everything right away to Julia, and you can compare it to the Matlab code for yourself.</p>
+<pre class="code literal-block"><span class="c"># A simple compact Julia script to solve Buckley-Leverett equation</span>
+<span class="c"># for water flooding.</span>
+<span class="c"># Written by AAE, TU Delft, September 2014</span>
+<span class="c"># Any sort of reproduction and redistribution of this code is highly encouraged.</span>
+<span class="c"># Note: The extrapolation of relperm curves is not included to keep</span>
+<span class="c"># the code as simple as possible.</span>
+<span class="c"># run the following two lines first:</span>
+<span class="c"># using Roots</span>
+<span class="c"># using PyPlot</span>
+<span class="c"># viscosities</span>
+<span class="n">muw</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">muo</span> <span class="o">=</span> <span class="mf">10e-3</span>
+<span class="c"># initialize the Corey model parameters</span>
+<span class="n">kro0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">krw0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">no</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">nw</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">sor</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">swc</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="c"># define the functions</span>
+<span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">((</span><span class="n">sw</span><span class="o">-</span><span class="n">swc</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">))</span>
+<span class="n">dsws</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">swc</span><span class="o">-</span><span class="n">sor</span><span class="p">)</span>
+<span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="n">nw</span><span class="p">)</span>
+<span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="n">no</span><span class="p">)</span>
+<span class="c"># derivatives</span>
+<span class="n">dkrw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">dsws</span><span class="o">*</span><span class="n">nw</span><span class="o">*</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="n">nw</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">dkro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">dsws</span><span class="o">*</span><span class="n">no</span><span class="o">*</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">fw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">((</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">))</span>
+<span class="n">dfw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">((</span><span class="n">dkrw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="o">-</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">dkro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># define initial conditions</span>
+<span class="n">sw0</span> <span class="o">=</span> <span class="n">swc</span> <span class="c"># the reservoir is filled with oil and connate water</span>
+<span class="c"># solve the nl equation to find the shock front saturation</span>
+<span class="n">f_shock</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">fw</span><span class="p">(</span><span class="n">sw0</span><span class="p">)</span><span class="o">-</span><span class="n">fw</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">./</span><span class="p">(</span><span class="n">sw0</span><span class="o">-</span><span class="n">sw</span><span class="p">))</span>
+<span class="n">sw_shock</span> <span class="o">=</span> <span class="n">fzero</span><span class="p">(</span><span class="n">f_shock</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="c"># injection saturation</span>
+<span class="n">sw_inj</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span>  <span class="c"># not to make things too complicated</span>
+<span class="c"># water saturation between injection and shock</span>
+<span class="n">sw_rf</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">sw_inj</span><span class="p">,</span> <span class="n">sw_shock</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sw_all</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">swc</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c"># whole range of possible sw</span>
+<span class="n">xt_all</span> <span class="o">=</span> <span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">)</span> <span class="c"># solution over a whole possible range of sw</span>
+<span class="n">xt_rf</span><span class="o">=</span><span class="n">u</span><span class="o">/</span><span class="n">phi</span><span class="o">*</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw_rf</span><span class="p">)</span>
+<span class="n">xt_shock</span> <span class="o">=</span> <span class="n">xt_rf</span><span class="p">[</span><span class="k">end</span><span class="p">]</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">krw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">),</span> <span class="n">sw_all</span><span class="p">,</span> <span class="n">kro</span><span class="p">(</span><span class="n">sw_all</span><span class="p">))</span> 
+<span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Relative permeabilities&quot;</span><span class="p">)</span> 
+<span class="n">legend</span><span class="p">((</span><span class="s">L&quot;k_{rw}&quot;</span><span class="p">,</span> <span class="s">L&quot;k_{ro}&quot;</span><span class="p">))</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">fw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">))</span>
+<span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">ylabel</span><span class="p">(</span><span class="s">L&quot;F_w&quot;</span><span class="p">)</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">([</span><span class="n">xt_rf</span><span class="p">,</span> <span class="n">xt_shock</span><span class="p">,</span> <span class="n">maximum</span><span class="p">(</span><span class="n">xt_all</span><span class="p">)],</span> <span class="p">[</span><span class="n">sw_rf</span><span class="p">,</span> <span class="n">sw0</span><span class="p">,</span> <span class="n">sw0</span><span class="p">],</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="n">xt_all</span><span class="p">,</span> <span class="n">sw_all</span><span class="p">,</span> <span class="s">&quot;--b&quot;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;x/t&quot;</span><span class="p">)</span> 
+<span class="n">ylabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">legend</span><span class="p">((</span><span class="s">&quot;BL solution&quot;</span><span class="p">,))</span>
+</pre>
+
+
+<p>Now is the important step, running the code. Load the packages that you are going to call from your code:</p>
+<pre class="code literal-block"><span class="k">using</span> <span class="n">Roots</span>
+<span class="k">using</span> <span class="n">PyPlot</span>
+</pre>
+
+
+<p>We will use <code>fzero</code> function from <code>Roots</code> package to find the shock front. We will also use the <code>PyPlot</code> package to visualize the results. Now load the code in <code>Julia</code> by typing</p>
+<pre class="code literal-block">reload(&quot;BLjulia.jl&quot;)
+</pre>
+
+
+<p>If everything is fine, it will show you the following plot:</p>
+<p><img alt="BL solution julia" src="/julia-Buckley-Leverett.png" /></p>
+<p>I'll discuss some of the small issues that I had with Julia as a Matlab user.</p>
