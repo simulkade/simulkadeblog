@@ -7378,7 +7378,7 @@ body {
   /*margin: 0;
   margin-top: 40px;*/
   font-family: "Arimo", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: #333333;
   background-color: #ffffff;
@@ -7389,7 +7389,8 @@ body {
 #content
 {
 /*margin-left: 130px;*/
-width: 800px;
+width: 750px;
+/*border: 1px solid #1975D1;*/
 }
 
 /*pre {
@@ -7403,9 +7404,9 @@ pre, code {
   padding: 2px 4px;
   color: #d14;
   background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
+  border: 1px solid #FFADFF;
   font-family: Menlo, Monaco, "Courier New", monospace;
-  font-size: 16px;
+  font-size: 14px;
   color: #333333;
 }
 
@@ -7468,7 +7469,7 @@ div.text_cell_render {
 }
 
 .postindex article {
-border-bottom: 1px solid #4F5151;
+border-bottom: 1px solid #006600;
 padding-bottom: 1em;
 }
 
