@@ -7388,8 +7388,8 @@ body {
 
 #content
 {
-/*margin-left: 130px;*/
-width: 750px;
+  /*margin-left: 130px;*/
+  width: 750px;
 /*border: 1px solid #1975D1;*/
 }
 
@@ -7421,7 +7421,7 @@ div.prompt {
 }
 
 div.input_prompt {
-
+    display: none;
 }
 
 div.output_prompt {
@@ -7430,7 +7430,8 @@ div.output_prompt {
 }
 
 div.output_area pre {
-  font-size: 13px;
+  /*background-color: #f7f7f9;*/
+  font-size: 14px;
 }
 
 div.text_cell_render {
@@ -7439,7 +7440,7 @@ div.text_cell_render {
 }
 
 .rendered_html p {
-  text-align: left;
+  text-align: justify;
 }
 
 .rendered_html ul {
@@ -7454,14 +7455,28 @@ div.text_cell_render {
   text-decoration: none;
 }
 
-.rendered_html pre, .rendered_html code {
-  background-color: #DDDDDD;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.05em;
-  padding-bottom: 0.05em;
-  margin: 1em 0em;
+.rendered_html code {
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #FFADFF;
+  font-family: Menlo, Monaco, "Courier New", monospace;
   font-size: 14px;
+  color: #333333;
+}
+
+div.cell {
+  width: 750px;
+  padding:5px 5px 5px 5px;
+  margin-left: 0;
+}
+
+div.input_area {
+  border:1px solid #FFADFF;
+  padding: 2px 4px;
+  border-radius:4px;
+  background:#f7f7f7;
+  margin-left: 20px;
 }
 
 .page-content > .content p {
@@ -7473,10 +7488,10 @@ border-bottom: 1px solid #006600;
 padding-bottom: 1em;
 }
 
-h1, h2, h3, .metadata p {
+h1, h2, h3, h4, .metadata p {
   font-family: 'Inika', serif;
   font-weight: bold;
-  color: inherit;
+  color: #6C3519;
   text-rendering: optimizelegibility;
   margin-left: 0px;
 }
