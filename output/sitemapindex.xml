@@ -5,12 +5,24 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://simulkade.com/categories/convection-diffusion.xml</loc>
+  <lastmod>2015-03-14</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://simulkade.com/categories/coolprop.xml</loc>
   <lastmod>2015-03-10</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://simulkade.com/categories/finite-volume.xml</loc>
+  <lastmod>2015-03-14</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://simulkade.com/categories/general.xml</loc>
   <lastmod>2015-03-10</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://simulkade.com/categories/jfvm.xml</loc>
+  <lastmod>2015-03-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/categories/julia.xml</loc>
@@ -26,10 +38,10 @@
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/rss.xml</loc>
-  <lastmod>2015-03-10</lastmod>
+  <lastmod>2015-03-14</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/sitemap.xml</loc>
-  <lastmod>2015-03-10</lastmod>
+  <lastmod>2015-03-14</lastmod>
  </sitemap>
 </sitemapindex>
