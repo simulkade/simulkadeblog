@@ -18,7 +18,11 @@ body {
 
 /* keep the paragraphs narrow enough. */
 .body-content, li, p {
-  max-width: 740px;
+  max-width: 750px;
+}
+
+p {
+  padding-left: 15px;
 }
 
 #content
@@ -101,9 +105,11 @@ div.text_cell_render {
 }
 
 div.cell {
-  max-width: 750px;
-  padding:5px 5px 5px 5px;
-  margin-left: 0;
+  max-width: 740px;
+  /*padding:5px 5px 5px 5px;*/
+  /*margin-left: 10px;
+  margin-right: 10px;*/
+  padding-left: 0px;
 }
 
 div.input_area {
@@ -112,6 +118,7 @@ div.input_area {
   border-radius:4px;
   background:#f7f7f7;
   margin-left: 20px;
+  max-width: 700px;
 }
 
 .page-content > .content p {
@@ -119,8 +126,8 @@ div.input_area {
 }
 
 .postindex article {
-border-bottom: 1px solid #006600;
-padding-bottom: 1em;
+  border-bottom: 1px solid #006600;
+  padding-bottom: 1em;
 }
 
 h1, h2, h3, h4, .metadata p {
