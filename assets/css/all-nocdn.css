@@ -7386,10 +7386,20 @@ body {
   border-bottom: 1px solid #e1e1e8;
 }
 
+.body-content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* keep the paragraphs narrow enough. */
+.body-content, li, p {
+  max-width: 740px;
+}
+
 #content
 {
   /*margin-left: 130px;*/
-  width: 750px;
+  /*width: 750px;*/
 /*border: 1px solid #1975D1;*/
 }
 
@@ -7466,7 +7476,7 @@ div.text_cell_render {
 }
 
 div.cell {
-  width: 750px;
+  max-width: 750px;
   padding:5px 5px 5px 5px;
   margin-left: 0;
 }
@@ -7497,7 +7507,8 @@ h1, h2, h3, h4, .metadata p {
 }
 
 h1 {
-  margin-top: 50px;
+  margin-top: 40px;
+  font-size:160%;
 }
 
 
