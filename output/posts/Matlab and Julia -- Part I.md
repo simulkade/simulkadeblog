@@ -37,9 +37,9 @@ or
 
 $$ \phi \frac{\partial S_w}{\partial t} + u \frac{d f_w}{d S_w}\frac{\partial S_w}{\partial x}=0. $$
 
-There is an analytical solution for this problem that I know, but I don't quite understand. Let's say the whole domain is initially at $$S_{w0}$$ and at the left boundary we are injecting with a saturation $$S_{w,in}$$. We plot \\(f_w\\) versus \\(S_w\\), plot a tangent from the point [$$(S_{w0}$$, $$f_w(S_{w0})$$] to the curve. This tangent point shows the saturation at the shock front. The rest of the curve from this point to the injection point shows the rarefaction (have no idea what it means) thingy. So from this whole beautiful jiber jaber we derive the following equation:
+There is an analytical solution for this problem that I know, but I don't quite understand. Let's say the whole domain is initially at $S_{w0}$ and at the left boundary we are injecting with a saturation $S_{w,in}$. We plot $f_w$ versus $S_w$, plot a tangent from the point [$S_{w0}$, $f_w(S_{w0})$] to the curve. This tangent point shows the saturation at the shock front. The rest of the curve from this point to the injection point shows the rarefaction (have no idea what it means) thingy. So from this whole beautiful jiber jaber we derive the following equation at $S_{w,shock}$
 
-$$ (\frac{d f_w}{d S_w})_{S_{w,shock}} = \frac{f_w(S_{w0})-f_w(S_{w,shock})}{S_{w0}-S_{w,shock}} $$
+$$ \left(\frac{df_w}{dS_w}\right) = \frac{f_w(S_{w0})-f_w(S_{w,shock})}{S_{w0}-S_{w,shock}} $$
 
 that we can solve to find $S_{w,shock}$. Now the story is clear: we move from the injection saturation on the fractional flow curve to the saturation of the shock front and then bang; shock to the initial saturation. The shock moves with a constant speed of $u/\phi$ [m/s].
 
