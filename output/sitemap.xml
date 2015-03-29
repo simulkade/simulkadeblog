@@ -6,70 +6,78 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://simulkade.com/2014/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/2015/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/archive.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/convection-diffusion.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/coolprop.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/finite-volume.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/general.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/jfvm.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/julia.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/matlab.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-22</lastmod>
+ </url>
+ <url>
+  <loc>http://simulkade.com/galleries/index.html</loc>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/index.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
+ </url>
+ <url>
+  <loc>http://simulkade.com/listings/index.html</loc>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab and Julia -- Part I.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab and Julia -- Part II.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Physical properties in Julia: CoolProp.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/the-first-test-post.html</loc>
-  <lastmod>2015-03-17</lastmod>
+  <lastmod>2015-03-29</lastmod>
  </url>
 </urlset>
