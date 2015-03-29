@@ -7380,12 +7380,16 @@ body {
   margin-top: 40px;*/
   font-family: "Arimo", sans-serif;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 1.5em;
   color: #333333;
   background-color: #ffffff;
   text-align: justify;
   border-bottom: 1px solid #e1e1e8;
 }
+
+/* color of links, like post titles */
+a { color: #555; }
+a:hover { color: #009999; }
 
 .body-content {
   margin-left: 10px;
@@ -7398,7 +7402,7 @@ body {
 }
 
 p {
-  padding-left: 15px;
+  padding-left: 0px;
 }
 
 #content
@@ -7419,7 +7423,7 @@ pre, code {
   padding: 2px 4px;
   color: #d14;
   background-color: #f7f7f9;
-  border: 1px solid #FFADFF;
+  border: 1px solid #3399FF;
   font-family: Menlo, Monaco, "Courier New", monospace;
   font-size: 14px;
   color: #333333;
@@ -7428,7 +7432,7 @@ pre, code {
 div.prompt {
   padding: 0.6em;
   font-size: 13px;
-  background-color: #E9E9E9;
+  background-color: #FFFFFF;
   margin-right: 1em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -7474,7 +7478,7 @@ div.text_cell_render {
   padding: 2px 4px;
   color: #d14;
   background-color: #f7f7f9;
-  border: 1px solid #FFADFF;
+  border: 1px solid #3399FF;
   font-family: Menlo, Monaco, "Courier New", monospace;
   font-size: 14px;
   color: #333333;
@@ -7489,7 +7493,7 @@ div.cell {
 }
 
 div.input_area {
-  border:1px solid #FFADFF;
+  border:1px solid #3399FF;
   padding: 2px 4px;
   border-radius:4px;
   background:#f7f7f7;
@@ -7509,16 +7513,32 @@ div.input_area {
 h1, h2, h3, h4, .metadata p {
   font-family: 'Inika', serif;
   font-weight: bold;
-  color: #6C3519;
+  color: #003366;
   text-rendering: optimizelegibility;
   margin-left: 0px;
 }
 
 h1 {
   margin-top: 40px;
-  font-size:160%;
+  font-size:170%;
+  color: #006600;
 }
 
+h2 {
+  font-size: 140%;
+}
+
+h3 {
+  font-size: 125%;
+}
+
+h4 {
+  font-size: 110%;
+}
+
+.navbar-inverse { background-color: #009999}
+.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
+.navbar-inverse .navbar-brand { color: #FFFFFF}
 
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
