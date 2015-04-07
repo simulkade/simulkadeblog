@@ -106,6 +106,38 @@ MathJax.Hub.Config({
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" class="u-url">Spell checking in Jupyter notebooks</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
+            <p class="dateline"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="bookmark"><time class="published dt-published" datetime="2015-04-07T21:21:18+02:00" itemprop="datePublished" title="Publication date">2015-04-07 21:21</time></a></p>
+                <p class="commentline">            <a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html#disqus_thread" data-disqus-identifier="cache/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools: </p>
+<ul>
+<li>Open a terminal window and type</li>
+</ul>
+<pre class="code literal-block">sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
+</pre>
+
+
+<ul>
+<li>Go to <code>~/.ipython/profile_default/static/custom</code>, and add the following line to the end of <code>custom.js</code>.</li>
+<li>Start a new <code>ipython notebook</code>. If everything goes well, you should see the following addition to the toolbar:</li>
+</ul>
+<p><img alt="ipython spellcheck toolbar" src="ipython_toolbar_screenshot.png"></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
