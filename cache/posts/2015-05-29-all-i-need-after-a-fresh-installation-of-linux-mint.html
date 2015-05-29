@@ -2,111 +2,50 @@
 <ol>
 <li>Add <code>Persian</code> keyboard layout (start menu -&gt; keyboard -&gt;layouts -&gt; add, and then in Options -&gt; switching to another layout -&gt; alt + shift)</li>
 <li>Install <code>adblock plus</code> add-on for Firefox</li>
-<li>Install latex:</li>
-</ol>
-<pre class="code literal-block">sudo apt-get install texlive imagemagick texlive-bibtex-extra texlive-fonts-extra texlive-font-utils texlive-extra-utils texlive-formats-extra texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science
-</pre>
-
-
-<ol>
-<li>Install the newest version of <a href="http://www.lyx.org/">lyx</a>:</li>
-</ol>
-<pre class="code literal-block">sudo add-apt-repository ppa:lyx-devel/release
-sudo apt-get update
-sudo apt-get install lyx lyx-common dvipng psutils fonts-lyx elyxer tex4ht hevea tth latex2html
-</pre>
-
-
-<ol>
-<li>Install <a href="https://inkscape.org">inkscape</a></li>
-</ol>
-<pre class="code literal-block">sudo add-apt-repository ppa:inkscape.dev/stable
-sudo apt-get update
-sudo apt-get install inkscape
-</pre>
-
-
-<ol>
+<li>Install latex:<br />
+<code>sudo apt-get install texlive imagemagick texlive-bibtex-extra texlive-fonts-extra texlive-font-utils texlive-extra-utils texlive-formats-extra texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science</code></li>
+<li>Install the newest version of <a href="http://www.lyx.org/">lyx</a>:<br />
+<code>sudo add-apt-repository ppa:lyx-devel/release
+    sudo apt-get update
+    sudo apt-get install lyx lyx-common dvipng psutils fonts-lyx elyxer tex4ht hevea tth latex2html</code></li>
+<li>Install <a href="https://inkscape.org">inkscape</a><br />
+<code>sudo add-apt-repository ppa:inkscape.dev/stable
+    sudo apt-get update
+    sudo apt-get install inkscape</code></li>
 <li>Install <a href="http://www.simulkade.com/posts/Physical%20properties%20in%20Julia:%20CoolProp.html">CoolProp</a></li>
-<li>Install <a href="http://www.pydicom.org/">pydicom</a></li>
-</ol>
-<pre class="code literal-block">sudo pip install pydicom
-</pre>
-
-
-<ol>
-<li>Install <a href="http://ipython.org/install.html">ipython</a></li>
-</ol>
-<pre class="code literal-block">sudo pip install &quot;ipython[all]&quot;
-</pre>
-
-
-<ol>
-<li>Install <a href="http://julialang.org/downloads/platform.html">Julia</a></li>
-</ol>
-<pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/juliareleases
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo apt-get update
-sudo apt-get install julia
-</pre>
-
-
-<ol>
-<li>Install <a href="http://matplotlib.org/">matplotlib</a> and <a href="http://www.scipy.org/">scipy</a></li>
-</ol>
-<pre class="code literal-block">sudo apt-get install python-matplotlib python-scipy python-tk
-</pre>
-
-
-<ol>
-<li>Install <a href="http://code.enthought.com/projects/mayavi/">mayavi2</a> for 3D visualization</li>
-</ol>
-<pre class="code literal-block">sudo apt-get install mayavi2
-</pre>
-
-
-<ol>
-<li>Do this at the beginning: install some compilers:</li>
-</ol>
-<pre class="code literal-block">sudo apt-get install build-essential gfortran pkg-config
-</pre>
-
-
-<p>I need them to install <a href="https://projects.coin-or.org/Ipopt">Ipopt</a>
-  13. Install <a href="https://www.google.com/intl/en/chrome/browser/desktop/">google chrome</a>
-  14. Install <a href="https://getnikola.com/">Nikola</a></p>
-<pre class="code literal-block">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev python-dev
-sudo pip install webassets
-sudo pip install ghp-import
-sudo pip install markdown
-sudo pip install nikola
-sudo pip install nikola[extras]
-</pre>
-
-
-<ol>
+<li>Install <a href="http://www.pydicom.org/">pydicom</a><br />
+<code>sudo pip install pydicom</code></li>
+<li>Install <a href="http://ipython.org/install.html">ipython</a><br />
+<code>sudo pip install "ipython[all]"</code></li>
+<li>Install <a href="http://julialang.org/downloads/platform.html">Julia</a><br />
+<code>sudo add-apt-repository ppa:staticfloat/juliareleases
+    sudo add-apt-repository ppa:staticfloat/julia-deps
+    sudo apt-get update
+    sudo apt-get install julia</code></li>
+<li>Install <a href="http://matplotlib.org/">matplotlib</a> and <a href="http://www.scipy.org/">scipy</a><br />
+<code>sudo apt-get install python-matplotlib python-scipy python-tk</code></li>
+<li>Install <a href="http://code.enthought.com/projects/mayavi/">mayavi2</a> for 3D visualization<br />
+<code>sudo apt-get install mayavi2</code></li>
+<li>Do this at the beginning: install some compilers:<br />
+<code>sudo apt-get install build-essential gfortran pkg-config</code><br />
+    I need them to install <a href="https://projects.coin-or.org/Ipopt">Ipopt</a></li>
+<li>Install <a href="https://www.google.com/intl/en/chrome/browser/desktop/">google chrome</a></li>
+<li>Install <a href="https://getnikola.com/">Nikola</a><br />
+<code>sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev python-dev
+    sudo pip install webassets
+    sudo pip install ghp-import
+    sudo pip install markdown
+    sudo pip install nikola
+    sudo pip install nikola[extras]</code></li>
 <li>Install <a href="https://www.dropbox.com/install?os=lnx">dropbox</a></li>
-<li>Install some dependencies for linking Matlab to other packages</li>
-</ol>
-<pre class="code literal-block">sudo apt-get install csh gcc-4.7 g++-4.7 gfortran-4.7
-</pre>
-
-
-<ol>
-<li>Install and configure <a href="http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">git</a></li>
-</ol>
-<pre class="code literal-block">sudo apt-get install git
-git config --global user.name &quot;Your Name&quot;
-git config --global user.email youremail@something.com
-</pre>
-
-
-<ol>
+<li>Install some dependencies for linking Matlab to other packages<br />
+<code>sudo apt-get install csh gcc-4.7 g++-4.7 gfortran-4.7</code></li>
+<li>Install and configure <a href="http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">git</a><br />
+<code>sudo apt-get install git
+    git config --global user.name "Your Name"
+    git config --global user.email youremail@something.com</code></li>
 <li>Install <a href="http://nl.mathworks.com/products/matlab/">Matlab</a>; I still have a license to do so. Otherwise, install <code>Octave</code></li>
-<li>Install <a href="http://en.wikipedia.org/wiki/Pinta_%28software%29">Pinta</a> for working with images, much easier than <code>GIMP</code></li>
+<li>Install <a href="http://en.wikipedia.org/wiki/Pinta_%28software%29">Pinta</a> for working with images, much easier than <code>GIMP</code><br />
+<code>sudo apt-get install pinta</code></li>
 </ol>
-<pre class="code literal-block">sudo apt-get install pinta
-</pre>
-
-
 <p>I have perhaps missed one thing or two here, but this is basically all I need to have my laptop ready.</p>
