@@ -3,22 +3,14 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="description" content="A cozy kade for simulation">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIMULKADE | SIMULKADE</title>
-
-                <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-
-      <link rel="canonical" href="http://simulkade.com/index.html">
-
-
-
-
-    
+<head>
+<meta charset="utf-8">
+<meta name="description" content="A cozy kade for simulation">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULKADE | SIMULKADE</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="http://simulkade.com/index.html">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -31,21 +23,14 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
-
-    
-
-
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -62,7 +47,7 @@ MathJax.Hub.Config({
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="http://www.simulkade.com/stories/about.html">About</a>
                 </li>
 <li>
@@ -89,27 +74,65 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                
-            </ul>
-        </div>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
 <div class="postindex">
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html" class="u-url">All I need after a fresh installation of Linux Mint</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html" class="u-url">Install Octave 4.0 on Mint 17.1/Ubuntu 14.04</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
+            <p class="dateline"><a href="posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html" rel="bookmark"><time class="published dt-published" datetime="2015-06-20T12:10:53+02:00" itemprop="datePublished" title="Publication date">2015-06-20 12:10</time></a></p>
+                <p class="commentline">            <a href="posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html#disqus_thread" data-disqus-identifier="cache/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br>
+The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br>
+First, install these dependencies:</p>
+<pre class="code literal-block">sudo apt-get install gawk gfortran gperf flex libbison-dev libqhull-dev libglpk-dev libcurl4-gnutls-dev libfltk1.3-dev librsvg2-dev libqrupdate-dev libgl2ps-dev libosmesa6-dev libarpack2-dev libqscintilla2-dev libreadline-dev bison icontool llvm-dev libfftw3-dev libhdf5-serial-dev openjdk-7-jdk transfig  libgraphicsmagick++1-dev libsndfile1-dev
+</pre>
+
+
+<p>Then, download the <a href="ftp://ftp.gnu.org/gnu/octave/">octave source code</a> for version 4.0.0 from <a href="ftp://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz">here</a>, and extract it. Go to the new octave-4.0.0 forlder, and in a terminal window type</p>
+<pre class="code literal-block">./configure --enable-jit
+make
+sudo make install
+</pre>
+
+
+<p>It takes a while, so go and pour a nice cup of coffee for yourself. If you get any error after running <code>./configure</code>, find the missing dependencies <a href="http://wiki.octave.org/Octave_for_Debian_systems">here</a>.<br>
+If the installation is successful, run octave by typing <code>octave</code>. It should launch the user interface of octave which is enabled by default in this version.<br>
+One other good news is that now you can run octave in a <a href="https://jupyter.org/">Jupyter notebook</a>, by installing <a href="https://github.com/calysto/octave_kernel">octave kernel</a> and <a href="http://blink1073.github.io/oct2py/source/installation.html">oct2py</a>:</p>
+<pre class="code literal-block">sudo pip install oct2py
+sudo pip install octave_kernel
+</pre>
+
+
+<p>It is still not possible to use octave kernel. Go to <code>/usr/local/bin</code> and type</p>
+<pre class="code literal-block">ls -la
+</pre>
+
+
+<p>You will see that <code>octave</code> is linked to the <code>octave-4.0.0</code>. You need to unlink <code>octave</code> and create a symbolic link to the octave command line interface or <code>octave-cli</code>. In the terminal window, type</p>
+<pre class="code literal-block">sudo unlink octave
+sudo ln -s /usr/local/bin/octave-cli octave
+</pre>
+
+
+<p>Now your octave kernel should start without any problem. Open a Jupyter notebook, and change the kernel to octave.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html" class="u-url">All I need after a fresh installation of Linux Mint</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html" rel="bookmark"><time class="published dt-published" datetime="2015-05-29T14:02:11+02:00" itemprop="datePublished" title="Publication date">2015-05-29 14:02</time></a></p>
@@ -118,8 +141,7 @@ MathJax.Hub.Config({
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>I had some issues with my laptop, so I decided to re-install <a href="http://www.linuxmint.com/edition.php?id=174">linux mint/Mate</a>. This is the sequence of task for making my installation ready for work:</p>
 <ul>
@@ -252,10 +274,7 @@ git config --global user.email youremail@something.com
 <p>I have perhaps missed one thing or two here, but this is basically all I need to have my laptop ready.</p>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/2015-05-07-how-to-smoothen-noisy-data.html" class="u-url">How to smoothen noisy data</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015-05-07-how-to-smoothen-noisy-data.html" class="u-url">How to smoothen noisy data</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/2015-05-07-how-to-smoothen-noisy-data.html" rel="bookmark"><time class="published dt-published" datetime="2015-05-07T21:49:34+02:00" itemprop="datePublished" title="Publication date">2015-05-07 21:49</time></a></p>
@@ -264,8 +283,7 @@ git config --global user.email youremail@something.com
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -408,10 +426,7 @@ git config --global user.email youremail@something.com
   </div>
 
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/2015-05-04-log-random-permeability-field.html" class="u-url">How to generate a log-random permeability field</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015-05-04-log-random-permeability-field.html" class="u-url">How to generate a log-random permeability field</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/2015-05-04-log-random-permeability-field.html" rel="bookmark"><time class="published dt-published" datetime="2015-05-04T22:24:24+02:00" itemprop="datePublished" title="Publication date">2015-05-04 22:24</time></a></p>
@@ -420,8 +435,7 @@ git config --global user.email youremail@something.com
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -545,10 +559,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
   </div>
 
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" class="u-url">Spell checking in Jupyter notebooks</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" class="u-url">Spell checking in Jupyter notebooks</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="bookmark"><time class="published dt-published" datetime="2015-04-07T21:21:18+02:00" itemprop="datePublished" title="Publication date">2015-04-07 21:21</time></a></p>
@@ -557,8 +568,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools: </p>
 <ul>
@@ -577,10 +587,7 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 <p><img alt="ipython spellcheck toolbar" src="ipython_toolbar_screenshot.png"></p>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-13T22:05:20+01:00" itemprop="datePublished" title="Publication date">2015-03-13 22:05</time></a></p>
@@ -589,8 +596,7 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -610,10 +616,7 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 </div>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/Physical%20properties%20in%20Julia:%20CoolProp.html" class="u-url">Physical properties in Julia: CoolProp</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/Physical%20properties%20in%20Julia:%20CoolProp.html" class="u-url">Physical properties in Julia: CoolProp</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/Physical%20properties%20in%20Julia:%20CoolProp.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-25T00:37:54+01:00" itemprop="datePublished" title="Publication date">2014-10-25 00:37</time></a></p>
@@ -622,8 +625,7 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>Recently, I was analyzing my core-flooding experimental data in a Julia notebook, when I realize that I don't have access to a few Matlab functions that I have written (or found elsewhere), which I use regularly for the calculation of physical properties of pure components. For instance, viscosity of water (I know that you know it is 0.001 Pa.s) or density of CO2 or nitrogen at different temperatures and pressures. I know that <a href="http://www.thermo.ruhr-uni-bochum.de/en/prof-w-wagner.html">Professor Wagner</a> and his group have developed a few highly-accurate equations of state for industrial applications and I knew that there is a software called <a href="http://ascend4.org/FPROPS">FPROPS</a> which is used in <a href="http://ascend4.org/Main_Page">Ascend IV</a> package. Searching the name in google showed me a fantastic package called <a href="posts/www.coolprop.org/">CoolProp</a> which is being developed mostly in <a href="http://www.labothap.ulg.ac.be/cmsms/">thermodynamics laboratory</a> in <a href="posts/www.ulg.ac.be/">Universite de Liege</a>. The code is written in C++ but it supports many languages and environments including Matlab and Python. The Python part was interesting to me because I can call it using <a href="https://github.com/stevengj/PyCall.jl">PyCall</a> package in Julia. First I installed the <code>CoolProp</code> package using the instructions <a href="http://www.coolprop.org/HowGetIt.html">here</a>. You can do it in Ubuntu 14.04 by running the following code in terminal:</p>
 <pre class="code literal-block">sudo apt-get install g++
@@ -637,10 +639,7 @@ sudo pip install CoolProp
 <p class="more"><a href="posts/Physical%20properties%20in%20Julia:%20CoolProp.html">Read more…</a></p>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-02T21:43:27+01:00" itemprop="datePublished" title="Publication date">2014-10-02 21:43</time></a></p>
@@ -649,8 +648,7 @@ sudo pip install CoolProp
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
 <pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/julianightlies
@@ -663,10 +661,7 @@ sudo apt-get install julia
 <p class="more"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html">Read more…</a></p>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html" class="u-url">Matlab and Julia -- Part I</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html" class="u-url">Matlab and Julia -- Part I</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html" rel="bookmark"><time class="published dt-published" datetime="2014-09-26T09:25:07+01:00" itemprop="datePublished" title="Publication date">2014-09-26 09:25</time></a></p>
@@ -675,8 +670,7 @@ sudo apt-get install julia
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>I'm very comfortable with Matlab. It does most of the things that I need to do and I've written so many handy scripts and functions in it that I can barely afford to divorce it. I can easily read my data, which are not so many most of the time, analyze them, plot the results, and export the final figure to a format I prefer. However, I'm going to try and detach myself by learning how I can do all the Matlab stuff in Julia. I've already learned how to work with the arrays, write types, and I almost know all the differences. I'll write a post about it later. Here, I' going to try the root finding and optimization in Julia. Let's star by root finding. Let's say I have a function in Matlab. Most of the time, if it's not a long relation, I write it using <code>@</code>. For instance, consider the fractional flow function:</p>
 <p>$$ f_w = \frac {k_{rw}/\mu_w}{k_{rw}/\mu_w+k_{ro}/\mu_o} $$
@@ -684,10 +678,7 @@ sudo apt-get install julia
 <p class="more"><a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html">Read more…</a></p>
 </div>
     </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/the-first-test-post.html" class="u-url">A New Start</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/the-first-test-post.html" class="u-url">A New Start</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/the-first-test-post.html" rel="bookmark"><time class="published dt-published" datetime="2014-05-20T13:06:51+01:00" itemprop="datePublished" title="Publication date">2014-05-20 13:06</time></a></p>
@@ -696,8 +687,7 @@ sudo apt-get install julia
 
         </p>
 </div>
-    </header>
-    <div class="p-summary entry-summary">
+    </header><div class="p-summary entry-summary">
     <div>
 <p>I have started two new blogs to achieve two goals. Write more and share my work. My new blogs are
 </p>
@@ -708,30 +698,20 @@ sudo apt-get install julia
 </div>
 
                <script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-        </div>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:a.a.eftekhari@outlook.com">AAE</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="assets/js/all-nocdn.js"></script>
-    
-
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script>
+    </script><!-- end fancy dates --><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -741,7 +721,5 @@ sudo apt-get install julia
   ga('send', 'pageview');
 
 </script>
-
-
 </body>
 </html>
