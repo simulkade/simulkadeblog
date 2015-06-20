@@ -3,21 +3,13 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to generate a log-random permeability field | SIMULKADE</title>
-
-                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
-
-
-
-
-    
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to generate a log-random permeability field | SIMULKADE</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -30,35 +22,23 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="AAE">
-        <meta property="og:site_name" content="SIMULKADE">
-    <meta property="og:title" content="How to generate a log-random permeability field">
-    <meta property="og:url" content="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
-    <meta property="og:description" content="I was looking for a simple method to generate a log-random permeability field with specified Dykstra-Parsons coefficient and correlation length. I found this webpage with some well-written Matlab code">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2015-05-04T22:24:24+02:00">
-           <meta property="article:tag" content="correlation-length">
-           <meta property="article:tag" content="Dykstra-Parsons">
-           <meta property="article:tag" content="permeability">
-
-    
-    
-
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<meta property="og:site_name" content="SIMULKADE">
+<meta property="og:title" content="How to generate a log-random permeability field">
+<meta property="og:url" content="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
+<meta property="og:description" content="I was looking for a simple method to generate a log-random permeability field with specified Dykstra-Parsons coefficient and correlation length. I found this webpage with some well-written Matlab code">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-05-04T22:24:24+02:00">
+<meta property="article:tag" content="correlation-length">
+<meta property="article:tag" content="Dykstra-Parsons">
+<meta property="article:tag" content="permeability">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -75,7 +55,7 @@ MathJax.Hub.Config({
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="http://www.simulkade.com/stories/about.html">About</a>
                 </li>
 <li>
@@ -102,29 +82,22 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-    <li>
+<ul class="nav navbar-nav navbar-right">
+<li>
     <a href="2015-05-04-log-random-permeability-field.ipynb" id="sourcelink">Source</a>
     </li>
                 
             </ul>
-        </div>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-        <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">How to generate a log-random permeability field</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">How to generate a log-random permeability field</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
@@ -137,9 +110,7 @@ MathJax.Hub.Config({
 
         </div>
         
-    </header>
-
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -263,27 +234,19 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
   </div>
 
     </div>
-    <aside class="postpromonav">
-    <nav>
-            <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/correlation-length.html" rel="tag">correlation-length</a></li>
-           <li><a class="tag p-category" href="../categories/dykstra-parsons.html" rel="tag">Dykstra-Parsons</a></li>
-           <li><a class="tag p-category" href="../categories/permeability.html" rel="tag">permeability</a></li>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/correlation-length.html" rel="tag">correlation-length</a></li>
+            <li><a class="tag p-category" href="../categories/dykstra-parsons.html" rel="tag">Dykstra-Parsons</a></li>
+            <li><a class="tag p-category" href="../categories/permeability.html" rel="tag">permeability</a></li>
         </ul>
-
-            <ul class="pager">
-            <li class="previous">
+<ul class="pager">
+<li class="previous">
                 <a href="2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="prev" title="Spell checking in Jupyter notebooks">Previous post</a>
             </li>
             <li class="next">
                 <a href="2015-05-07-how-to-smoothen-noisy-data.html" rel="next" title="How to smoothen noisy data">Next post</a>
             </li>
-        </ul>
-
-    </nav>
-    </aside>
-        <section class="comments">
-        <h2>Comments</h2>
+        </ul></nav></aside><section class="comments"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
@@ -298,39 +261,26 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
 </noscript>
     <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section>
-</article>
-               <script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-        </div>
+        </section></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:a.a.eftekhari@outlook.com">AAE</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script>
-    
-
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script>
+    </script><!-- end fancy dates --><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -340,7 +290,5 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
   ga('send', 'pageview');
 
 </script>
-
-
 </body>
 </html>

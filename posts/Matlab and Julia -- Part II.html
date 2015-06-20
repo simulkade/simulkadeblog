@@ -3,21 +3,13 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matlab and Julia -- Part II | SIMULKADE</title>
-
-                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
-
-
-
-
-    
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matlab and Julia -- Part II | SIMULKADE</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -30,34 +22,22 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="AAE">
-        <meta property="og:site_name" content="SIMULKADE">
-    <meta property="og:title" content="Matlab and Julia -- Part II">
-    <meta property="og:url" content="http://simulkade.com/posts/Matlab and Julia -- Part II.html">
-    <meta property="og:description" content="In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a fe">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2014-10-02T21:43:27+01:00">
-           <meta property="article:tag" content="Julia">
-           <meta property="article:tag" content="Matlab">
-
-    
-    
-
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<meta property="og:site_name" content="SIMULKADE">
+<meta property="og:title" content="Matlab and Julia -- Part II">
+<meta property="og:url" content="http://simulkade.com/posts/Matlab and Julia -- Part II.html">
+<meta property="og:description" content="In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a fe">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-10-02T21:43:27+01:00">
+<meta property="article:tag" content="Julia">
+<meta property="article:tag" content="Matlab">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -74,7 +54,7 @@ MathJax.Hub.Config({
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="http://www.simulkade.com/stories/about.html">About</a>
                 </li>
 <li>
@@ -101,29 +81,22 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-    <li>
+<ul class="nav navbar-nav navbar-right">
+<li>
     <a href="Matlab%20and%20Julia%20--%20Part%20II.md" id="sourcelink">Source</a>
     </li>
                 
             </ul>
-        </div>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-        <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Matlab and Julia -- Part II</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Matlab and Julia -- Part II</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
@@ -136,9 +109,7 @@ MathJax.Hub.Config({
 
         </div>
         
-    </header>
-
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
 <pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/julianightlies
@@ -268,26 +239,18 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 <p>I'll discuss some of the small issues that I had with Julia as a Matlab user.</p>
 </div>
     </div>
-    <aside class="postpromonav">
-    <nav>
-            <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/julia.html" rel="tag">Julia</a></li>
-           <li><a class="tag p-category" href="../categories/matlab.html" rel="tag">Matlab</a></li>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/julia.html" rel="tag">Julia</a></li>
+            <li><a class="tag p-category" href="../categories/matlab.html" rel="tag">Matlab</a></li>
         </ul>
-
-            <ul class="pager">
-            <li class="previous">
+<ul class="pager">
+<li class="previous">
                 <a href="Matlab%20and%20Julia%20--%20Part%20I.html" rel="prev" title="Matlab and Julia -- Part I">Previous post</a>
             </li>
             <li class="next">
                 <a href="Physical%20properties%20in%20Julia:%20CoolProp.html" rel="next" title="Physical properties in Julia: CoolProp">Next post</a>
             </li>
-        </ul>
-
-    </nav>
-    </aside>
-        <section class="comments">
-        <h2>Comments</h2>
+        </ul></nav></aside><section class="comments"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
@@ -302,39 +265,26 @@ No I convert everything right away to Julia, and you can compare it to the Matla
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
 </noscript>
     <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section>
-</article>
-               <script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-        </div>
+        </section></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:a.a.eftekhari@outlook.com">AAE</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script>
-    
-
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script>
+    </script><!-- end fancy dates --><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -344,7 +294,5 @@ No I convert everything right away to Julia, and you can compare it to the Matla
   ga('send', 'pageview');
 
 </script>
-
-
 </body>
 </html>

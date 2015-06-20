@@ -3,21 +3,13 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JFVM: a finite volume tool for Julia | SIMULKADE</title>
-
-                <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html">
-
-
-
-
-    
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JFVM: a finite volume tool for Julia | SIMULKADE</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -30,35 +22,23 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script>
-
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="AAE">
-        <meta property="og:site_name" content="SIMULKADE">
-    <meta property="og:title" content="JFVM: a finite volume tool for Julia">
-    <meta property="og:url" content="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html">
-    <meta property="og:description" content="During the Christmass holydays, I spent some time to convert my Matlab FVTool to a Julia package. The result, which I call JFVM is a bit Matlabesque, but the package works. In this post I'm going to s">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2015-03-13T22:05:20+01:00">
-           <meta property="article:tag" content="Convection-Diffusion">
-           <meta property="article:tag" content="Finite-Volume">
-           <meta property="article:tag" content="JFVM">
-
-    
-    
-
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<meta property="og:site_name" content="SIMULKADE">
+<meta property="og:title" content="JFVM: a finite volume tool for Julia">
+<meta property="og:url" content="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html">
+<meta property="og:description" content="During the Christmass holydays, I spent some time to convert my Matlab FVTool to a Julia package. The result, which I call JFVM is a bit Matlabesque, but the package works. In this post I'm going to s">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-03-13T22:05:20+01:00">
+<meta property="article:tag" content="Convection-Diffusion">
+<meta property="article:tag" content="Finite-Volume">
+<meta property="article:tag" content="JFVM">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -75,7 +55,7 @@ MathJax.Hub.Config({
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="http://www.simulkade.com/stories/about.html">About</a>
                 </li>
 <li>
@@ -102,29 +82,22 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-    <li>
+<ul class="nav navbar-nav navbar-right">
+<li>
     <a href="jfvm-a-finite-volume-tool-for-julia.ipynb" id="sourcelink">Source</a>
     </li>
                 
             </ul>
-        </div>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-        <header>
-            <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
@@ -137,9 +110,7 @@ MathJax.Hub.Config({
 
         </div>
         
-    </header>
-
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -208,7 +179,6 @@ One last feature that I added in later stages was the periodic boundary conditio
 <li>Call the visualization tool
 There can be other steps in between depending on the problems.</li>
 </ul>
-
 </div>
 </div>
 </div>
@@ -381,27 +351,19 @@ There can be other steps in between depending on the problems.</li>
   </div>
 
     </div>
-    <aside class="postpromonav">
-    <nav>
-            <ul itemprop="keywords" class="tags">
-           <li><a class="tag p-category" href="../categories/convection-diffusion.html" rel="tag">Convection-Diffusion</a></li>
-           <li><a class="tag p-category" href="../categories/finite-volume.html" rel="tag">Finite-Volume</a></li>
-           <li><a class="tag p-category" href="../categories/jfvm.html" rel="tag">JFVM</a></li>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/convection-diffusion.html" rel="tag">Convection-Diffusion</a></li>
+            <li><a class="tag p-category" href="../categories/finite-volume.html" rel="tag">Finite-Volume</a></li>
+            <li><a class="tag p-category" href="../categories/jfvm.html" rel="tag">JFVM</a></li>
         </ul>
-
-            <ul class="pager">
-            <li class="previous">
+<ul class="pager">
+<li class="previous">
                 <a href="Physical%20properties%20in%20Julia:%20CoolProp.html" rel="prev" title="Physical properties in Julia: CoolProp">Previous post</a>
             </li>
             <li class="next">
                 <a href="2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="next" title="Spell checking in Jupyter notebooks">Next post</a>
             </li>
-        </ul>
-
-    </nav>
-    </aside>
-        <section class="comments">
-        <h2>Comments</h2>
+        </ul></nav></aside><section class="comments"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
@@ -416,39 +378,26 @@ There can be other steps in between depending on the problems.</li>
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
 </noscript>
     <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section>
-</article>
-               <script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-        </div>
+        </section></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
         <!--End of body content-->
 
         <footer>
             Contents © 2015         <a href="mailto:a.a.eftekhari@outlook.com">AAE</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script>
-    
-
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-<script>
+    </script><!-- end fancy dates --><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -458,7 +407,5 @@ There can be other steps in between depending on the problems.</li>
   ga('send', 'pageview');
 
 </script>
-
-
 </body>
 </html>
