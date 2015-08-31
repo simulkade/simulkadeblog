@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link href="http://simulkade.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 29 Aug 2015 11:49:13 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>FVTool in Octave: the new classdef</title><link>http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link href="http://simulkade.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 31 Aug 2015 19:56:36 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>FVTool in Octave: the new classdef</title><link>http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -641,7 +641,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><category>correlation-length</category><category>Dykstra-Parsons</category><category>permeability</category><guid>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</guid><pubDate>Mon, 04 May 2015 20:24:24 GMT</pubDate></item><item><title>Spell checking in Jupyter notebooks</title><link>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</link><dc:creator>AAE</dc:creator><description>&lt;div&gt;&lt;p&gt;This afternoon I found a nice spellchecker for Jupyter markdown cells &lt;a href="http://calicoproject.org/ICalico"&gt;here&lt;/a&gt;. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools: &lt;/p&gt;
+</description><category>correlation-length</category><category>Dykstra-Parsons</category><category>permeability</category><guid>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</guid><pubDate>Mon, 04 May 2015 20:24:24 GMT</pubDate></item><item><title>Spell checking in Jupyter notebooks</title><link>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</link><dc:creator>AAE</dc:creator><description>&lt;div&gt;&lt;p&gt;This afternoon I found a nice spellchecker for Jupyter markdown cells &lt;a href="http://calicoproject.org/ICalico"&gt;here&lt;/a&gt;. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Open a terminal window and type&lt;/li&gt;
 &lt;/ul&gt;
@@ -653,6 +653,12 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 
 &lt;ul&gt;
 &lt;li&gt;Go to &lt;code&gt;~/.ipython/profile_default/static/custom&lt;/code&gt;, and add the following line to the end of &lt;code&gt;custom.js&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
 &lt;li&gt;Start a new &lt;code&gt;ipython notebook&lt;/code&gt;. If everything goes well, you should see the following addition to the toolbar:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img alt="ipython spellcheck toolbar" src="http://simulkade.com/ipython_toolbar_screenshot.png"&gt;&lt;/p&gt;&lt;/div&gt;</description><guid>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</guid><pubDate>Tue, 07 Apr 2015 19:21:18 GMT</pubDate></item><item><title>JFVM: a finite volume tool for Julia</title><link>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
