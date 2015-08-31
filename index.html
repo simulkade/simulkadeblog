@@ -824,7 +824,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 </div>
     </header><div class="p-summary entry-summary">
     <div>
-<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools: </p>
+<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:</p>
 <ul>
 <li>Open a terminal window and type</li>
 </ul>
@@ -836,6 +836,12 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 
 <ul>
 <li>Go to <code>~/.ipython/profile_default/static/custom</code>, and add the following line to the end of <code>custom.js</code>.</li>
+</ul>
+<pre class="code literal-block">IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+</pre>
+
+
+<ul>
 <li>Start a new <code>ipython notebook</code>. If everything goes well, you should see the following addition to the toolbar:</li>
 </ul>
 <p><img alt="ipython spellcheck toolbar" src="ipython_toolbar_screenshot.png"></p>
