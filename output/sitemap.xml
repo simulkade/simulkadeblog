@@ -11,7 +11,7 @@
  </url>
  <url>
   <loc>http://simulkade.com/2015/index.html</loc>
-  <lastmod>2015-08-29T11:49:00Z</lastmod>
+  <lastmod>2015-08-31T21:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/archive.html</loc>
@@ -82,20 +82,12 @@
   <lastmod>2015-08-29T10:07:00Z</lastmod>
  </url>
  <url>
-  <loc>http://simulkade.com/galleries/index.html</loc>
-  <lastmod>2015-08-29T10:05:00Z</lastmod>
- </url>
- <url>
   <loc>http://simulkade.com/index-1.html</loc>
-  <lastmod>2015-08-29T11:43:00Z</lastmod>
+  <lastmod>2015-08-31T21:26:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/index.html</loc>
-  <lastmod>2015-08-29T11:49:00Z</lastmod>
- </url>
- <url>
-  <loc>http://simulkade.com/listings/index.html</loc>
-  <lastmod>2015-08-29T10:05:00Z</lastmod>
+  <lastmod>2015-08-31T21:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</loc>
@@ -130,8 +122,12 @@
   <lastmod>2015-08-29T10:07:00Z</lastmod>
  </url>
  <url>
+  <loc>http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html</loc>
+  <lastmod>2015-08-31T21:29:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html</loc>
-  <lastmod>2015-08-29T11:49:00Z</lastmod>
+  <lastmod>2015-08-31T21:26:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</loc>
