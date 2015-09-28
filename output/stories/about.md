@@ -14,7 +14,9 @@
 My name is Ali Akbar Eftekhari. My family and friends call me Ehsan. I currently live in Delft, the Netherlands with my wife, Maryam, and my daughter, Aida. I am a post-doc in the Section of [Petroleum Engineering](http://www.citg.tudelft.nl/en/about-faculty/departments/geoscience-engineering/sections/petroleum-engineering/) at the [TU Delft](http://www.tudelft.nl/en/).  
 I have [a twitter account](https://twitter.com/aidadaddy) that is barely used, a [Google scholar profile](http://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en) where you can see a list of my publications, and a [github account](https://github.com/simulkade) where you can find some of my codes.  
 Here's my [CV](http://www.simulkade.com/stories/cv.html).
+
 ---
+
 # Curriculum Vitae
 ## Personal information
 **Ali Akbar Eftekhari**
@@ -23,7 +25,7 @@ Here's my [CV](http://www.simulkade.com/stories/cv.html).
 + *Marital status*: Married, [one child](/Aida_met_papa.JPG)
 ---
 ## Profile
-I am a Chemical and Petroleum Engineering graduate with several years of experience in the modeling and simulation of [upstream](https://en.wikipedia.org/wiki/Upstream_%28petroleum_industry%29) and [downstream](https://en.wikipedia.org/wiki/Downstream_%28petroleum_industry%29) oil and gas processes. Besides working with [commercial simulators](https://en.wikipedia.org/wiki/List_of_chemical_process_simulators), I have developed prototype computer tools for the modeling and simulation of multicomponent multiphase flow in porous media and [phase equilibrium](https://en.wikipedia.org/wiki/Vapor%E2%80%93liquid_equilibrium) computations. I have designed and conducted core-flooding experiments for [enhanced oil recovery](https://en.wikipedia.org/wiki/Enhanced_oil_recovery), including [water](http://petrowiki.org/Waterflooding), [gas](http://petrowiki.org/PEH%3AImmiscible_Gas_Injection_in_Oil_Reservoirs), [polymer](http://petrowiki.org/Polymer_waterflooding), and [foam](http://petrowiki.org/Foam_behavior_in_porous_media) flooding. My main interest are [exergy](https://en.wikipedia.org/wiki/Exergy) analysis of the energy conversion processes and investigation of various physical and chemical interactions (fluid-fluid, rock-fluid) in flow of [multiphase fluids in porous media](https://en.wikipedia.org/wiki/Fluid_flow_through_porous_media). I am also interested in numerical methods and computer programming, fluid phase equilibria, and [process simulation](https://en.wikipedia.org/wiki/Process_simulation) and optimization.
+I am a Chemical and Petroleum Engineering graduate with several years of experience in the modeling and simulation of [upstream](https://en.wikipedia.org/wiki/Upstream_%28petroleum_industry%29) and [downstream](https://en.wikipedia.org/wiki/Downstream_%28petroleum_industry%29) oil and gas processes. Besides working with [commercial simulators](https://en.wikipedia.org/wiki/List_of_chemical_process_simulators), I have developed prototype computer tools for the modeling and simulation of multicomponent [phase equilibrium](https://en.wikipedia.org/wiki/Vapor%E2%80%93liquid_equilibrium) and multiphase flow in porous media. During my PhD, I used the concept of [exergy](https://en.wikipedia.org/wiki/Exergy) to devise and develop a procedure for the [life-cycle-assessment](https://en.wikipedia.org/wiki/Life-cycle_assessment) of zero-emission fossil fuel recovery. As a post-doc researcher, I worked on the application of nanotechnology in the enhanced oil recovery. I have designed and conducted experiments in different scales, including production and stabilization of colloidal suspensions to high-pressure/high-temperature core-flooding experiments for [EOR](https://en.wikipedia.org/wiki/Enhanced_oil_recovery). My scientific passion is the [exergy](https://en.wikipedia.org/wiki/Exergy) analysis of the energy conversion processes. My other interest is the investigation of various physical and chemical interactions (fluid-fluid, rock-fluid) in the flow of [multiphase fluids in porous media](https://en.wikipedia.org/wiki/Fluid_flow_through_porous_media). I am also interested in numerical methods and computer programming, fluid phase equilibria, and [process simulation](https://en.wikipedia.org/wiki/Process_simulation) and optimization.
 
 ---
 
@@ -31,6 +33,16 @@ I am a Chemical and Petroleum Engineering graduate with several years of experie
 + **2008-2012** PhD student, *Low emission conversion of fossil fuels with simultaneous or consecutive storage of carbon dioxide*, [Delft University of Technology](http://www.tudelft.nl/en/), Delft, the Netherlands [(Download my thesis)](/mainfile_finalversion.pdf)
 + **2003-2005** M.Sc., Chemical Engineering - Transport Phenomena and Separation Processes, [Sharif University of Technology](https://en.wikipedia.org/wiki/Sharif_University_of_Technology), Tehran, Iran ([Download my thesis](/master_thesis.pdf), in Persian, with English summary), (Me [during](/master_defense.JPG) and [after](/after_master_defense.JPG) defense)
 + **1999-2003** B.Sc., Chemical Engineering - Petrochemical Processes, [Shiraz University](https://en.wikipedia.org/wiki/Shiraz_University), Shiraz, Iran
+
+---
+
+## Teaching experience
+### 2005-2008
++ Simulation and optimization of chemical/petrochemical processes using commercial process simulators [(See a presentation here)](/HYSYS_and_Aspen_Plus_Course_Program.ppt)
++ programming and optimization with Matlab.
+### 2012-2015
++ Exergy analysis of geothermal energy (MSc course, one session), Delft University of Technology. ([Presentation1](/geothermalenergy_PEmeeting.sozi.html), [Presentation2](/An_Introduction_to_Exergy_Analysis_in_geothermal_energy_v2.pptx), [Handouts](/handouts_extended_v02.pdf))
++ Thermodynamic calculation of the physical properties of multi-component multi-phase mixtures (PhD course), Delft University of Technology. (Matlab/Octave [code1](https://github.com/simulkade/PVTtool/blob/master/Examples/pure_component_density.m), [code2](https://github.com/simulkade/PVTtool/blob/master/Examples/methanol_water_vle.m))
 
 ---
 
@@ -49,16 +61,6 @@ I am a Chemical and Petroleum Engineering graduate with several years of experie
 
 ---
 
-## Teaching experience
-### 2005-2008
-+ Simulation and optimization of chemical/petrochemical processes using commercial process simulators [(See a presentation here)](/HYSYS_and_Aspen_Plus_Course_Program.ppt)
-+ programming and optimization with Matlab.
-### 2012-2015
-+ Exergy analysis of geothermal energy (MSc course, one session), Delft University of Technology. ([Presentation1](/geothermalenergy_PEmeeting.sozi.html), [Presentation2](/An_Introduction_to_Exergy_Analysis_in_geothermal_energy_v2.pptx), [Handouts](/handouts_extended_v02.pdf))
-+ Thermodynamic calculation of the physical properties of multi-component multi-phase mixtures (PhD course), Delft University of Technology. (Matlab/Octave [code1](https://github.com/simulkade/PVTtool/blob/master/Examples/pure_component_density.m), [code2](https://github.com/simulkade/PVTtool/blob/master/Examples/methanol_water_vle.m))
-
----
-
 ## Modeling and simulation experience
 + **Phase equilibrium of CO2-water-salt mixture**: An optimized PRSV equation of state with NRTL-based MHV2 mixing rule, written in Matlab. The code was re-written in C and is being used in a Riemann solver package at IMPA, Brazil.
 + **Finite volume toolbox for transient convection-diffusion equations**: A [Matab](http://www.mathworks.com/products/matlab/)/[Octave](https://www.gnu.org/software/octave/) toolbox, [publicly available](https://github.com/simulkade/FVTool), which can be used to solve linear/nonlinear coupled [convection-diffusion](https://en.wikipedia.org/wiki/Convection%E2%80%93diffusion_equation) equations in 1, 2, and 3D domains; several sophisticated applications already implemented including fully-implicit solver for immiscible displacement, foam flow in porous media, and [density-driven](https://en.wikipedia.org/wiki/Rayleigh%E2%80%93B%C3%A9nard_convection) natural convection. The code is also [available](https://github.com/simulkade/JFVM.jl) as a [Julia](http://julialang.org/) package.
@@ -71,6 +73,7 @@ around 500 pure components.
 [Gas chromatography](https://en.wikipedia.org/wiki/Gas_chromatography) (GC), [Dynamic Light Scattering](http://www.malvern.com/en/products/product-range/zetasizer-range/zetasizer-nano-range/) (zeta potential, particle size distribution), [CT-scanner](http://www.siemensctscanner.com/), core-flooding, high pressure equipments ([Swagelok](https://www.swagelok.com/)), [mass flow controllers](http://www.bronkhorst.com/), [pumps](http://www.chandlereng.com/Products/Quizix%20Precision%20Pumps/index.aspx), pressure and temperature sensors, [data-acquisition](https://en.wikipedia.org/wiki/Data_acquisition) (DAQ).
 
 ---
+
 ## Supervisory experience
 + **Mick Roukema (2015)**, Master thesis. *Polymer-stabilized foam for enhanced oil recovery*, Petroleum Engineering, Delft university of technology
 + **Jaap Regelink (2015)**, Bachelor thesis. *Calculating black-oil parameters for volatile oils*, Petroleum Engineering, Delft university of technology
@@ -78,12 +81,16 @@ around 500 pure components.
 + **Jia Wei (2013)**, Master thesis. *Nanoparticle-stabilized foam for enhanced-oil-recovery*, Petroleum Engineering, Delft university of technology
 + **Ioannis Dafnomilis (2012)**, Master thesis, *A workstream for exergy analysis of carbon capture and storage through enhanced oil Recovery*, Sustainable Energy Technology, Delft university of technology
 + **Jonathan De Mooij (2010)**, Master thesis. *Exergy analysis of the use of geothermal energy and carbon capture, transportation and storage in underground aquifers*, Sustainable Energy Technology, Delft university of technology ([link](http://repository.tudelft.nl/view/ir/uuid%3A1af2dec8-542e-4116-af02-fd3f99816358/))
+
 ---
+
 ## Language skills
 + Persian (native)
 + English (fluent)
 + Dutch (basic)
+
 ---
+
 ## Computer skills
 + **Operating systems**:
     - [Linux](https://en.wikipedia.org/wiki/Linux)
@@ -114,6 +121,7 @@ around 500 pure components.
 Best paper award, annual research meeting of the Department of Geoscience and Engineering and Remote Sensing, February 2013.
 
 ---
+
 ## Publications
 + [Google Scholar profile](https://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en)
 + [ResearchGate profile](https://www.researchgate.net/profile/Ali_Akbar_Eftekhari)
