@@ -19,3 +19,10 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 <li>Start a new <code>ipython notebook</code>. If everything goes well, you should see the following addition to the toolbar:</li>
 </ul>
 <p><img alt="ipython spellcheck toolbar" src="/ipython_toolbar_screenshot.png" /></p>
+<h2>Update (thanks to Henry Schreiner)</h2>
+<p>In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:</p>
+<pre class="code literal-block"><span class="c">%%javascript</span>
+<span class="n">Jupyter</span><span class="p">.</span><span class="n">notebook</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">update</span><span class="p">({</span>&quot;<span class="n">load_extensions</span>&quot;<span class="p">:{</span>&quot;<span class="n">calico</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">check</span>&quot;<span class="p">:</span><span class="n">true</span><span class="p">,</span>
+                                                  &quot;<span class="n">calico</span><span class="o">-</span><span class="n">document</span><span class="o">-</span><span class="n">tools</span>&quot;<span class="p">:</span><span class="n">true</span><span class="p">,</span>
+                                                  &quot;<span class="n">calico</span><span class="o">-</span><span class="n">cell</span><span class="o">-</span><span class="n">tools</span>&quot;<span class="p">:</span><span class="n">true</span><span class="p">}})</span>
+</pre>
