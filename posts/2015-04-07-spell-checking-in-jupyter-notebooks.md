@@ -26,3 +26,13 @@ IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-c
   * Start a new `ipython notebook`. If everything goes well, you should see the following addition to the toolbar:
 
 ![ipython spellcheck toolbar](/ipython_toolbar_screenshot.png)
+
+## Update (thanks to Henry Schreiner)
+In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:
+
+```
+%%javascript
+Jupyter.notebook.config.update({"load_extensions":{"calico-spell-check":true,
+                                                  "calico-document-tools":true,
+                                                  "calico-cell-tools":true}})
+```

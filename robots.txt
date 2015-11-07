@@ -1,0 +1,4 @@
+Sitemap: http://simulkade.com/sitemapindex.xml
+
+User-Agent: *
+Host: simulkade.com
