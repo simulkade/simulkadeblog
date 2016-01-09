@@ -6,6 +6,10 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://simulkade.com/categories/capillary.xml</loc>
+  <lastmod>2016-01-09T14:20:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://simulkade.com/categories/cat_reminder.xml</loc>
   <lastmod>2015-11-07T14:34:00Z</lastmod>
  </sitemap>
@@ -67,14 +71,14 @@
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/galleries/rss.xml</loc>
-  <lastmod>2015-11-07T14:34:00Z</lastmod>
+  <lastmod>2016-01-09T14:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/rss.xml</loc>
-  <lastmod>2015-11-07T14:34:00Z</lastmod>
+  <lastmod>2016-01-09T14:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://simulkade.com/sitemap.xml</loc>
-  <lastmod>2015-11-07T14:34:00Z</lastmod>
+  <lastmod>2016-01-09T14:20:00Z</lastmod>
  </sitemap>
 </sitemapindex>
