@@ -5,24 +5,18 @@ article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matlab and Julia -- Part II | SIMULKADE</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'center', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<link rel="prev" href="Matlab%20and%20Julia%20--%20Part%20I.html" title="Matlab and Julia -- Part I" type="text/html">
+<link rel="next" href="Physical%20properties%20in%20Julia%3A%20CoolProp.html" title="Physical properties in Julia: CoolProp" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="Matlab and Julia -- Part II">
 <meta property="og:url" content="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
@@ -114,10 +108,10 @@ MathJax.Hub.Config({
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
-<pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/julianightlies
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo apt-get update
-sudo apt-get install julia
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julianightlies</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julia</span><span class="o">-</span><span class="n">deps</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">julia</span>
 </pre>
 
 
@@ -232,7 +226,7 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 
 
 <p>We will use <code>fzero</code> function from <code>Roots</code> package to find the shock front. We will also use the <code>PyPlot</code> package to visualize the results. Now load the code in <code>Julia</code> by typing</p>
-<pre class="code literal-block">reload("BLjulia.jl")
+<pre class="code literal-block"><span class="n">reload</span><span class="p">(</span><span class="s">"BLjulia.jl"</span><span class="p">)</span>
 </pre>
 
 
@@ -252,7 +246,7 @@ No I convert everything right away to Julia, and you can compare it to the Matla
             <li class="next">
                 <a href="Physical%20properties%20in%20Julia%3A%20CoolProp.html" rel="next" title="Physical properties in Julia: CoolProp">Next post</a>
             </li>
-        </ul></nav></aside><section class="comments"><h2>Comments</h2>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
