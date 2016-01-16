@@ -36,3 +36,10 @@ Jupyter.notebook.config.update({"load_extensions":{"calico-spell-check":true,
                                                   "calico-document-tools":true,
                                                   "calico-cell-tools":true}})
 ```
+
+## Update II (thanks to Noam Elfanbaum)
+Run the following in a terminal:
+
+```
+jupyter nbextension enable calico-spell-check
+```
