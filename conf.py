@@ -146,7 +146,8 @@ NAVIGATION_LINKS = {
 
 
 # Name of the theme to use.
-THEME = "ipython"
+THEME = "bootstrap3-gradients-jinja"
+#THEME = "ipython"
 #THEME = "zen-ipython"
 
 # Below this point, everything is optional
@@ -730,21 +731,21 @@ COMMENT_SYSTEM_ID = "simulkade"
 # MATHJAX_CONFIG = ""
 
 # If you are using the compile-ipynb plugin, just add this one:
-MATHJAX_CONFIG = """
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'center', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script>
-"""
+#MATHJAX_CONFIG = """
+#<script type="text/x-mathjax-config">
+#MathJax.Hub.Config({
+#    tex2jax: {
+#        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+#        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+#        processEscapes: true
+#    },
+#    displayAlign: 'center', // Change this to 'center' to center equations.
+#    "HTML-CSS": {
+#        styles: {'.MathJax_Display': {"margin": 0}}
+#    }
+#});
+#</script>
+#"""
 
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}

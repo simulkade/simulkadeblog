@@ -5,24 +5,18 @@ article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="http://simulkade.com/posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All I need after a fresh installation of Linux Mint | SIMULKADE</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'center', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<link rel="prev" href="2015-05-07-how-to-smoothen-noisy-data.html" title="How to smoothen noisy data" type="text/html">
+<link rel="next" href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html" title="Install Octave 4.0 on Mint 17.1/Ubuntu 14.04" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="All I need after a fresh installation of Linux Mint">
 <meta property="og:url" content="http://simulkade.com/posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html">
@@ -121,16 +115,16 @@ Add Persian keyboard layout (start menu -&gt; keyboa">
 <li>Install <code>adblock plus</code> add-on for Firefox</li>
 <li>Install latex:</li>
 </ul>
-<pre class="code literal-block">sudo apt-get install texlive imagemagick texlive-bibtex-extra texlive-fonts-extra texlive-font-utils texlive-extra-utils texlive-formats-extra texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span> <span class="n">imagemagick</span> <span class="n">texlive</span><span class="o">-</span><span class="n">bibtex</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">fonts</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">font</span><span class="o">-</span><span class="n">utils</span> <span class="n">texlive</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">utils</span> <span class="n">texlive</span><span class="o">-</span><span class="n">formats</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">generic</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">math</span><span class="o">-</span><span class="n">extra</span> <span class="n">texlive</span><span class="o">-</span><span class="n">pictures</span> <span class="n">texlive</span><span class="o">-</span><span class="n">pstricks</span> <span class="n">texlive</span><span class="o">-</span><span class="n">publishers</span> <span class="n">texlive</span><span class="o">-</span><span class="n">science</span>
 </pre>
 
 
 <ul>
 <li>Install the newest version of <a href="http://www.lyx.org/">lyx</a>:</li>
 </ul>
-<pre class="code literal-block">sudo add-apt-repository ppa:lyx-devel/release
-sudo apt-get update
-sudo apt-get install lyx lyx-common dvipng psutils fonts-lyx elyxer tex4ht hevea tth latex2html
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">lyx</span><span class="o">-</span><span class="n">devel</span><span class="o">/</span><span class="n">release</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">lyx</span> <span class="n">lyx</span><span class="o">-</span><span class="n">common</span> <span class="n">dvipng</span> <span class="n">psutils</span> <span class="n">fonts</span><span class="o">-</span><span class="n">lyx</span> <span class="n">elyxer</span> <span class="n">tex4ht</span> <span class="n">hevea</span> <span class="n">tth</span> <span class="n">latex2html</span>
 </pre>
 
 
@@ -138,9 +132,9 @@ sudo apt-get install lyx lyx-common dvipng psutils fonts-lyx elyxer tex4ht hevea
 <li>Install <a href="https://inkscape.org">inkscape</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo add-apt-repository ppa:inkscape.dev/stable
-sudo apt-get update
-sudo apt-get install inkscape
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">inkscape</span><span class="p">.</span><span class="n">dev</span><span class="o">/</span><span class="n">stable</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">inkscape</span>
 </pre>
 
 
@@ -150,7 +144,7 @@ sudo apt-get install inkscape
 <li>Install <a href="http://www.pydicom.org/">pydicom</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo pip install pydicom
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydicom</span>
 </pre>
 
 
@@ -158,7 +152,7 @@ sudo apt-get install inkscape
 <li>Install <a href="http://ipython.org/install.html">ipython</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo pip install "ipython[all]"
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="s">"ipython[all]"</span>
 </pre>
 
 
@@ -166,10 +160,10 @@ sudo apt-get install inkscape
 <li>Install <a href="http://julialang.org/downloads/platform.html">Julia</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/juliareleases
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo apt-get update
-sudo apt-get install julia
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">juliareleases</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julia</span><span class="o">-</span><span class="n">deps</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">julia</span>
 </pre>
 
 
@@ -177,25 +171,25 @@ sudo apt-get install julia
 <li>Install <a href="http://matplotlib.org/">matplotlib</a> and <a href="http://www.scipy.org/">scipy</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo apt-get install python-matplotlib python-scipy python-tk
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span> <span class="n">python</span><span class="o">-</span><span class="n">scipy</span> <span class="n">python</span><span class="o">-</span><span class="n">tk</span>
 </pre>
 
 
 <ul>
 <li>Install <a href="http://code.enthought.com/projects/mayavi/">mayavi2</a> for 3D visualization</li>
 </ul>
-<pre class="code literal-block">sudo apt-get install mayavi2
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mayavi2</span>
 </pre>
 
 
 <ul>
 <li>Do this at the beginning: install some compilers:</li>
 </ul>
-<pre class="code literal-block">sudo apt-get install build-essential gfortran pkg-config
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">gfortran</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>
 </pre>
 
 
-<pre class="code literal-block">I need them to install [Ipopt](https://projects.coin-or.org/Ipopt)
+<pre class="code literal-block"><span class="n">I</span> <span class="n">need</span> <span class="n">them</span> <span class="n">to</span> <span class="n">install</span> <span class="p">[</span><span class="n">Ipopt</span><span class="p">](</span><span class="n">https</span><span class="o">:</span><span class="c1">//projects.coin-or.org/Ipopt)</span>
 </pre>
 
 
@@ -205,12 +199,12 @@ sudo apt-get install julia
 <li>Install <a href="https://getnikola.com/">Nikola</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev python-dev
-sudo pip install webassets
-sudo pip install ghp-import
-sudo pip install markdown
-sudo pip install nikola
-sudo pip install nikola[extras]
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxslt1</span><span class="o">-</span><span class="n">dev</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">webassets</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ghp</span><span class="o">-</span><span class="n">import</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">nikola</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">nikola</span><span class="p">[</span><span class="n">extras</span><span class="p">]</span>
 </pre>
 
 
@@ -219,7 +213,7 @@ sudo pip install nikola[extras]
 </li>
 <li>Install some dependencies for linking Matlab to other packages</li>
 </ul>
-<pre class="code literal-block">sudo apt-get install csh gcc-4.7 g++-4.7 gfortran-4.7
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">csh</span> <span class="n">gcc</span><span class="o">-</span><span class="mf">4.7</span> <span class="n">g</span><span class="o">++-</span><span class="mf">4.7</span> <span class="n">gfortran</span><span class="o">-</span><span class="mf">4.7</span>
 </pre>
 
 
@@ -227,9 +221,9 @@ sudo pip install nikola[extras]
 <li>Install and configure <a href="http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">git</a>
 </li>
 </ul>
-<pre class="code literal-block">sudo apt-get install git
-git config --global user.name "Your Name"
-git config --global user.email youremail@something.com
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">"Your Name"</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">youremail</span><span class="err">@</span><span class="n">something</span><span class="p">.</span><span class="n">com</span>
 </pre>
 
 
@@ -239,7 +233,7 @@ git config --global user.email youremail@something.com
 <li>Install <a href="http://en.wikipedia.org/wiki/Pinta_%28software%29">Pinta</a> for working with images, much easier than <code>GIMP</code>
 </li>
 </ul>
-<pre class="code literal-block">sudo apt-get install pinta
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">pinta</span>
 </pre>
 
 
@@ -257,7 +251,7 @@ git config --global user.email youremail@something.com
             <li class="next">
                 <a href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html" rel="next" title="Install Octave 4.0 on Mint 17.1/Ubuntu 14.04">Next post</a>
             </li>
-        </ul></nav></aside><section class="comments"><h2>Comments</h2>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",

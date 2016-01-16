@@ -5,24 +5,18 @@ article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spell checking in Jupyter notebooks | SIMULKADE</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'center', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<link rel="prev" href="jfvm-a-finite-volume-tool-for-julia.html" title="JFVM: a finite volume tool for Julia" type="text/html">
+<link rel="next" href="2015-05-04-log-random-permeability-field.html" title="How to generate a log-random permeability field" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="Spell checking in Jupyter notebooks">
 <meta property="og:url" content="http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">
@@ -117,16 +111,16 @@ Open a terminal win">
 <ul>
 <li>Open a terminal window and type</li>
 </ul>
-<pre class="code literal-block">sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">ipython</span> <span class="n">install</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">https</span><span class="o">:</span><span class="c1">//bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip</span>
+<span class="n">sudo</span> <span class="n">ipython</span> <span class="n">install</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">https</span><span class="o">:</span><span class="c1">//bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip</span>
+<span class="n">sudo</span> <span class="n">ipython</span> <span class="n">install</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">https</span><span class="o">:</span><span class="c1">//bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip</span>
 </pre>
 
 
 <ul>
 <li>Go to <code>~/.ipython/profile_default/static/custom</code>, and add the following line to the end of <code>custom.js</code>.</li>
 </ul>
-<pre class="code literal-block">IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+<pre class="code literal-block"><span class="n">IPython</span><span class="p">.</span><span class="n">load_extensions</span><span class="p">(</span><span class="err">'</span><span class="n">calico</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">check</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="n">calico</span><span class="o">-</span><span class="n">document</span><span class="o">-</span><span class="n">tools</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="n">calico</span><span class="o">-</span><span class="n">cell</span><span class="o">-</span><span class="n">tools</span><span class="err">'</span><span class="p">);</span>
 </pre>
 
 
@@ -150,7 +144,7 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
             <li class="next">
                 <a href="2015-05-04-log-random-permeability-field.html" rel="next" title="How to generate a log-random permeability field">Next post</a>
             </li>
-        </ul></nav></aside><section class="comments"><h2>Comments</h2>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",

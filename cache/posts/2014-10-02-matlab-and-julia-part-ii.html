@@ -1,8 +1,8 @@
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
-<pre class="code literal-block">sudo add-apt-repository ppa:staticfloat/julianightlies
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo apt-get update
-sudo apt-get install julia
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julianightlies</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julia</span><span class="o">-</span><span class="n">deps</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">julia</span>
 </pre>
 
 
@@ -117,7 +117,7 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 
 
 <p>We will use <code>fzero</code> function from <code>Roots</code> package to find the shock front. We will also use the <code>PyPlot</code> package to visualize the results. Now load the code in <code>Julia</code> by typing</p>
-<pre class="code literal-block">reload(&quot;BLjulia.jl&quot;)
+<pre class="code literal-block"><span class="n">reload</span><span class="p">(</span><span class="s">&quot;BLjulia.jl&quot;</span><span class="p">)</span>
 </pre>
 
 

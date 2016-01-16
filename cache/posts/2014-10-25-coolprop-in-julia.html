@@ -1,9 +1,9 @@
 <p>Recently, I was analyzing my core-flooding experimental data in a Julia notebook, when I realize that I don't have access to a few Matlab functions that I have written (or found elsewhere), which I use regularly for the calculation of physical properties of pure components. For instance, viscosity of water (I know that you know it is 0.001 Pa.s) or density of CO2 or nitrogen at different temperatures and pressures. I know that <a href="http://www.thermo.ruhr-uni-bochum.de/en/prof-w-wagner.html">Professor Wagner</a> and his group have developed a few highly-accurate equations of state for industrial applications and I knew that there is a software called <a href="http://ascend4.org/FPROPS">FPROPS</a> which is used in <a href="http://ascend4.org/Main_Page">Ascend IV</a> package. Searching the name in google showed me a fantastic package called <a href="www.coolprop.org/">CoolProp</a> which is being developed mostly in <a href="http://www.labothap.ulg.ac.be/cmsms/">thermodynamics laboratory</a> in <a href="www.ulg.ac.be/">Universite de Liege</a>. The code is written in C++ but it supports many languages and environments including Matlab and Python. The Python part was interesting to me because I can call it using <a href="https://github.com/stevengj/PyCall.jl">PyCall</a> package in Julia. First I installed the <code>CoolProp</code> package using the instructions <a href="http://www.coolprop.org/HowGetIt.html">here</a>. You can do it in Ubuntu 14.04 by running the following code in terminal:</p>
-<pre class="code literal-block">sudo apt-get install g++
-sudo apt-get install cython
-sudo apt-get install python-pip
-sudo apt-get install python-dev
-sudo pip install CoolProp
+<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">g</span><span class="o">++</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">cython</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">CoolProp</span>
 </pre>
 
 
