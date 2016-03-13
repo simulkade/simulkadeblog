@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/index-1.html">
@@ -16,7 +13,19 @@ article: http://ogp.me/ns/article#
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://simulkade.com/index-1.html">
 <link rel="prev" href="index.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -77,6 +86,9 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
+
+    
 <div class="postindex">
     <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
         <div class="metadata">
@@ -84,7 +96,9 @@ article: http://ogp.me/ns/article#
                 AAE
             </span></p>
             <p class="dateline"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-02T21:43:27+01:00" title="2014-10-02 21:43">2014-10-02 21:43</time></a></p>
-                <p class="commentline">            <a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html#disqus_thread" data-disqus-identifier="cache/posts/2014-10-02-matlab-and-julia-part-ii.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html#disqus_thread" data-disqus-identifier="cache/posts/2014-10-02-matlab-and-julia-part-ii.html">Comments</a>
 
 
         </p>
@@ -92,10 +106,10 @@ article: http://ogp.me/ns/article#
     </header><div class="p-summary entry-summary">
     <div>
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
-<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julianightlies</span>
-<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julia</span><span class="o">-</span><span class="n">deps</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">julia</span>
+<pre class="code literal-block"><span></span>sudo add-apt-repository ppa:staticfloat/julianightlies
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
 </pre>
 
 
@@ -108,7 +122,9 @@ article: http://ogp.me/ns/article#
                 AAE
             </span></p>
             <p class="dateline"><a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html" rel="bookmark"><time class="published dt-published" datetime="2014-09-26T09:25:07+01:00" title="2014-09-26 09:25">2014-09-26 09:25</time></a></p>
-                <p class="commentline">            <a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html#disqus_thread" data-disqus-identifier="cache/posts/2014-09-26-matlab-and-julia-part-one.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="posts/Matlab%20and%20Julia%20--%20Part%20I.html#disqus_thread" data-disqus-identifier="cache/posts/2014-09-26-matlab-and-julia-part-one.html">Comments</a>
 
 
         </p>
@@ -127,7 +143,9 @@ article: http://ogp.me/ns/article#
                 AAE
             </span></p>
             <p class="dateline"><a href="posts/the-first-test-post.html" rel="bookmark"><time class="published dt-published" datetime="2014-05-20T13:06:51+01:00" title="2014-05-20 13:06">2014-05-20 13:06</time></a></p>
-                <p class="commentline">            <a href="posts/the-first-test-post.html#disqus_thread" data-disqus-identifier="cache/posts/2014-05-20-a-new-start.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="posts/the-first-test-post.html#disqus_thread" data-disqus-identifier="cache/posts/2014-05-20-a-new-start.html">Comments</a>
 
 
         </p>
@@ -141,6 +159,7 @@ article: http://ogp.me/ns/article#
     </div>
     </article>
 </div>
+
         <nav class="postindexpager"><ul class="pager">
 <li class="previous">
                 <a href="index.html" rel="prev">Newer posts</a>
@@ -155,6 +174,7 @@ article: http://ogp.me/ns/article#
         </footer>
 </div>
 </div>
+
 
             <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

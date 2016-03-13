@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="prev" href="2015-04-07-spell-checking-in-jupyter-notebooks.html" title="Spell checking in Jupyter notebooks" type="text/html">
 <link rel="next" href="2015-05-07-how-to-smoothen-noisy-data.html" title="How to smoothen noisy data" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
@@ -80,6 +89,7 @@ article: http://ogp.me/ns/article#
 <li>
     <a href="2015-05-04-log-random-permeability-field.ipynb" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -91,6 +101,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">How to generate a log-random permeability field</a></h1>
 
         <div class="metadata">
@@ -98,14 +109,18 @@ article: http://ogp.me/ns/article#
                     AAE
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-05-04T22:24:24+02:00" itemprop="datePublished" title="2015-05-04 22:24">2015-05-04 22:24</time></a></p>
-                <p class="commentline">            <a href="2015-05-04-log-random-permeability-field.html#disqus_thread" data-disqus-identifier="cache/posts/2015-05-04-log-random-permeability-field.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="2015-05-04-log-random-permeability-field.html#disqus_thread" data-disqus-identifier="cache/posts/2015-05-04-log-random-permeability-field.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="2015-05-04-log-random-permeability-field.ipynb" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -127,7 +142,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> permfieldlogrndg</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">k_avrg</span><span class="p">,</span><span class="n">V_dp</span><span class="p">,</span><span class="n">clx</span><span class="p">,</span><span class="n">cly</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> permfieldlogrndg</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">k_avrg</span><span class="p">,</span><span class="n">V_dp</span><span class="p">,</span><span class="n">clx</span><span class="p">,</span><span class="n">cly</span><span class="p">)</span>
 <span class="c"># 2D random field generator:</span>
 <span class="c"># hdf: Gaussian</span>
 <span class="c"># acf: Gaussian</span>
@@ -169,7 +184,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">PyPlot</span><span class="p">;</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">PyPlot</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -182,7 +197,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">Nx</span><span class="o">=</span><span class="mi">100</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Nx</span><span class="o">=</span><span class="mi">100</span>
 <span class="n">Ny</span><span class="o">=</span><span class="mi">50</span>
 <span class="n">clx</span><span class="o">=</span><span class="mf">1.0</span>
 <span class="n">cly</span><span class="o">=</span><span class="mf">0.05</span>
@@ -243,7 +258,9 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
                 <a href="2015-05-07-how-to-smoothen-noisy-data.html" rel="next" title="How to smoothen noisy data">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html",
@@ -263,8 +280,18 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 
 
         </section><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-            </script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
         <!--End of body content-->
 
@@ -274,6 +301,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

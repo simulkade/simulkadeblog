@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="prev" href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html" title="Install Octave 4.0 on Mint 17.1/Ubuntu 14.04" type="text/html">
 <link rel="next" href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html" title="A nanoparticle at the gas-liquid interface: using Sympy" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
@@ -77,6 +86,7 @@ article: http://ogp.me/ns/article#
 <li>
     <a href="fvtool-in-octave-the-new-classdef.ipynb" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -88,6 +98,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">FVTool in Octave: the new classdef</a></h1>
 
         <div class="metadata">
@@ -95,14 +106,18 @@ article: http://ogp.me/ns/article#
                     AAE
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-08-29T13:01:57+02:00" itemprop="datePublished" title="2015-08-29 13:01">2015-08-29 13:01</time></a></p>
-                <p class="commentline">            <a href="fvtool-in-octave-the-new-classdef.html#disqus_thread" data-disqus-identifier="cache/posts/2015-08-29-fvtool-in-octave-the-new-classdef.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="fvtool-in-octave-the-new-classdef.html#disqus_thread" data-disqus-identifier="cache/posts/2015-08-29-fvtool-in-octave-the-new-classdef.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="fvtool-in-octave-the-new-classdef.ipynb" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -124,7 +139,7 @@ Let's see the code in action:</p>
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>addpath('/home/ali/MyPackages/FVTool')
+<div class=" highlight hl-octave_kernel"><pre><span></span>addpath('/home/ali/MyPackages/FVTool')
 FVToolStartUp()
 </pre></div>
 
@@ -158,7 +173,7 @@ FiniteVolumeToolbox has started successfully.
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>% create a nonuniform mesh
+<div class=" highlight hl-octave_kernel"><pre><span></span>% create a nonuniform mesh
 x=[0,0.1, 0.2, 0.25, 0.4, 0.42, 0.43, 0.6, 0.75, 0.9, 0.91, 0.92, 0.95, 1.0];
 m=createMesh1D(x);
 m3=createMesh3D(x,x,x);
@@ -206,7 +221,7 @@ m
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D=createCellVariable(m, 1.0);
+<div class=" highlight hl-octave_kernel"><pre><span></span>D=createCellVariable(m, 1.0);
 D_face=arithmeticMean(D); # no need to send the mesh variable to the function
 disp(D)
 </pre></div>
@@ -249,7 +264,7 @@ disp(D)
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D.domain
+<div class=" highlight hl-octave_kernel"><pre><span></span>D.domain
 </pre></div>
 
 </div>
@@ -293,7 +308,7 @@ disp(D)
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D=createCellVariable(m3, 1.0);
+<div class=" highlight hl-octave_kernel"><pre><span></span>D=createCellVariable(m3, 1.0);
 D_face=arithmeticMean(D);
 BC=createBC(m3);
 BC.left.a(:)=0; BC.left.b(:)=1.0; BC.left.c(:)=1.0;
@@ -355,7 +370,9 @@ visualizeCells(c)
                 <a href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html" rel="next" title="A nanoparticle at the gas-liquid interface: using Sympy">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html",
@@ -375,8 +392,18 @@ visualizeCells(c)
 
 
         </section><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-            </script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
         <!--End of body content-->
 
@@ -386,6 +413,7 @@ visualizeCells(c)
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

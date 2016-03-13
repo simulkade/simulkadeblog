@@ -7,87 +7,91 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://simulkade.com/2014/index.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/2015/index.html</loc>
-  <lastmod>2016-01-16T17:14:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/archive.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/capillary.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/cat_reminder.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/convection-diffusion.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/coolprop.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/correlation-length.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/dykstra-parsons.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/finite-volume.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/general.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/index.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/jfvm.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/julia.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/linux-mint.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://simulkade.com/categories/mathjax.html</loc>
+  <lastmod>2016-03-13T15:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/matlab.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/noisy-data.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/packages.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/permeability.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/smooth.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/galleries/index.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/geothermalenergy_PEmeeting.sozi.html</loc>
@@ -95,74 +99,74 @@
  </url>
  <url>
   <loc>http://simulkade.com/index-1.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/index.html</loc>
-  <lastmod>2016-01-16T17:14:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/listings/index.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</loc>
-  <lastmod>2016-01-16T17:14:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-05-07-how-to-smoothen-noisy-data.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20I.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/the-first-test-post.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/stories/about.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/stories/cv.html</loc>
-  <lastmod>2016-01-16T17:01:00Z</lastmod>
+  <lastmod>2016-03-13T17:47:00Z</lastmod>
  </url>
 </urlset>

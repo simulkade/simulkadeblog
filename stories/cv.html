@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/stories/cv.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/stories/cv.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="Curriculum vitae">
 <meta property="og:url" content="http://simulkade.com/stories/cv.html">
@@ -84,6 +93,7 @@ I am a Chemical and Petroleum Engineering graduate with several yea">
 <li>
     <a href="cv.md" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -95,9 +105,11 @@ I am a Chemical and Petroleum Engineering graduate with several yea">
         <!--Body content-->
         <div class="row">
             
+            
 <article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Curriculum vitae</a></h1>
 
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <h3>Personal information</h3>
@@ -336,6 +348,7 @@ around 500 pure components.</li>
 </div>
     </div>
     
+
 </article>
 </div>
         <!--End of body content-->
@@ -346,6 +359,7 @@ around 500 pure components.</li>
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

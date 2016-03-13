@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="prev" href="2015-05-29-all-i-need-after-a-fresh-installation-of-linux-mint.html" title="All I need after a fresh installation of Linux Mint" type="text/html">
 <link rel="next" href="fvtool-in-octave-the-new-classdef.html" title="FVTool in Octave: the new classdef" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
@@ -77,6 +86,7 @@ article: http://ogp.me/ns/article#
 <li>
     <a href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.md" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -88,6 +98,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Install Octave 4.0 on Mint 17.1/Ubuntu 14.04</a></h1>
 
         <div class="metadata">
@@ -95,46 +106,50 @@ article: http://ogp.me/ns/article#
                     AAE
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-06-20T12:10:53+02:00" itemprop="datePublished" title="2015-06-20 12:10">2015-06-20 12:10</time></a></p>
-                <p class="commentline">            <a href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html#disqus_thread" data-disqus-identifier="cache/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html#disqus_thread" data-disqus-identifier="cache/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="2015-06-20-install-octave-40-on-mint-171ubuntu-1404.md" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br>
 The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br>
 First, install these dependencies:</p>
-<pre class="code literal-block"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gawk</span> <span class="n">gfortran</span> <span class="n">gperf</span> <span class="n">flex</span> <span class="n">libbison</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqhull</span><span class="o">-</span><span class="n">dev</span> <span class="n">libglpk</span><span class="o">-</span><span class="n">dev</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">gnutls</span><span class="o">-</span><span class="n">dev</span> <span class="n">libfltk1</span><span class="mf">.3</span><span class="o">-</span><span class="n">dev</span> <span class="n">librsvg2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqrupdate</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgl2ps</span><span class="o">-</span><span class="n">dev</span> <span class="n">libosmesa6</span><span class="o">-</span><span class="n">dev</span> <span class="n">libarpack2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqscintilla2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libreadline</span><span class="o">-</span><span class="n">dev</span> <span class="n">bison</span> <span class="n">icontool</span> <span class="n">llvm</span><span class="o">-</span><span class="n">dev</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libhdf5</span><span class="o">-</span><span class="n">serial</span><span class="o">-</span><span class="n">dev</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">jdk</span> <span class="n">transfig</span>  <span class="n">libgraphicsmagick</span><span class="o">++</span><span class="mi">1</span><span class="o">-</span><span class="n">dev</span> <span class="n">libsndfile1</span><span class="o">-</span><span class="n">dev</span>
+<pre class="code literal-block"><span></span>sudo apt-get install gawk gfortran gperf flex libbison-dev libqhull-dev libglpk-dev libcurl4-gnutls-dev libfltk1.3-dev librsvg2-dev libqrupdate-dev libgl2ps-dev libosmesa6-dev libarpack2-dev libqscintilla2-dev libreadline-dev bison icontool llvm-dev libfftw3-dev libhdf5-serial-dev openjdk-7-jdk transfig  libgraphicsmagick++1-dev libsndfile1-dev
 </pre>
 
 
 <p>Then, download the <a href="ftp://ftp.gnu.org/gnu/octave/">octave source code</a> for version 4.0.0 from <a href="ftp://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz">here</a>, and extract it. Go to the new octave-4.0.0 forlder, and in a terminal window type</p>
-<pre class="code literal-block"><span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">jit</span>
-<span class="n">make</span>
-<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<pre class="code literal-block"><span></span>./configure --enable-jit
+make
+sudo make install
 </pre>
 
 
 <p>It takes a while, so go and pour a nice cup of coffee for yourself. If you get any error after running <code>./configure</code>, find the missing dependencies <a href="http://wiki.octave.org/Octave_for_Debian_systems">here</a>.<br>
 If the installation is successful, run octave by typing <code>octave</code>. It should launch the user interface of octave which is enabled by default in this version.<br>
 One other good news is that now you can run octave in a <a href="https://jupyter.org/">Jupyter notebook</a>, by installing <a href="https://github.com/calysto/octave_kernel">octave kernel</a> and <a href="http://blink1073.github.io/oct2py/source/installation.html">oct2py</a>:</p>
-<pre class="code literal-block"><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">oct2py</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">octave_kernel</span>
+<pre class="code literal-block"><span></span>sudo pip install oct2py
+sudo pip install octave_kernel
 </pre>
 
 
 <p>It is still not possible to use octave kernel. Go to <code>/usr/local/bin</code> and type</p>
-<pre class="code literal-block"><span class="n">ls</span> <span class="o">-</span><span class="n">la</span>
+<pre class="code literal-block"><span></span>ls -la
 </pre>
 
 
 <p>You will see that <code>octave</code> is linked to the <code>octave-4.0.0</code>. You need to unlink <code>octave</code> and create a symbolic link to the octave command line interface or <code>octave-cli</code>. In the terminal window, type</p>
-<pre class="code literal-block"><span class="n">sudo</span> <span class="n">unlink</span> <span class="n">octave</span>
-<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">octave</span><span class="o">-</span><span class="n">cli</span> <span class="n">octave</span>
+<pre class="code literal-block"><span></span>sudo unlink octave
+sudo ln -s /usr/local/bin/octave-cli octave
 </pre>
 
 
@@ -149,7 +164,9 @@ One other good news is that now you can run octave in a <a href="https://jupyter
                 <a href="fvtool-in-octave-the-new-classdef.html" rel="next" title="FVTool in Octave: the new classdef">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html",
@@ -178,6 +195,7 @@ One other good news is that now you can run octave in a <a href="https://jupyter
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

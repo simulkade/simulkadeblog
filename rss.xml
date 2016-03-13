@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link href="http://simulkade.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 16 Jan 2016 17:14:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Two phase flow and capillary pressure: part I</title><link>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link href="http://simulkade.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 13 Mar 2016 17:47:56 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Two phase flow and capillary pressure: part I</title><link>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -8,7 +8,7 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Capillary-pressure"&gt;Capillary pressure&lt;a class="anchor-link" href="http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html#Capillary-pressure"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Imagine a very thin glass tube filled with water. If the tube is thin enough, water likes to stay in the tube. You have to blow in the tube to push it out. In other words, to replace water that wets the glass with air, we need to push air into the tube. The amount of pushing that you need for air to go through is called capillary pressure. Its value, which is defined as $$p_c=p_{air}-p_{w},$$ is related to the water-air surface tension, contact angle, and tube diameter with the following relation: $$p_c=\frac{\gamma_{w-air}\cos(\theta)}{r}.$$&lt;br&gt;
-In Petroleum Engineering, capillary pressure has the same definition: $$p_c=p_{nw}-p_w,$$ where subscripts &lt;em&gt;nw&lt;/em&gt; and &lt;em&gt;w&lt;/em&gt; denote 'non-wetting' and 'wetting' phases respectively. However, a porous medium is made of many tubes with different sizes. Therefore, when we want to blow water out of it, the amount of required 'pushing' depends on the number of tubes that are already filled with water (or the wetting phase). In other words, the capillary pressure depends on the 'wetting-phase saturation'. If we assume the average tube radius can be defined by $\sqrt{k/\phi}$, with &lt;em&gt;k&lt;/em&gt; permeability and $\phi$ porosity, we can write the capillary pressure in a porous medium as $$p_c=J(S_w)\frac{\gamma_{w-nw}\cos(\theta)}{\sqrt(k/\phi)}$$
+In Petroleum Engineering, capillary pressure has the same definition: $$p_c=p_{nw}-p_w,$$ where subscripts &lt;em&gt;nw&lt;/em&gt; and &lt;em&gt;w&lt;/em&gt; denote 'non-wetting' and 'wetting' phases respectively. However, a porous medium is made of many tubes with different sizes. Therefore, when we want to blow water out of it, the amount of required 'pushing' depends on the number of tubes that are already filled with water (or the wetting phase). In other words, the capillary pressure depends on the 'wetting-phase saturation'. If we assume the average tube radius can be defined by \(\sqrt{k/\phi}\), with &lt;em&gt;k&lt;/em&gt; permeability and \(\phi\) porosity, we can write the capillary pressure in a porous medium as $$p_c=J(S_w)\frac{\gamma_{w-nw}\cos(\theta)}{\sqrt(k/\phi)}$$
 Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&lt;/em&gt; is conveniently called the Leverett J-function.&lt;/p&gt;
 &lt;h3 id="The-J-function"&gt;The J-function&lt;a class="anchor-link" href="http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html#The-J-function"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let's think about the porous medium as a bundle of water-wet tubes with different diameters. First the tubes are filled with water, i.e., the water saturation is one. When we start blowing air into the tubes to push water out, at the beginning the minimum resistance is in the tube with the maximum diameter (see the definitions in the previous section). The amount of pressure that is required to push water out of the largest tube is called the entry capillary pressure. Then one by one we push water out of the thinner tubes. I always wanted to try this for myself. Why not here?&lt;/p&gt;
 &lt;h3 id="Capillary-pressure-for-a-bundle-of-tubes"&gt;Capillary pressure for a bundle of tubes&lt;a class="anchor-link" href="http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html#Capillary-pressure-for-a-bundle-of-tubes"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The following code plots the capillary pressure versus water saturation for the drainage and imbibition processes. I use some assumptions for the estimation of dynamic contact angle, to take into account the hysteresis.&lt;/p&gt;
@@ -21,7 +21,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -34,7 +34,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;r_min&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1e-7&lt;/span&gt; &lt;span class="c"&gt;# [m]&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;r_min&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1e-7&lt;/span&gt; &lt;span class="c"&gt;# [m]&lt;/span&gt;
 &lt;span class="n"&gt;r_max&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1e-6&lt;/span&gt; &lt;span class="c"&gt;# [m]&lt;/span&gt;
 &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_min&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r_max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.072&lt;/span&gt; &lt;span class="c"&gt;# [N/m]&lt;/span&gt;
@@ -49,7 +49,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;span class="c"&gt;# r_max: teta&lt;/span&gt;
 &lt;span class="c"&gt;# r_min: teta_min&lt;/span&gt;
 &lt;span class="n"&gt;teta_drain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;teta_min&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r_max&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r_min&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r_min&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;teta_min&lt;/span&gt;
-&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;π&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;π&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;span class="n"&gt;v_tot&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;cumsum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v_tot&lt;/span&gt;
 &lt;span class="n"&gt;p_drain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta_drain&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;
@@ -95,7 +95,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><category>Capillary</category><guid>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</guid><pubDate>Wed, 09 Dec 2015 21:22:59 GMT</pubDate></item><item><title>A nanoparticle at the gas-liquid interface: using Sympy</title><link>http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><category>capillary</category><guid>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</guid><pubDate>Wed, 09 Dec 2015 21:22:59 GMT</pubDate></item><item><title>A nanoparticle at the gas-liquid interface: using Sympy</title><link>http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -120,7 +120,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;SymPy&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;SymPy&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -143,7 +143,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"gamma_gw, gamma_sw, gamma_sg, r, theta"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"gamma_gw, gamma_sw, gamma_sg, r, theta"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -182,7 +182,7 @@ Clearly, someone has done it years ago, and therefore the function &lt;em&gt;J&l
 &lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;E1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;gama_sw&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;E1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;gama_sw&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -221,7 +221,7 @@ $$2 \pi \gamma_{sg} r^{2} \left(- \cos{\left (\theta \right )} + 1\right) + \gam
 &lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;E2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;E2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;PI&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -260,7 +260,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 &lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;dE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;E2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;E1&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;E2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;E1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -299,7 +299,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} - 2 \pi \gamma_{sg} r^{
 &lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;dE2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dE2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gama_sw&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;gama_gw&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;teta&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -338,7 +338,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 &lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;simplify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dE2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;simplify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dE2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -394,7 +394,7 @@ Let's see the code in action:&lt;/p&gt;
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;addpath('/home/ali/MyPackages/FVTool')
+&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;addpath('/home/ali/MyPackages/FVTool')
 FVToolStartUp()
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -427,7 +427,7 @@ FiniteVolumeToolbox has started successfully.
 &lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;% create a nonuniform mesh
+&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;% create a nonuniform mesh
 x=[0,0.1, 0.2, 0.25, 0.4, 0.42, 0.43, 0.6, 0.75, 0.9, 0.91, 0.92, 0.95, 1.0];
 m=createMesh1D(x);
 m3=createMesh3D(x,x,x);
@@ -474,7 +474,7 @@ m
 &lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;D=createCellVariable(m, 1.0);
+&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;D=createCellVariable(m, 1.0);
 D_face=arithmeticMean(D); # no need to send the mesh variable to the function
 disp(D)
 &lt;/pre&gt;&lt;/div&gt;
@@ -516,7 +516,7 @@ disp(D)
 &lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;D.domain
+&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;D.domain
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -559,7 +559,7 @@ disp(D)
 &lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;D=createCellVariable(m3, 1.0);
+&lt;div class=" highlight hl-octave_kernel"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;D=createCellVariable(m3, 1.0);
 D_face=arithmeticMean(D);
 BC=createBC(m3);
 BC.left.a(:)=0; BC.left.b(:)=1.0; BC.left.c(:)=1.0;
@@ -612,33 +612,33 @@ visualizeCells(c)
 </description><guid>http://simulkade.com/posts/fvtool-in-octave-the-new-classdef.html</guid><pubDate>Sat, 29 Aug 2015 11:01:57 GMT</pubDate></item><item><title>Install Octave 4.0 on Mint 17.1/Ubuntu 14.04</title><link>http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html</link><dc:creator>AAE</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;a href="http://www.gnu.org/software/octave/"&gt;Octave&lt;/a&gt; version 4.0 is out, and the good news is that it has a &lt;code&gt;classdef&lt;/code&gt; feature similar to Matlab. I will soon use it to update my &lt;a href="https://github.com/simulkade/FVTool"&gt;FVTool&lt;/a&gt; so that it can be used with all functionalities in Octave as well.&lt;br&gt;
 The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found &lt;a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/"&gt;here&lt;/a&gt;. I had to install some more libraries on my Mint 17.1 operating system.&lt;br&gt;
 First, install these dependencies:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gawk&lt;/span&gt; &lt;span class="n"&gt;gfortran&lt;/span&gt; &lt;span class="n"&gt;gperf&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt; &lt;span class="n"&gt;libbison&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libqhull&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libglpk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libcurl4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gnutls&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libfltk1&lt;/span&gt;&lt;span class="mf"&gt;.3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;librsvg2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libqrupdate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libgl2ps&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libosmesa6&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libarpack2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libqscintilla2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libreadline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;bison&lt;/span&gt; &lt;span class="n"&gt;icontool&lt;/span&gt; &lt;span class="n"&gt;llvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libfftw3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libhdf5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;serial&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;openjdk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jdk&lt;/span&gt; &lt;span class="n"&gt;transfig&lt;/span&gt;  &lt;span class="n"&gt;libgraphicsmagick&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libsndfile1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gawk gfortran gperf flex libbison-dev libqhull-dev libglpk-dev libcurl4-gnutls-dev libfltk1.3-dev librsvg2-dev libqrupdate-dev libgl2ps-dev libosmesa6-dev libarpack2-dev libqscintilla2-dev libreadline-dev bison icontool llvm-dev libfftw3-dev libhdf5-serial-dev openjdk-7-jdk transfig  libgraphicsmagick++1-dev libsndfile1-dev
 &lt;/pre&gt;
 
 
 &lt;p&gt;Then, download the &lt;a href="ftp://ftp.gnu.org/gnu/octave/"&gt;octave source code&lt;/a&gt; for version 4.0.0 from &lt;a href="ftp://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz"&gt;here&lt;/a&gt;, and extract it. Go to the new octave-4.0.0 forlder, and in a terminal window type&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;enable&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jit&lt;/span&gt;
-&lt;span class="n"&gt;make&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;./configure --enable-jit
+make
+sudo make install
 &lt;/pre&gt;
 
 
 &lt;p&gt;It takes a while, so go and pour a nice cup of coffee for yourself. If you get any error after running &lt;code&gt;./configure&lt;/code&gt;, find the missing dependencies &lt;a href="http://wiki.octave.org/Octave_for_Debian_systems"&gt;here&lt;/a&gt;.&lt;br&gt;
 If the installation is successful, run octave by typing &lt;code&gt;octave&lt;/code&gt;. It should launch the user interface of octave which is enabled by default in this version.&lt;br&gt;
 One other good news is that now you can run octave in a &lt;a href="https://jupyter.org/"&gt;Jupyter notebook&lt;/a&gt;, by installing &lt;a href="https://github.com/calysto/octave_kernel"&gt;octave kernel&lt;/a&gt; and &lt;a href="http://blink1073.github.io/oct2py/source/installation.html"&gt;oct2py&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;oct2py&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;octave_kernel&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo pip install oct2py
+sudo pip install octave_kernel
 &lt;/pre&gt;
 
 
 &lt;p&gt;It is still not possible to use octave kernel. Go to &lt;code&gt;/usr/local/bin&lt;/code&gt; and type&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;la&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ls -la
 &lt;/pre&gt;
 
 
 &lt;p&gt;You will see that &lt;code&gt;octave&lt;/code&gt; is linked to the &lt;code&gt;octave-4.0.0&lt;/code&gt;. You need to unlink &lt;code&gt;octave&lt;/code&gt; and create a symbolic link to the octave command line interface or &lt;code&gt;octave-cli&lt;/code&gt;. In the terminal window, type&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;unlink&lt;/span&gt; &lt;span class="n"&gt;octave&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;octave&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt; &lt;span class="n"&gt;octave&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo unlink octave
+sudo ln -s /usr/local/bin/octave-cli octave
 &lt;/pre&gt;
 
 
@@ -648,25 +648,25 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;li&gt;Install &lt;code&gt;adblock plus&lt;/code&gt; add-on for Firefox&lt;/li&gt;
 &lt;li&gt;Install latex:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt; &lt;span class="n"&gt;imagemagick&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bibtex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fonts&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;formats&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pictures&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pstricks&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;publishers&lt;/span&gt; &lt;span class="n"&gt;texlive&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;science&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install texlive imagemagick texlive-bibtex-extra texlive-fonts-extra texlive-font-utils texlive-extra-utils texlive-formats-extra texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-pictures texlive-pstricks texlive-publishers texlive-science
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install the newest version of &lt;a href="http://www.lyx.org/"&gt;lyx&lt;/a&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;lyx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;devel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;lyx&lt;/span&gt; &lt;span class="n"&gt;lyx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;common&lt;/span&gt; &lt;span class="n"&gt;dvipng&lt;/span&gt; &lt;span class="n"&gt;psutils&lt;/span&gt; &lt;span class="n"&gt;fonts&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lyx&lt;/span&gt; &lt;span class="n"&gt;elyxer&lt;/span&gt; &lt;span class="n"&gt;tex4ht&lt;/span&gt; &lt;span class="n"&gt;hevea&lt;/span&gt; &lt;span class="n"&gt;tth&lt;/span&gt; &lt;span class="n"&gt;latex2html&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:lyx-devel/release
+sudo apt-get update
+sudo apt-get install lyx lyx-common dvipng psutils fonts-lyx elyxer tex4ht hevea tth latex2html
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;a href="https://inkscape.org"&gt;inkscape&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;inkscape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;stable&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;inkscape&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt-get update
+sudo apt-get install inkscape
 &lt;/pre&gt;
 
 
@@ -674,49 +674,49 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;li&gt;Install &lt;a href="http://www.simulkade.com/posts/Physical%20properties%20in%20Julia:%20CoolProp.html"&gt;CoolProp&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Install &lt;a href="http://www.pydicom.org/"&gt;pydicom&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pydicom&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo pip install pydicom
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;a href="http://ipython.org/install.html"&gt;ipython&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="s"&gt;"ipython[all]"&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo pip install "ipython[all]"
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;a href="http://julialang.org/downloads/platform.html"&gt;Julia&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;staticfloat&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;juliareleases&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;staticfloat&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;julia&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;deps&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;julia&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:staticfloat/juliareleases
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;a href="http://matplotlib.org/"&gt;matplotlib&lt;/a&gt; and &lt;a href="http://www.scipy.org/"&gt;scipy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scipy&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tk&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install python-matplotlib python-scipy python-tk
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install &lt;a href="http://code.enthought.com/projects/mayavi/"&gt;mayavi2&lt;/a&gt; for 3D visualization&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;mayavi2&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install mayavi2
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Do this at the beginning: install some compilers:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt; &lt;span class="n"&gt;gfortran&lt;/span&gt; &lt;span class="n"&gt;pkg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install build-essential gfortran pkg-config
 &lt;/pre&gt;
 
 
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="n"&gt;them&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Ipopt&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//projects.coin-or.org/Ipopt)&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;I need them to install [Ipopt](https://projects.coin-or.org/Ipopt)
 &lt;/pre&gt;
 
 
@@ -724,12 +724,12 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;li&gt;Install &lt;a href="https://www.google.com/intl/en/chrome/browser/desktop/"&gt;google chrome&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Install &lt;a href="https://getnikola.com/"&gt;Nikola&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;libxml2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libxslt1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;zlib1g&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;webassets&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nikola&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nikola&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;extras&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev python-dev
+sudo pip install webassets
+sudo pip install ghp-import
+sudo pip install markdown
+sudo pip install nikola
+sudo pip install nikola[extras]
 &lt;/pre&gt;
 
 
@@ -737,16 +737,16 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;li&gt;Install &lt;a href="https://www.dropbox.com/install?os=lnx"&gt;dropbox&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Install some dependencies for linking Matlab to other packages&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;csh&lt;/span&gt; &lt;span class="n"&gt;gcc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;4.7&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++-&lt;/span&gt;&lt;span class="mf"&gt;4.7&lt;/span&gt; &lt;span class="n"&gt;gfortran&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;4.7&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install csh gcc-4.7 g++-4.7 gfortran-4.7
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Install and configure &lt;a href="http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup"&gt;git&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="s"&gt;"Your Name"&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="n"&gt;youremail&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install git
+git config --global user.name "Your Name"
+git config --global user.email youremail@something.com
 &lt;/pre&gt;
 
 
@@ -754,7 +754,7 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;li&gt;Install &lt;a href="http://nl.mathworks.com/products/matlab/"&gt;Matlab&lt;/a&gt;; I still have a license to do so. Otherwise, install &lt;code&gt;Octave&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Install &lt;a href="http://en.wikipedia.org/wiki/Pinta_%28software%29"&gt;Pinta&lt;/a&gt; for working with images, much easier than &lt;code&gt;GIMP&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pinta&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install pinta
 &lt;/pre&gt;
 
 
@@ -776,7 +776,7 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="nf"&gt; smooth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;win_len&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;win_method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="nf"&gt; smooth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;win_len&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;win_method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c"&gt;# This function requires the DSP package to be installed&lt;/span&gt;
 &lt;span class="c"&gt;# 1: flat&lt;/span&gt;
 &lt;span class="c"&gt;# 2: hanning&lt;/span&gt;
@@ -842,7 +842,7 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;div class="prompt input_prompt"&gt;In [30]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;DSP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;DSP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -855,7 +855,7 @@ One other good news is that now you can run octave in a &lt;a href="https://jupy
 &lt;div class="prompt input_prompt"&gt;In [29]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="err"&gt;π&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;π&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;y_real&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;y_noisy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;y_smooth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;smooth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_noisy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -916,7 +916,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="nf"&gt; permfieldlogrndg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Ny&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k_avrg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V_dp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;clx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="nf"&gt; permfieldlogrndg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Ny&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k_avrg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V_dp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;clx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c"&gt;# 2D random field generator:&lt;/span&gt;
 &lt;span class="c"&gt;# hdf: Gaussian&lt;/span&gt;
 &lt;span class="c"&gt;# acf: Gaussian&lt;/span&gt;
@@ -958,7 +958,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;PyPlot&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -971,7 +971,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="prompt input_prompt"&gt;In [37]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;
 &lt;span class="n"&gt;Ny&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;
 &lt;span class="n"&gt;clx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.0&lt;/span&gt;
 &lt;span class="n"&gt;cly&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.05&lt;/span&gt;
@@ -1020,16 +1020,16 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;ul&gt;
 &lt;li&gt;Open a terminal window and type&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nbextension&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nbextension&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nbextension&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
 &lt;/pre&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Go to &lt;code&gt;~/.ipython/profile_default/static/custom&lt;/code&gt;, and add the following line to the end of &lt;code&gt;custom.js&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;IPython&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_extensions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
 &lt;/pre&gt;
 
 
@@ -1039,7 +1039,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;p&gt;&lt;img alt="ipython spellcheck toolbar" src="http://simulkade.com/ipython_toolbar_screenshot.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Update (thanks to Henry Schreiner)&lt;/h3&gt;
 &lt;p&gt;In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="c"&gt;%%javascript&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;%%javascript&lt;/span&gt;
 &lt;span class="n"&gt;Jupyter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;notebook&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;"&lt;span class="n"&gt;load_extensions&lt;/span&gt;"&lt;span class="p"&gt;:{&lt;/span&gt;"&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                                                   "&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                                                   "&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;}})&lt;/span&gt;
@@ -1048,7 +1048,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 
 &lt;h3&gt;Update II (thanks to Noam Elfanbaum)&lt;/h3&gt;
 &lt;p&gt;Run the following in a terminal:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;jupyter&lt;/span&gt; &lt;span class="n"&gt;nbextension&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jupyter nbextension enable calico-spell-check
 &lt;/pre&gt;&lt;/div&gt;</description><guid>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</guid><pubDate>Tue, 07 Apr 2015 19:21:18 GMT</pubDate></item><item><title>JFVM: a finite volume tool for Julia</title><link>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
@@ -1059,12 +1059,12 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;During the Christmass holydays, I spent some time to convert my Matlab &lt;a href="https://github.com/simulkade/FVTool"&gt;FVTool&lt;/a&gt; to a &lt;a href="http://pkg.julialang.org/"&gt;Julia package&lt;/a&gt;. The result, which I call &lt;a href="https://github.com/simulkade/JFVM.jl"&gt;JFVM&lt;/a&gt; is a bit Matlabesque, but the package works. In this post I'm going to show how it works.&lt;/p&gt;
 &lt;h3 id="Installation"&gt;Installation&lt;a class="anchor-link" href="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html#Installation"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To install the package, you can use &lt;code&gt;Pkg.add("JFVM")&lt;/code&gt; in Julia, or clone the most recent version (recommended). You need to have Julia installed. JFVM relies on &lt;code&gt;PyPlot&lt;/code&gt;, &lt;code&gt;PyCall&lt;/code&gt;, and &lt;code&gt;Mayavi&lt;/code&gt; for visualization. Here's the procedure.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html"&gt;Read more…&lt;/a&gt; (5 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>Convection-Diffusion</category><category>Finite-Volume</category><category>JFVM</category><guid>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</guid><pubDate>Fri, 13 Mar 2015 21:05:20 GMT</pubDate></item><item><title>Physical properties in Julia: CoolProp</title><link>http://simulkade.com/posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html</link><dc:creator>AAE</dc:creator><description>&lt;div&gt;&lt;p&gt;Recently, I was analyzing my core-flooding experimental data in a Julia notebook, when I realize that I don't have access to a few Matlab functions that I have written (or found elsewhere), which I use regularly for the calculation of physical properties of pure components. For instance, viscosity of water (I know that you know it is 0.001 Pa.s) or density of CO2 or nitrogen at different temperatures and pressures. I know that &lt;a href="http://www.thermo.ruhr-uni-bochum.de/en/prof-w-wagner.html"&gt;Professor Wagner&lt;/a&gt; and his group have developed a few highly-accurate equations of state for industrial applications and I knew that there is a software called &lt;a href="http://ascend4.org/FPROPS"&gt;FPROPS&lt;/a&gt; which is used in &lt;a href="http://ascend4.org/Main_Page"&gt;Ascend IV&lt;/a&gt; package. Searching the name in google showed me a fantastic package called &lt;a href="http://simulkade.com/posts/www.coolprop.org/"&gt;CoolProp&lt;/a&gt; which is being developed mostly in &lt;a href="http://www.labothap.ulg.ac.be/cmsms/"&gt;thermodynamics laboratory&lt;/a&gt; in &lt;a href="http://simulkade.com/posts/www.ulg.ac.be/"&gt;Universite de Liege&lt;/a&gt;. The code is written in C++ but it supports many languages and environments including Matlab and Python. The Python part was interesting to me because I can call it using &lt;a href="https://github.com/stevengj/PyCall.jl"&gt;PyCall&lt;/a&gt; package in Julia. First I installed the &lt;code&gt;CoolProp&lt;/code&gt; package using the instructions &lt;a href="http://www.coolprop.org/HowGetIt.html"&gt;here&lt;/a&gt;. You can do it in Ubuntu 14.04 by running the following code in terminal:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;cython&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;CoolProp&lt;/span&gt;
+&lt;p&gt;&lt;a href="http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>Convection-Diffusion</category><category>Finite-Volume</category><category>JFVM</category><guid>http://simulkade.com/posts/jfvm-a-finite-volume-tool-for-julia.html</guid><pubDate>Fri, 13 Mar 2015 21:05:20 GMT</pubDate></item><item><title>Physical properties in Julia: CoolProp</title><link>http://simulkade.com/posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html</link><dc:creator>AAE</dc:creator><description>&lt;div&gt;&lt;p&gt;Recently, I was analyzing my core-flooding experimental data in a Julia notebook, when I realize that I don't have access to a few Matlab functions that I have written (or found elsewhere), which I use regularly for the calculation of physical properties of pure components. For instance, viscosity of water (I know that you know it is 0.001 Pa.s) or density of CO2 or nitrogen at different temperatures and pressures. I know that &lt;a href="http://www.thermo.ruhr-uni-bochum.de/en/prof-w-wagner.html"&gt;Professor Wagner&lt;/a&gt; and his group have developed a few highly-accurate equations of state for industrial applications and I knew that there is a software called &lt;a href="http://ascend4.org/FPROPS"&gt;FPROPS&lt;/a&gt; which is used in &lt;a href="http://ascend4.org/Main_Page"&gt;Ascend IV&lt;/a&gt; package. Searching the name in google showed me a fantastic package called &lt;a href="http://simulkade.com/posts/www.coolprop.org/"&gt;CoolProp&lt;/a&gt; which is being developed mostly in &lt;a href="http://www.labothap.ulg.ac.be/cmsms/"&gt;thermodynamics laboratory&lt;/a&gt; in &lt;a href="http://simulkade.com/posts/www.ulg.ac.be/"&gt;Universite de Liege&lt;/a&gt;. The code is written in C++ but it supports many languages and environments including Matlab and Python. The Python part was interesting to me because I can call it using &lt;a href="https://github.com/stevengj/PyCall.jl"&gt;PyCall&lt;/a&gt; package in Julia. First I installed the &lt;code&gt;CoolProp&lt;/code&gt; package using the instructions &lt;a href="http://www.coolprop.org/HowGetIt.html"&gt;here&lt;/a&gt;. You can do it in Ubuntu 14.04 by running the following code in terminal:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install g++
+sudo apt-get install cython
+sudo apt-get install python-pip
+sudo apt-get install python-dev
+sudo pip install CoolProp
 &lt;/pre&gt;
 
 

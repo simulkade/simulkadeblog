@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="prev" href="Matlab%20and%20Julia%20--%20Part%20I.html" title="Matlab and Julia -- Part I" type="text/html">
 <link rel="next" href="Physical%20properties%20in%20Julia%3A%20CoolProp.html" title="Physical properties in Julia: CoolProp" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
@@ -79,6 +88,7 @@ article: http://ogp.me/ns/article#
 <li>
     <a href="Matlab%20and%20Julia%20--%20Part%20II.md" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -90,6 +100,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
 
         <div class="metadata">
@@ -97,21 +108,25 @@ article: http://ogp.me/ns/article#
                     AAE
             </span></p>
             <p class="dateline"><a href="Matlab%20and%20Julia%20--%20Part%20II.html" rel="bookmark"><time class="published dt-published" datetime="2014-10-02T21:43:27+01:00" itemprop="datePublished" title="2014-10-02 21:43">2014-10-02 21:43</time></a></p>
-                <p class="commentline">            <a href="Matlab%20and%20Julia%20--%20Part%20II.html#disqus_thread" data-disqus-identifier="cache/posts/2014-10-02-matlab-and-julia-part-ii.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="Matlab%20and%20Julia%20--%20Part%20II.html#disqus_thread" data-disqus-identifier="cache/posts/2014-10-02-matlab-and-julia-part-ii.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="Matlab%20and%20Julia%20--%20Part%20II.md" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>In the previous post, I explained how to program the solution procedure of Buckley-Leverett equation in Matlab. Here, I'm trying to move everything to Julia. First, you need to install Julia, and a few important packages. Personally, I prefer the last development version. In Ubuntu-based distributions, you can install it by writing the following lines in the terminal.</p>
-<pre class="code literal-block"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julianightlies</span>
-<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">staticfloat</span><span class="o">/</span><span class="n">julia</span><span class="o">-</span><span class="n">deps</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">julia</span>
+<pre class="code literal-block"><span></span>sudo add-apt-repository ppa:staticfloat/julianightlies
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
 </pre>
 
 
@@ -120,13 +135,13 @@ article: http://ogp.me/ns/article#
 <p>You can get installers for other OS's <a href="http://julialang.org/downloads/">here</a>.<br>
 First, install a few dependencies, including python 2.7 and <a href="http://matplotlib.org/">matplotlib</a>.
 Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPlot</a> and <a href="https://github.com/JuliaLang/Roots.jl">Roots</a> packages, by typing</p>
-<pre class="code literal-block"><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"Roots"</span><span class="p">)</span>
+<pre class="code literal-block"><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"Roots"</span><span class="p">)</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"PyPlot"</span><span class="p">)</span>
 </pre>
 
 
 <p>Now, you can proceed to the next step, writing the code in Julia. There are a few things that you need to now when you start working with Julia as a Matlab user. In Matlab, you write</p>
-<pre class="code literal-block"><span class="n">a</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<pre class="code literal-block"><span></span><span class="n">a</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 <span class="n">b</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
 <span class="n">c</span><span class="p">=</span><span class="nb">rand</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
 <span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c">% 0</span>
@@ -140,7 +155,7 @@ Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPl
 
 
 <p>and in Julia, you write</p>
-<pre class="code literal-block"><span class="n">a</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<pre class="code literal-block"><span></span><span class="n">a</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">b</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">c</span><span class="o">=</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -155,7 +170,7 @@ Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPl
 
 <p>In Matlab, all the variables are 2D matrices. In Julia, they are not. Now try to get used to it. For me, it was the hardest part, next to the fact that there is not a good IDE for Julia yet.<br>
 No I convert everything right away to Julia, and you can compare it to the Matlab code for yourself.</p>
-<pre class="code literal-block"><span class="c"># A simple compact Julia script to solve Buckley-Leverett equation</span>
+<pre class="code literal-block"><span></span><span class="c"># A simple compact Julia script to solve Buckley-Leverett equation</span>
 <span class="c"># for water flooding.</span>
 <span class="c"># Written by AAE, TU Delft, September 2014</span>
 <span class="c"># Any sort of reproduction and redistribution of this code is highly encouraged.</span>
@@ -220,13 +235,13 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 
 
 <p>Now is the important step, running the code. Load the packages that you are going to call from your code:</p>
-<pre class="code literal-block"><span class="k">using</span> <span class="n">Roots</span>
+<pre class="code literal-block"><span></span><span class="k">using</span> <span class="n">Roots</span>
 <span class="k">using</span> <span class="n">PyPlot</span>
 </pre>
 
 
 <p>We will use <code>fzero</code> function from <code>Roots</code> package to find the shock front. We will also use the <code>PyPlot</code> package to visualize the results. Now load the code in <code>Julia</code> by typing</p>
-<pre class="code literal-block"><span class="n">reload</span><span class="p">(</span><span class="s">"BLjulia.jl"</span><span class="p">)</span>
+<pre class="code literal-block"><span></span>reload("BLjulia.jl")
 </pre>
 
 
@@ -247,7 +262,9 @@ No I convert everything right away to Julia, and you can compare it to the Matla
                 <a href="Physical%20properties%20in%20Julia%3A%20CoolProp.html" rel="next" title="Physical properties in Julia: CoolProp">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20II.html",
@@ -276,6 +293,7 @@ No I convert everything right away to Julia, and you can compare it to the Matla
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
