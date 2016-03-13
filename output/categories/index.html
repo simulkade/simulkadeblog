@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/categories/index.html">
@@ -15,7 +12,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/categories/index.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -76,6 +85,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <h1>Tags and Categories</h1>
         <h2>Categories</h2>
             <ul class="list-inline">
@@ -85,7 +95,7 @@ article: http://ogp.me/ns/article#
             </ul>
 <h2>Tags</h2>
     <ul class="list-inline">
-<li><a class="reference badge" href="capillary.html">Capillary</a></li>
+<li><a class="reference badge" href="capillary.html">capillary</a></li>
             <li><a class="reference badge" href="convection-diffusion.html">Convection-Diffusion</a></li>
             <li><a class="reference badge" href="coolprop.html">CoolProp</a></li>
             <li><a class="reference badge" href="correlation-length.html">correlation-length</a></li>
@@ -110,6 +120,7 @@ article: http://ogp.me/ns/article#
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

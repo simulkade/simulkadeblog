@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -190,7 +193,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">SymPy</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span>
 </pre></div>
 
 </div>
@@ -213,7 +216,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">gama_gw</span><span class="p">,</span> <span class="n">gama_sw</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">teta</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s">&quot;gamma_gw, gamma_sw, gamma_sg, r, theta&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">gama_gw</span><span class="p">,</span> <span class="n">gama_sw</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">teta</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s">&quot;gamma_gw, gamma_sw, gamma_sg, r, theta&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -252,7 +255,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">E1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">*</span><span class="n">gama_sg</span><span class="o">+</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">)))</span><span class="o">*</span><span class="n">gama_sw</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">E1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">*</span><span class="n">gama_sg</span><span class="o">+</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">)))</span><span class="o">*</span><span class="n">gama_sw</span>
 </pre></div>
 
 </div>
@@ -291,7 +294,7 @@ $$2 \pi \gamma_{sg} r^{2} \left(- \cos{\left (\theta \right )} + 1\right) + \gam
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">E2</span><span class="o">=</span><span class="n">gama_sw</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">E2</span><span class="o">=</span><span class="n">gama_sw</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span>
 </pre></div>
 
 </div>
@@ -330,7 +333,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">dE</span><span class="o">=</span><span class="n">E2</span><span class="o">-</span><span class="n">E1</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">dE</span><span class="o">=</span><span class="n">E2</span><span class="o">-</span><span class="n">E1</span>
 </pre></div>
 
 </div>
@@ -369,7 +372,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} - 2 \pi \gamma_{sg} r^{
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">dE2</span><span class="o">=</span><span class="n">subs</span><span class="p">(</span><span class="n">dE</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">gama_sw</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">dE2</span><span class="o">=</span><span class="n">subs</span><span class="p">(</span><span class="n">dE</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">gama_sw</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -408,7 +411,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">simplify</span><span class="p">(</span><span class="n">dE2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">dE2</span><span class="p">)</span>
 </pre></div>
 
 </div>

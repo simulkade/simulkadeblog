@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -183,7 +186,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> smooth</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">win_len</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">win_method</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> smooth</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">win_len</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">win_method</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="c"># This function requires the DSP package to be installed</span>
 <span class="c"># 1: flat</span>
 <span class="c"># 2: hanning</span>
@@ -249,7 +252,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">DSP</span><span class="p">,</span> <span class="n">PyPlot</span><span class="p">;</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DSP</span><span class="p">,</span> <span class="n">PyPlot</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -262,7 +265,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">x</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="err">π</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="n">π</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">y_real</span><span class="o">=</span><span class="mf">0.5</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y_noisy</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">y_smooth</span><span class="o">=</span><span class="n">smooth</span><span class="p">(</span><span class="n">y_noisy</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>

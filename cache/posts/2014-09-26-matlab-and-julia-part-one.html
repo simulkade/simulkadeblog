@@ -19,7 +19,7 @@ The relative permeabilities read</p>
 <p>that we can solve to find $S_{w,shock}$. Now the story is clear: we move from the injection saturation on the fractional flow curve to the saturation of the shock front and then bang; shock to the initial saturation. The shock moves with a constant speed of $u/\phi$ [m/s].</p>
 <h2>Optimization and root finding in matlab</h2>
 <p>In Matlab, we can do the whole thing in a simple script with a lot of <code>@</code>, which I've found out recently that, believe it or not, freaks the hell out of many students! The functions are easy to define:</p>
-<pre class="code literal-block"><span class="n">clc</span><span class="p">;</span> <span class="n">clear</span><span class="p">;</span> <span class="n">close</span> <span class="n">all</span><span class="p">;</span>
+<pre class="code literal-block"><span></span><span class="n">clc</span><span class="p">;</span> <span class="n">clear</span><span class="p">;</span> <span class="n">close</span> <span class="n">all</span><span class="p">;</span>
 <span class="c">% viscosities</span>
 <span class="n">muw</span> <span class="p">=</span> <span class="mf">1e-3</span><span class="p">;</span>
 <span class="n">muo</span> <span class="p">=</span> <span class="mf">10e-3</span><span class="p">;</span>
@@ -41,7 +41,7 @@ The relative permeabilities read</p>
 
 
 <p>The above definitions can be used to define the water fractional flow function and then find the shock front saturation. Let's define the fractional flow and its derivative in Matlab:</p>
-<pre class="code literal-block"><span class="n">dkrw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dsws</span><span class="o">*</span><span class="n">nw</span><span class="o">*</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="n">nw</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<pre class="code literal-block"><span></span><span class="n">dkrw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dsws</span><span class="o">*</span><span class="n">nw</span><span class="o">*</span><span class="n">krw0</span><span class="o">*</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="n">nw</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 <span class="n">dkro</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)(</span><span class="o">-</span><span class="n">dsws</span><span class="o">*</span><span class="n">no</span><span class="o">*</span><span class="n">kro0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sws</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">.^</span><span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 <span class="n">fw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">+</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="p">));</span>
 <span class="n">dfw</span> <span class="p">=</span> <span class="p">@(</span><span class="n">sw</span><span class="p">)((</span><span class="n">dkrw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muw</span><span class="o">.*</span><span class="n">kro</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">/</span><span class="n">muo</span><span class="o">-</span><span class="n">krw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="c">...</span>
@@ -50,7 +50,7 @@ The relative permeabilities read</p>
 
 
 <p>The shock front is calculated by solving the nonlinear equation in Matlab in the following way:</p>
-<pre class="code literal-block"><span class="c">% define initial conditions</span>
+<pre class="code literal-block"><span></span><span class="c">% define initial conditions</span>
 <span class="n">sw0</span> <span class="p">=</span> <span class="n">swc</span><span class="p">;</span> <span class="c">% the reservoir is filled with oil and connate water</span>
 <span class="c">% solve the nl equation to find the shock front saturation</span>
 <span class="n">sw_shock</span> <span class="p">=</span> <span class="n">fzero</span><span class="p">(@(</span><span class="n">sw</span><span class="p">)(</span><span class="n">dfw</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">fw</span><span class="p">(</span><span class="n">sw0</span><span class="p">)</span><span class="o">-</span><span class="n">fw</span><span class="p">(</span><span class="n">sw</span><span class="p">))</span><span class="o">./</span><span class="p">(</span><span class="n">sw0</span><span class="o">-</span><span class="n">sw</span><span class="p">)),</span> <span class="mf">0.5</span><span class="p">);</span>
@@ -61,7 +61,7 @@ The relative permeabilities read</p>
 Let's go on and solve the whole thing and plot the result. I explained that the saturation curve moves on the fractional flow curve from the injection point to the shock front and then shocks to the initial condition. I forgot (or didn't, because I write this post at different times) to mention that the main PDE (somewhere above) can be solved by using a method that is called <em>combination of variables</em> (if I remember correctly), and it shows that the front moves with a velocity $(u/\phi) (df_w/dS_w)$. This can be used in the code to plot the water saturation as a function of $x/t$. Now I'm talking nonsense from a very strict mathematical point of view. But if you stay with me, you will see that it works from a practical point of view. The position of each saturation value in space and time is then calculated by</p>
 <p>$$ \frac{x}{t} = \frac{u}{\phi} (\frac{dF_w}{dS_w})_{S_w} $$</p>
 <p>for $S_w$ between the injection point and shock front. In Matlab, we write it as</p>
-<pre class="code literal-block"><span class="c">% injection saturation</span>
+<pre class="code literal-block"><span></span><span class="c">% injection saturation</span>
 <span class="n">sw_inj</span> <span class="p">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">sor</span><span class="p">;</span> <span class="c">% not to make things too complicated</span>
 <span class="c">% water saturation between injection and shock</span>
 <span class="n">sw_rf</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">sw_inj</span><span class="p">,</span> <span class="n">sw_shock</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -78,7 +78,7 @@ Let's go on and solve the whole thing and plot the result. I explained that the 
 <p><img alt="BL solution octave" src="/Buckley-Leverett.png" /></p>
 <h2>The whole script in Matlab/Octave</h2>
 <p>This is the whole script with a bit more visualization</p>
-<pre class="code literal-block"><span class="c">% A simple compact Matlab/Octave script to solve Buckley-Leverett equation</span>
+<pre class="code literal-block"><span></span><span class="c">% A simple compact Matlab/Octave script to solve Buckley-Leverett equation</span>
 <span class="c">% for water flooding.</span>
 <span class="c">% Written by AAE, TU Delft, September 2014</span>
 <span class="c">% Any sort of reproduction and redistribution of this code is highly encouraged.</span>

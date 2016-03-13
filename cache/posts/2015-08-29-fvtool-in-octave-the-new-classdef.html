@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -185,7 +188,7 @@ Let's see the code in action:</p>
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>addpath(&#39;/home/ali/MyPackages/FVTool&#39;)
+<div class=" highlight hl-octave_kernel"><pre><span></span>addpath(&#39;/home/ali/MyPackages/FVTool&#39;)
 FVToolStartUp()
 </pre></div>
 
@@ -218,7 +221,7 @@ FiniteVolumeToolbox has started successfully.
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>% create a nonuniform mesh
+<div class=" highlight hl-octave_kernel"><pre><span></span>% create a nonuniform mesh
 x=[0,0.1, 0.2, 0.25, 0.4, 0.42, 0.43, 0.6, 0.75, 0.9, 0.91, 0.92, 0.95, 1.0];
 m=createMesh1D(x);
 m3=createMesh3D(x,x,x);
@@ -265,7 +268,7 @@ m
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D=createCellVariable(m, 1.0);
+<div class=" highlight hl-octave_kernel"><pre><span></span>D=createCellVariable(m, 1.0);
 D_face=arithmeticMean(D); # no need to send the mesh variable to the function
 disp(D)
 </pre></div>
@@ -307,7 +310,7 @@ disp(D)
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D.domain
+<div class=" highlight hl-octave_kernel"><pre><span></span>D.domain
 </pre></div>
 
 </div>
@@ -350,7 +353,7 @@ disp(D)
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave_kernel"><pre>D=createCellVariable(m3, 1.0);
+<div class=" highlight hl-octave_kernel"><pre><span></span>D=createCellVariable(m3, 1.0);
 D_face=arithmeticMean(D);
 BC=createBC(m3);
 BC.left.a(:)=0; BC.left.b(:)=1.0; BC.left.c(:)=1.0;

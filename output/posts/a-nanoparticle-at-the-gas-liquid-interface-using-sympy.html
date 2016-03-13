@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="prev" href="fvtool-in-octave-the-new-classdef.html" title="FVTool in Octave: the new classdef" type="text/html">
 <link rel="next" href="two-phase-flow-and-capillary-pressure.html" title="Two phase flow and capillary pressure: part I" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
@@ -77,6 +86,7 @@ article: http://ogp.me/ns/article#
 <li>
     <a href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.ipynb" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -88,6 +98,7 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">A nanoparticle at the gas-liquid interface: using Sympy</a></h1>
 
         <div class="metadata">
@@ -95,14 +106,18 @@ article: http://ogp.me/ns/article#
                     AAE
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-08-31T22:50:13+02:00" itemprop="datePublished" title="2015-08-31 22:50">2015-08-31 22:50</time></a></p>
-                <p class="commentline">            <a href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html#disqus_thread" data-disqus-identifier="cache/posts/2015-08-31-a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html#disqus_thread" data-disqus-identifier="cache/posts/2015-08-31-a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="a-nanoparticle-at-the-gas-liquid-interface-using-sympy.ipynb" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -129,7 +144,7 @@ article: http://ogp.me/ns/article#
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">SymPy</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span>
 </pre></div>
 
 </div>
@@ -152,7 +167,7 @@ article: http://ogp.me/ns/article#
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">gama_gw</span><span class="p">,</span> <span class="n">gama_sw</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">teta</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s">"gamma_gw, gamma_sw, gamma_sg, r, theta"</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">gama_gw</span><span class="p">,</span> <span class="n">gama_sw</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">teta</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s">"gamma_gw, gamma_sw, gamma_sg, r, theta"</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -192,7 +207,7 @@ article: http://ogp.me/ns/article#
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">E1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">*</span><span class="n">gama_sg</span><span class="o">+</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">)))</span><span class="o">*</span><span class="n">gama_sw</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">E1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">*</span><span class="n">gama_sg</span><span class="o">+</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">)))</span><span class="o">*</span><span class="n">gama_sw</span>
 </pre></div>
 
 </div>
@@ -232,7 +247,7 @@ $$2 \pi \gamma_{sg} r^{2} \left(- \cos{\left (\theta \right )} + 1\right) + \gam
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">E2</span><span class="o">=</span><span class="n">gama_sw</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">E2</span><span class="o">=</span><span class="n">gama_sw</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span>
 </pre></div>
 
 </div>
@@ -272,7 +287,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">dE</span><span class="o">=</span><span class="n">E2</span><span class="o">-</span><span class="n">E1</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">dE</span><span class="o">=</span><span class="n">E2</span><span class="o">-</span><span class="n">E1</span>
 </pre></div>
 
 </div>
@@ -312,7 +327,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} - 2 \pi \gamma_{sg} r^{
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">dE2</span><span class="o">=</span><span class="n">subs</span><span class="p">(</span><span class="n">dE</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">gama_sw</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">dE2</span><span class="o">=</span><span class="n">subs</span><span class="p">(</span><span class="n">dE</span><span class="p">,</span> <span class="n">gama_sg</span><span class="p">,</span> <span class="n">gama_sw</span><span class="o">+</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -352,7 +367,7 @@ $$\pi \gamma_{gw} r^{2} \sin^{2}{\left (\theta \right )} + 4 \pi \gamma_{sw} r^{
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">simplify</span><span class="p">(</span><span class="n">dE2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">dE2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -399,7 +414,9 @@ $$\pi \gamma_{gw} r^{2} \left(\cos{\left (\theta \right )} - 1\right)^{2}$$
                 <a href="two-phase-flow-and-capillary-pressure.html" rel="next" title="Two phase flow and capillary pressure: part I">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/a-nanoparticle-at-the-gas-liquid-interface-using-sympy.html",
@@ -419,8 +436,18 @@ $$\pi \gamma_{gw} r^{2} \left(\cos{\left (\theta \right )} - 1\right)^{2}$$
 
 
         </section><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-            </script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
         <!--End of body content-->
 
@@ -430,6 +457,7 @@ $$\pi \gamma_{gw} r^{2} \left(\cos{\left (\theta \right )} - 1\right)^{2}$$
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

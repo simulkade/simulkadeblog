@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/posts/the-first-test-post.html">
@@ -14,7 +11,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/posts/the-first-test-post.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="AAE">
 <link rel="next" href="Matlab%20and%20Julia%20--%20Part%20I.html" title="Matlab and Julia -- Part I" type="text/html">
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="A New Start">
@@ -81,6 +90,7 @@ A PVT toolbox f">
 <li>
     <a href="the-first-test-post.md" id="sourcelink">Source</a>
     </li>
+
                 
             </ul>
 </div>
@@ -92,6 +102,7 @@ A PVT toolbox f">
         <!--Body content-->
         <div class="row">
             
+            
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">A New Start</a></h1>
 
         <div class="metadata">
@@ -99,14 +110,18 @@ A PVT toolbox f">
                     AAE
             </span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-05-20T13:06:51+01:00" itemprop="datePublished" title="2014-05-20 13:06">2014-05-20 13:06</time></a></p>
-                <p class="commentline">            <a href="the-first-test-post.html#disqus_thread" data-disqus-identifier="cache/posts/2014-05-20-a-new-start.html">Comments</a>
+                <p class="commentline">
+        
+    <a href="the-first-test-post.html#disqus_thread" data-disqus-identifier="cache/posts/2014-05-20-a-new-start.html">Comments</a>
 
 
-                    </p>
+            
+        </p>
 <p class="sourceline"><a href="the-first-test-post.md" id="sourcelink">Source</a></p>
 
         </div>
         
+
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>I have started two new blogs to achieve two goals. Write more and share my work. My new blogs are
@@ -125,7 +140,9 @@ A PVT toolbox f">
                 <a href="Matlab%20and%20Julia%20--%20Part%20I.html" rel="next" title="Matlab and Julia -- Part I">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
-                        <div id="disqus_thread"></div>
+        
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="simulkade",
             disqus_url="http://simulkade.com/posts/the-first-test-post.html",
@@ -154,6 +171,7 @@ A PVT toolbox f">
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

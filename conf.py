@@ -120,33 +120,38 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 #          else they won’t be highlighted when active.
 
 NAVIGATION_LINKS = {
-    DEFAULT_LANG: (
-	("http://www.simulkade.com/stories/about.html", "About"),
-        ("http://fvt.simulkade.com", "FVT"),
-        ("http://energy.simulkade.com", "Energy"),
-        ("http://pvt.simulkade.com", "PVT"),
-        ("http://persian.simulkade.com", "فارسی"),
-        ("/archive.html", "Archive"),
-        ("/categories/index.html", "Tags"),
-        ("/rss.xml", "RSS feed"),
-    ),
-}
+     DEFAULT_LANG: (
+ 	("http://www.simulkade.com/stories/about.html", "About"),
+         ("http://fvt.simulkade.com", "FVT"),
+         ("http://energy.simulkade.com", "Energy"),
+         ("http://pvt.simulkade.com", "PVT"),
+         ("http://persian.simulkade.com", "فارسی"),
+         ("/archive.html", "Archive"),
+         ("/categories/index.html", "Tags"),
+         ("/rss.xml", "RSS feed"),
+     ),
+ }
 
 #NAVIGATION_LINKS = {
-#        DEFAULT_LANG: (
-#            ('/index.html', 'Home', 'icon-home'),
-#            ('/archive.html', 'Archives', 'icon-folder-open-alt'),
-#            ('/categories/index.html', 'Tags', 'icon-tags'),
-#            ('/rss.xml', 'RSS', 'icon-rss'),
-#            ('http://getnikola.com', 'About me', 'icon-user'),
-#            ('https://twitter.com/getnikola', 'My Twitter', 'icon-twitter'),
-#            ('https://github.com/getnikola', 'My Github', 'icon-github'),
-#        ),
+#       DEFAULT_LANG: (
+#           ('/index.html', 'Home', 'icon-home'),
+#           ('/archive.html', 'Archives', 'icon-folder-open-alt'),
+#           ('/categories/index.html', 'Tags', 'icon-tags'),
+#           ('/rss.xml', 'RSS', 'icon-rss'),
+#           ('http://getnikola.com', 'About me', 'icon-user'),
+#           ('https://twitter.com/getnikola', 'My Twitter', 'icon-twitter'),
+#           ('https://github.com/getnikola', 'My Github', 'icon-github'),
+#       ),
 #}
 
 
 # Name of the theme to use.
-THEME = "bootstrap3-gradients-jinja"
+THEME = "ehsan"
+#THEME = "bootstrap3"
+#THEME = "yesplease"
+#THEME = "zen-ipython"
+#THEME = "bootstrap3-jinja"
+#THEME = "bootblog-jinja"
 #THEME = "ipython"
 #THEME = "zen-ipython"
 
@@ -345,8 +350,8 @@ WRITE_TAG_CLOUD = True
 #}
 
 # Final location for the main blog page and sibling paginated pages is
-# output / TRANSLATION[lang] / INDEX_PATH / index-*.html
-# INDEX_PATH = ""
+# output / TRANSLATION[lang] / TH / index-*.html
+# INDEX_PATH = "blog"
 
 # Create per-month archives instead of per-year
 # CREATE_MONTHLY_ARCHIVE = False
@@ -419,7 +424,7 @@ GITHUB_DEPLOY_BRANCH = 'gh-pages'
 
 # The name of the remote where you wish to push to, using github_deploy.
 GITHUB_REMOTE_NAME = 'origin'
-
+GITHUB_COMMIT_SOURCE = True
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
 # to the location of conf.py
@@ -731,21 +736,21 @@ COMMENT_SYSTEM_ID = "simulkade"
 # MATHJAX_CONFIG = ""
 
 # If you are using the compile-ipynb plugin, just add this one:
-#MATHJAX_CONFIG = """
-#<script type="text/x-mathjax-config">
-#MathJax.Hub.Config({
-#    tex2jax: {
-#        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-#        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-#        processEscapes: true
-#    },
-#    displayAlign: 'center', // Change this to 'center' to center equations.
-#    "HTML-CSS": {
-#        styles: {'.MathJax_Display': {"margin": 0}}
-#    }
-#});
-#</script>
-#"""
+MATHJAX_CONFIG = """
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script>
+"""
 
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}
@@ -924,7 +929,7 @@ UNSLUGIFY_TITLES = True
 # }
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
-# USE_BUNDLES = True
+# USE_BUNDLES = False
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
@@ -982,7 +987,25 @@ LOGGING_HANDLERS = {
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+#GLOBAL_CONTEXT ={}
+# GLOBAL_CONTEXT = {'blog_sidebar': """\
+# <div class="sidebar-module sidebar-module-inset">
+#   <h4>About</h4>
+#   <p>This is the Bootstrap Blog theme by @mdo, adapted for Nikola by @Kwpolska.
+#   And this sidebar is completely customizable — you can put anything you want
+#   here!</p>
+# </div>
+# <div class="sidebar-module">
+#   <h4>Links</h4>
+#   <ol class="list-unstyled">
+#     <li><a href="http://getbootstrap.com/examples/blog/">Bootstrap Blog Theme</a></li>
+#     <li><a href="https://getnikola.com/">Nikola</a></li>
+#     <li><a href="https://twitter.com/mdo">@mdo</a></li>
+#     <li><a href="https://twitter.com/Kwpolska">@Kwpolska</a></li>
+#     <li><a href="https://twitter.com/GetNikola">@GetNikola</a></li>
+#   </ol>
+# </div>
+# """}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be

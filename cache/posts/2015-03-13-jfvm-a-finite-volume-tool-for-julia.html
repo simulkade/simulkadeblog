@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -230,7 +233,7 @@ There can be other steps in between depending on the problems.</li>
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">JFVM</span><span class="p">,</span> <span class="n">PyPlot</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">JFVM</span><span class="p">,</span> <span class="n">PyPlot</span>
 </pre></div>
 
 </div>
@@ -243,7 +246,7 @@ There can be other steps in between depending on the problems.</li>
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">L</span><span class="o">=</span> <span class="mf">1.0</span> <span class="c"># length of the domain</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">L</span><span class="o">=</span> <span class="mf">1.0</span> <span class="c"># length of the domain</span>
 <span class="n">Nx</span><span class="o">=</span> <span class="mi">20</span> <span class="c"># number of cells</span>
 <span class="n">m</span><span class="o">=</span> <span class="n">createMesh1D</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="c"># create the domain and mesh</span>
 <span class="n">BC</span><span class="o">=</span> <span class="n">createBC</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c"># create the boundary condition</span>
@@ -315,10 +318,10 @@ There can be other steps in between depending on the problems.</li>
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">L</span><span class="o">=</span> <span class="mf">1.0</span> <span class="c"># length of the domain</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">L</span><span class="o">=</span> <span class="mf">1.0</span> <span class="c"># length of the domain</span>
 <span class="n">Nx</span><span class="o">=</span> <span class="mi">30</span> <span class="c"># number of cells</span>
 <span class="n">Ntheta</span><span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">20</span>
-<span class="n">m</span><span class="o">=</span> <span class="n">createMeshRadial2D</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span> <span class="n">Ntheta</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="mi">2</span><span class="err">π</span><span class="p">)</span> <span class="c"># create the domain and mesh</span>
+<span class="n">m</span><span class="o">=</span> <span class="n">createMeshRadial2D</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span> <span class="n">Ntheta</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="mi">2</span><span class="n">π</span><span class="p">)</span> <span class="c"># create the domain and mesh</span>
 <span class="n">m</span><span class="o">.</span><span class="n">cellcenters</span><span class="o">.</span><span class="n">x</span><span class="o">+=</span><span class="mf">0.1</span>
 <span class="n">m</span><span class="o">.</span><span class="n">facecenters</span><span class="o">.</span><span class="n">x</span><span class="o">+=</span><span class="mf">0.1</span>
 <span class="n">BC</span><span class="o">=</span> <span class="n">createBC</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c"># create the boundary condition</span>

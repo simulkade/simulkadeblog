@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
 <base href="http://simulkade.com/2014/index.html">
@@ -15,7 +12,19 @@ article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://simulkade.com/2014/index.html">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -76,19 +85,20 @@ article: http://ogp.me/ns/article#
         <!--Body content-->
         <div class="row">
             
+            
 <article class="listpage"><header><h1>Posts for year 2014</h1>
     </header><ul class="postlist">
 <li>
-<a href="../posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" class="listtitle">Physical properties in Julia: CoolProp</a> <time class="listdate" datetime="2014-10-25T00:37:54+01:00" title="2014-10-25 00:37">2014-10-25 00:37</time>
+<time class="listdate" datetime="2014-10-25T00:37:54+01:00" title="2014-10-25 00:37">2014-10-25 00:37</time><a href="../posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" class="listtitle">Physical properties in Julia: CoolProp</a>
 </li>
         <li>
-<a href="../posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="listtitle">Matlab and Julia -- Part II</a> <time class="listdate" datetime="2014-10-02T21:43:27+01:00" title="2014-10-02 21:43">2014-10-02 21:43</time>
+<time class="listdate" datetime="2014-10-02T21:43:27+01:00" title="2014-10-02 21:43">2014-10-02 21:43</time><a href="../posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="listtitle">Matlab and Julia -- Part II</a>
 </li>
         <li>
-<a href="../posts/Matlab%20and%20Julia%20--%20Part%20I.html" class="listtitle">Matlab and Julia -- Part I</a> <time class="listdate" datetime="2014-09-26T09:25:07+01:00" title="2014-09-26 09:25">2014-09-26 09:25</time>
+<time class="listdate" datetime="2014-09-26T09:25:07+01:00" title="2014-09-26 09:25">2014-09-26 09:25</time><a href="../posts/Matlab%20and%20Julia%20--%20Part%20I.html" class="listtitle">Matlab and Julia -- Part I</a>
 </li>
         <li>
-<a href="../posts/the-first-test-post.html" class="listtitle">A New Start</a> <time class="listdate" datetime="2014-05-20T13:06:51+01:00" title="2014-05-20 13:06">2014-05-20 13:06</time>
+<time class="listdate" datetime="2014-05-20T13:06:51+01:00" title="2014-05-20 13:06">2014-05-20 13:06</time><a href="../posts/the-first-test-post.html" class="listtitle">A New Start</a>
 </li>
     </ul></article>
 </div>
@@ -100,6 +110,7 @@ article: http://ogp.me/ns/article#
         </footer>
 </div>
 </div>
+
 
             <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");

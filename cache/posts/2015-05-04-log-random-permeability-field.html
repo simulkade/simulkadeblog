@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -173,7 +176,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I was looking for a simple method to generate a log-random permeability field with specified <a href="https://books.google.nl/books?id=mHF_peTBFBIC&pg=PA136&lpg=PA136&dq=dykstra+parsons+coefficient&source=bl&ots=SsXmddP98Y&sig=-SqfDmwhrbiTnaprBpNlpCene08&hl=en&sa=X&ei=Y9hHVdXnHMWdsgHaw4DgCg&ved=0CD8Q6AEwBA#v=onepage&q=dykstra%20parsons%20coefficient&f=false">Dykstra-Parsons</a> coefficient and correlation length. I found <a href="http://www.mysimlabs.com/surface_generation.html">this webpage</a> with some well-written Matlab codes for the generation of rough surfaces. I'm literally illiterate when it comes to signal processing. All I know is that the Dykstra-Parsons coefficient is defined as $$V_{DP}=\frac{\text{Standard deviation of }\log(k)}{\text{Average of }\log(k)}=\frac{\log(k)_{P50}-\log(k)_{P84.1}}{\log(k)_{P50}}$$
+<p>I was looking for a simple method to generate a log-random permeability field with specified <a href="https://books.google.nl/books?id=mHF_peTBFBIC&amp;pg=PA136&amp;lpg=PA136&amp;dq=dykstra+parsons+coefficient&amp;source=bl&amp;ots=SsXmddP98Y&amp;sig=-SqfDmwhrbiTnaprBpNlpCene08&amp;hl=en&amp;sa=X&amp;ei=Y9hHVdXnHMWdsgHaw4DgCg&amp;ved=0CD8Q6AEwBA#v=onepage&amp;q=dykstra%20parsons%20coefficient&amp;f=false">Dykstra-Parsons</a> coefficient and correlation length. I found <a href="http://www.mysimlabs.com/surface_generation.html">this webpage</a> with some well-written Matlab codes for the generation of rough surfaces. I'm literally illiterate when it comes to signal processing. All I know is that the Dykstra-Parsons coefficient is defined as $$V_{DP}=\frac{\text{Standard deviation of }\log(k)}{\text{Average of }\log(k)}=\frac{\log(k)_{P50}-\log(k)_{P84.1}}{\log(k)_{P50}}$$
 We can rearrange the above equation to obtain the standard deviation of the permeability field: $$\sigma = -\log(1-V_{DP})$$
 I used this standard deviation and the average permeability value, $k_{ave}$, to generate a random distribution, and pass it through the filter that I found in the mentioned Matlab <a href="http://www.mysimlabs.com/matlab/surfgen/rsgene2D.m">codes</a> to generate a log-random permeability field. I showed the result to a Geologist colleague of mine, and he confirmed that it can indeed be considered as an acceptable permeability field. Here's one sample code for a 2D field generation, in Julia. You can easily convert it to Matlab.</p>
 
@@ -185,7 +188,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> permfieldlogrndg</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">k_avrg</span><span class="p">,</span><span class="n">V_dp</span><span class="p">,</span><span class="n">clx</span><span class="p">,</span><span class="n">cly</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> permfieldlogrndg</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">k_avrg</span><span class="p">,</span><span class="n">V_dp</span><span class="p">,</span><span class="n">clx</span><span class="p">,</span><span class="n">cly</span><span class="p">)</span>
 <span class="c"># 2D random field generator:</span>
 <span class="c"># hdf: Gaussian</span>
 <span class="c"># acf: Gaussian</span>
@@ -227,7 +230,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">PyPlot</span><span class="p">;</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">PyPlot</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -240,7 +243,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 <div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">Nx</span><span class="o">=</span><span class="mi">100</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Nx</span><span class="o">=</span><span class="mi">100</span>
 <span class="n">Ny</span><span class="o">=</span><span class="mi">50</span>
 <span class="n">clx</span><span class="o">=</span><span class="mf">1.0</span>
 <span class="n">cly</span><span class="o">=</span><span class="mf">0.05</span>

@@ -52,8 +52,10 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -88,6 +90,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -174,7 +177,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Capillary-pressure">Capillary pressure<a class="anchor-link" href="#Capillary-pressure">&#182;</a></h2><p>Imagine a very thin glass tube filled with water. If the tube is thin enough, water likes to stay in the tube. You have to blow in the tube to push it out. In other words, to replace water that wets the glass with air, we need to push air into the tube. The amount of pushing that you need for air to go through is called capillary pressure. Its value, which is defined as $$p_c=p_{air}-p_{w},$$ is related to the water-air surface tension, contact angle, and tube diameter with the following relation: $$p_c=\frac{\gamma_{w-air}\cos(\theta)}{r}.$$<br>
-In Petroleum Engineering, capillary pressure has the same definition: $$p_c=p_{nw}-p_w,$$ where subscripts <em>nw</em> and <em>w</em> denote 'non-wetting' and 'wetting' phases respectively. However, a porous medium is made of many tubes with different sizes. Therefore, when we want to blow water out of it, the amount of required 'pushing' depends on the number of tubes that are already filled with water (or the wetting phase). In other words, the capillary pressure depends on the 'wetting-phase saturation'. If we assume the average tube radius can be defined by $\sqrt{k/\phi}$, with <em>k</em> permeability and $\phi$ porosity, we can write the capillary pressure in a porous medium as $$p_c=J(S_w)\frac{\gamma_{w-nw}\cos(\theta)}{\sqrt(k/\phi)}$$
+In Petroleum Engineering, capillary pressure has the same definition: $$p_c=p_{nw}-p_w,$$ where subscripts <em>nw</em> and <em>w</em> denote 'non-wetting' and 'wetting' phases respectively. However, a porous medium is made of many tubes with different sizes. Therefore, when we want to blow water out of it, the amount of required 'pushing' depends on the number of tubes that are already filled with water (or the wetting phase). In other words, the capillary pressure depends on the 'wetting-phase saturation'. If we assume the average tube radius can be defined by \(\sqrt{k/\phi}\), with <em>k</em> permeability and \(\phi\) porosity, we can write the capillary pressure in a porous medium as $$p_c=J(S_w)\frac{\gamma_{w-nw}\cos(\theta)}{\sqrt(k/\phi)}$$
 Clearly, someone has done it years ago, and therefore the function <em>J</em> is conveniently called the Leverett J-function.</p>
 <h2 id="The-J-function">The J-function<a class="anchor-link" href="#The-J-function">&#182;</a></h2><p>Let's think about the porous medium as a bundle of water-wet tubes with different diameters. First the tubes are filled with water, i.e., the water saturation is one. When we start blowing air into the tubes to push water out, at the beginning the minimum resistance is in the tube with the maximum diameter (see the definitions in the previous section). The amount of pressure that is required to push water out of the largest tube is called the entry capillary pressure. Then one by one we push water out of the thinner tubes. I always wanted to try this for myself. Why not here?</p>
 <h2 id="Capillary-pressure-for-a-bundle-of-tubes">Capillary pressure for a bundle of tubes<a class="anchor-link" href="#Capillary-pressure-for-a-bundle-of-tubes">&#182;</a></h2><p>The following code plots the capillary pressure versus water saturation for the drainage and imbibition processes. I use some assumptions for the estimation of dynamic contact angle, to take into account the hysteresis.</p>
@@ -187,7 +190,7 @@ Clearly, someone has done it years ago, and therefore the function <em>J</em> is
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">PyPlot</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">PyPlot</span>
 </pre></div>
 
 </div>
@@ -200,7 +203,7 @@ Clearly, someone has done it years ago, and therefore the function <em>J</em> is
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">r_min</span><span class="o">=</span><span class="mf">1e-7</span> <span class="c"># [m]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">r_min</span><span class="o">=</span><span class="mf">1e-7</span> <span class="c"># [m]</span>
 <span class="n">r_max</span><span class="o">=</span><span class="mf">1e-6</span> <span class="c"># [m]</span>
 <span class="n">r</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="n">r_min</span><span class="p">,</span> <span class="n">r_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">gama_gw</span><span class="o">=</span><span class="mf">0.072</span> <span class="c"># [N/m]</span>
@@ -215,7 +218,7 @@ Clearly, someone has done it years ago, and therefore the function <em>J</em> is
 <span class="c"># r_max: teta</span>
 <span class="c"># r_min: teta_min</span>
 <span class="n">teta_drain</span><span class="o">=</span><span class="p">(</span><span class="n">teta</span><span class="o">-</span><span class="n">teta_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r_max</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="n">r_min</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="n">r_min</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">teta_min</span>
-<span class="n">v</span><span class="o">=</span><span class="err">π</span><span class="o">*</span><span class="n">r</span><span class="o">.^</span><span class="mi">2</span>
+<span class="n">v</span><span class="o">=</span><span class="n">π</span><span class="o">*</span><span class="n">r</span><span class="o">.^</span><span class="mi">2</span>
 <span class="n">v_tot</span><span class="o">=</span><span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 <span class="n">s</span><span class="o">=</span><span class="n">cumsum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="n">v_tot</span>
 <span class="n">p_drain</span><span class="o">=</span><span class="n">gama_gw</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">teta_drain</span><span class="p">)</span><span class="o">./</span><span class="n">r</span>
