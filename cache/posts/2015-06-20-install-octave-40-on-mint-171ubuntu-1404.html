@@ -1,5 +1,5 @@
-<p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br />
-The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br />
+<p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br>
+The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br>
 First, install these dependencies:</p>
 <pre class="code literal-block"><span></span>sudo apt-get install gawk gfortran gperf flex libbison-dev libqhull-dev libglpk-dev libcurl4-gnutls-dev libfltk1.3-dev librsvg2-dev libqrupdate-dev libgl2ps-dev libosmesa6-dev libarpack2-dev libqscintilla2-dev libreadline-dev bison icontool llvm-dev libfftw3-dev libhdf5-serial-dev openjdk-7-jdk transfig  libgraphicsmagick++1-dev libsndfile1-dev
 </pre>
@@ -12,8 +12,8 @@ sudo make install
 </pre>
 
 
-<p>It takes a while, so go and pour a nice cup of coffee for yourself. If you get any error after running <code>./configure</code>, find the missing dependencies <a href="http://wiki.octave.org/Octave_for_Debian_systems">here</a>.<br />
-If the installation is successful, run octave by typing <code>octave</code>. It should launch the user interface of octave which is enabled by default in this version.<br />
+<p>It takes a while, so go and pour a nice cup of coffee for yourself. If you get any error after running <code>./configure</code>, find the missing dependencies <a href="http://wiki.octave.org/Octave_for_Debian_systems">here</a>.<br>
+If the installation is successful, run octave by typing <code>octave</code>. It should launch the user interface of octave which is enabled by default in this version.<br>
 One other good news is that now you can run octave in a <a href="https://jupyter.org/">Jupyter notebook</a>, by installing <a href="https://github.com/calysto/octave_kernel">octave kernel</a> and <a href="http://blink1073.github.io/oct2py/source/installation.html">oct2py</a>:</p>
 <pre class="code literal-block"><span></span>sudo pip install oct2py
 sudo pip install octave_kernel

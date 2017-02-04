@@ -146,7 +146,11 @@ NAVIGATION_LINKS = {
 
 
 # Name of the theme to use.
-THEME = "ehsan"
+#THEME = "ehsan"
+# THEME = "slidemenu"
+THEME = "lanyon"
+# THEME = "hpstr"
+#THEME = "yesplease"
 #THEME = "bootstrap3"
 #THEME = "yesplease"
 #THEME = "zen-ipython"
@@ -987,7 +991,9 @@ LOGGING_HANDLERS = {
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-#GLOBAL_CONTEXT ={}
+#GLOBAL_CONTEXT = {
+#        "lanyon_subtheme": "theme-base-09"
+#    }
 # GLOBAL_CONTEXT = {'blog_sidebar': """\
 # <div class="sidebar-module sidebar-module-inset">
 #   <h4>About</h4>

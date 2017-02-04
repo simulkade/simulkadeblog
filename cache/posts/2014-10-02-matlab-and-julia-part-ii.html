@@ -8,7 +8,7 @@ sudo apt-get install julia
 
 <!-- TEASER_END -->
 
-<p>You can get installers for other OS's <a href="http://julialang.org/downloads/">here</a>.<br />
+<p>You can get installers for other OS's <a href="http://julialang.org/downloads/">here</a>.<br>
 First, install a few dependencies, including python 2.7 and <a href="http://matplotlib.org/">matplotlib</a>.
 Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPlot</a> and <a href="https://github.com/JuliaLang/Roots.jl">Roots</a> packages, by typing</p>
 <pre class="code literal-block"><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Roots&quot;</span><span class="p">)</span>
@@ -44,7 +44,7 @@ Then, run Julia and add the <a href="https://github.com/stevengj/PyPlot.jl">PyPl
 </pre>
 
 
-<p>In Matlab, all the variables are 2D matrices. In Julia, they are not. Now try to get used to it. For me, it was the hardest part, next to the fact that there is not a good IDE for Julia yet.<br />
+<p>In Matlab, all the variables are 2D matrices. In Julia, they are not. Now try to get used to it. For me, it was the hardest part, next to the fact that there is not a good IDE for Julia yet.<br>
 No I convert everything right away to Julia, and you can compare it to the Matlab code for yourself.</p>
 <pre class="code literal-block"><span></span><span class="c"># A simple compact Julia script to solve Buckley-Leverett equation</span>
 <span class="c"># for water flooding.</span>
@@ -94,18 +94,18 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
 <span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">krw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">),</span> <span class="n">sw_all</span><span class="p">,</span> <span class="n">kro</span><span class="p">(</span><span class="n">sw_all</span><span class="p">))</span> 
 <span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;S_w&quot;</span><span class="p">)</span> 
 <span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Relative permeabilities&quot;</span><span class="p">)</span> 
-<span class="n">legend</span><span class="p">((</span><span class="s">L&quot;k_{rw}&quot;</span><span class="p">,</span> <span class="s">L&quot;k_{ro}&quot;</span><span class="p">))</span>
+<span class="n">legend</span><span class="p">((</span><span class="n">L</span><span class="s">&quot;k_{rw}&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;k_{ro}&quot;</span><span class="p">))</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> 
 <span class="n">plot</span><span class="p">(</span><span class="n">sw_all</span><span class="p">,</span> <span class="n">fw</span><span class="p">(</span><span class="n">sw_all</span><span class="p">))</span>
 <span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
-<span class="n">ylabel</span><span class="p">(</span><span class="s">L&quot;F_w&quot;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;F_w&quot;</span><span class="p">)</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">([</span><span class="n">xt_rf</span><span class="p">,</span> <span class="n">xt_shock</span><span class="p">,</span> <span class="n">maximum</span><span class="p">(</span><span class="n">xt_all</span><span class="p">)],</span> <span class="p">[</span><span class="n">sw_rf</span><span class="p">,</span> <span class="n">sw0</span><span class="p">,</span> <span class="n">sw0</span><span class="p">],</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="n">xt_all</span><span class="p">,</span> <span class="n">sw_all</span><span class="p">,</span> <span class="s">&quot;--b&quot;</span><span class="p">)</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;x/t&quot;</span><span class="p">)</span> 
-<span class="n">ylabel</span><span class="p">(</span><span class="s">L&quot;S_w&quot;</span><span class="p">)</span> 
+<span class="n">ylabel</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;S_w&quot;</span><span class="p">)</span> 
 <span class="n">legend</span><span class="p">((</span><span class="s">&quot;BL solution&quot;</span><span class="p">,))</span>
 </pre>
 
@@ -122,5 +122,5 @@ No I convert everything right away to Julia, and you can compare it to the Matla
 
 
 <p>If everything is fine, it will show you the following plot:</p>
-<p><img alt="BL solution julia" src="/julia-Buckley-Leverett.png" /></p>
+<p><img alt="BL solution julia" src="/julia-Buckley-Leverett.png"></p>
 <p>I'll discuss some of the small issues that I had with Julia as a Matlab user.</p>

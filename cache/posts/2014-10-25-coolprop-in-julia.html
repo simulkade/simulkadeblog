@@ -12,7 +12,7 @@ sudo pip install CoolProp
 <p>It took around a minute on my computer to compile and install the code. Then I found a reply about using <code>CoolProp</code> in Julia google group. I'm too lazy to find the link again, but basically this is what you need to do to run <code>CoolProp</code> in Julia.</p>
 <pre class="code literal-block"><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;PyCall&quot;</span><span class="p">)</span>
 <span class="k">using</span> <span class="n">PyCall</span>
-<span class="p">@</span><span class="n">pyimport</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span> <span class="n">as</span> <span class="n">CP</span>
+<span class="nd">@pyimport</span> <span class="n">CoolProp</span><span class="o">.</span><span class="n">CoolProp</span> <span class="n">as</span> <span class="n">CP</span>
 <span class="n">mu_w</span><span class="o">=</span> <span class="n">CP</span><span class="o">.</span><span class="n">Props</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">,</span><span class="s">&quot;T&quot;</span><span class="p">,</span><span class="mf">273.15</span><span class="o">+</span><span class="mf">22.0</span><span class="p">,</span><span class="s">&quot;P&quot;</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;H2O&quot;</span><span class="p">)</span> <span class="c"># mu [Pa.s], T [K], P [kPa]</span>
 </pre>
 
