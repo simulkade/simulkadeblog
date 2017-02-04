@@ -9,11 +9,13 @@
 .. type: text
 -->
 
+
+# Curriculum Vitae
 ## Personal information
 **Ali Akbar Eftekhari**
 
 + *Date and place of birth*: 1981, [Estahban](https://www.google.nl/maps/place/Estahbān,+Fars,+Iran/), [Iran](https://en.wikipedia.org/wiki/Iran)
-+ *Marital status*: Married, [one child](/Aida_met_papa.JPG)
++ *Marital status*: Married, [two children](/Aida_met_papa.JPG)
 ---
 ## Profile
 I am a Chemical and Petroleum Engineering graduate with several years of experience in the modeling and simulation of [upstream](https://en.wikipedia.org/wiki/Upstream_%28petroleum_industry%29) and [downstream](https://en.wikipedia.org/wiki/Downstream_%28petroleum_industry%29) oil and gas processes. Besides working with [commercial simulators](https://en.wikipedia.org/wiki/List_of_chemical_process_simulators), I have developed prototype computer tools for the modeling and simulation of multicomponent [phase equilibrium](https://en.wikipedia.org/wiki/Vapor%E2%80%93liquid_equilibrium) and multiphase flow in porous media. During my PhD, I used the concept of [exergy](https://en.wikipedia.org/wiki/Exergy) to devise and develop a procedure for the [life-cycle-assessment](https://en.wikipedia.org/wiki/Life-cycle_assessment) of zero-emission fossil fuel recovery. As a post-doc researcher, I worked on the application of nanotechnology in the enhanced oil recovery. I have designed and conducted experiments in different scales, including production and stabilization of colloidal suspensions to high-pressure/high-temperature core-flooding experiments for [EOR](https://en.wikipedia.org/wiki/Enhanced_oil_recovery). My scientific passion is the [exergy](https://en.wikipedia.org/wiki/Exergy) analysis of the energy conversion processes. My other interest is the investigation of various physical and chemical interactions (fluid-fluid, rock-fluid) in the flow of [multiphase fluids in porous media](https://en.wikipedia.org/wiki/Fluid_flow_through_porous_media). I am also interested in numerical methods and computer programming, fluid phase equilibria, and [process simulation](https://en.wikipedia.org/wiki/Process_simulation) and optimization.
@@ -114,8 +116,10 @@ Best paper award, annual research meeting of the Department of Geoscience and En
 ---
 
 ## Publications
+For an up to date list, please visit:
 + [Google Scholar profile](https://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en)
 + [ResearchGate profile](https://www.researchgate.net/profile/Ali_Akbar_Eftekhari)
+Here's a selected list of my publications:
 ### Refereed journals
 1. **Eftekhari, A.A.**, Krastev, R., Farajzadeh, R., (2015), Foam Stabilized by Fly-Ash Nanoparticles for Enhancing Oil Recovery, Industrial & Engineering Chemistry Research 54 (50), 12482–12491 [(Download)](https://www.researchgate.net/publication/285711305_Foam_Stabilized_by_Fly-Ash_Nanoparticles_for_Enhancing_Oil_Recovery)
 1. **Eftekhari, A.A.**, Wolf, K.H.H., Rogut, J. & Bruining, J. (2015), Mathematical modeling of alternating injection of oxygen and steam in underground coal gasification. *International Journal of Coal Geology*. [(Download)](https://www.researchgate.net/publication/281334363_Mathematical_modeling_of_alternating_injection_of_oxygen_and_steam_in_underground_coal_gasification)

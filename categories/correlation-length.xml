@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SIMULKADE (correlation-length)</title><link>http://simulkade.com/</link><description></description><atom:link href="http://simulkade.com/categories/correlation-length.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 13 Mar 2016 17:47:56 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>How to generate a log-random permeability field</title><link>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SIMULKADE (Posts about correlation-length)</title><link>http://simulkade.com/</link><description></description><atom:link href="http://simulkade.com/categories/correlation-length.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 04 Feb 2017 18:53:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>How to generate a log-random permeability field</title><link>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</link><dc:creator>AAE</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -19,7 +19,7 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="nf"&gt; permfieldlogrndg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Ny&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k_avrg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V_dp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;clx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class=" highlight hl-julia"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;permfieldlogrndg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Nx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Ny&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k_avrg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V_dp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;clx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c"&gt;# 2D random field generator:&lt;/span&gt;
 &lt;span class="c"&gt;# hdf: Gaussian&lt;/span&gt;
 &lt;span class="c"&gt;# acf: Gaussian&lt;/span&gt;
@@ -94,7 +94,9 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;div class="output"&gt;
 
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_png output_subarea "&gt;

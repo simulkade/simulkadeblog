@@ -10,10 +10,8 @@
 -->
 
 # About me
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPd1JXZTNlSjItRzQ" />  
-My name is Ali Akbar Eftekhari. My family and friends call me Ehsan. I currently live in Delft, the Netherlands with my wife, Maryam, and my daughter, Aida. I am a post-doc in the Section of [Petroleum Engineering](http://www.citg.tudelft.nl/en/about-faculty/departments/geoscience-engineering/sections/petroleum-engineering/) at the [TU Delft](http://www.tudelft.nl/en/).  
-I have [a twitter account](https://twitter.com/aidadaddy) that is barely used, a [Google scholar profile](http://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en) where you can see a list of my publications, and a [github account](https://github.com/simulkade) where you can find some of my codes.  
-Here's my [CV](http://www.simulkade.com/stories/cv.html).
+My name is Ali Akbar Eftekhari. My family and friends call me Ehsan. I currently live in Lyngby, Denmark with my wife, Maryam, our daughter, Aida, and our son Aidin. I am a post-doc researcher in the [Centre for Oil and Gas](http://www.oilgas.dtu.dk/english) at the [Technical University of Denmark](http://www.dtu.dk).  
+I have [a twitter account](https://twitter.com/aidadaddy) that is barely used, a [Google scholar profile](http://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en) where you can see a list of my publications, and a [github account](https://github.com/simulkade) where you can find some of my codes.
 
 ---
 
@@ -123,8 +121,10 @@ Best paper award, annual research meeting of the Department of Geoscience and En
 ---
 
 ## Publications
+For an up to date list, please visit:
 + [Google Scholar profile](https://scholar.google.nl/citations?user=hBKHOIcAAAAJ&hl=en)
 + [ResearchGate profile](https://www.researchgate.net/profile/Ali_Akbar_Eftekhari)
+Here's a selected list of my publications:
 ### Refereed journals
 1. **Eftekhari, A.A.**, Krastev, R., Farajzadeh, R., (2015), Foam Stabilized by Fly-Ash Nanoparticles for Enhancing Oil Recovery, Industrial & Engineering Chemistry Research 54 (50), 12482–12491 [(Download)](https://www.researchgate.net/publication/285711305_Foam_Stabilized_by_Fly-Ash_Nanoparticles_for_Enhancing_Oil_Recovery)
 1. **Eftekhari, A.A.**, Wolf, K.H.H., Rogut, J. & Bruining, J. (2015), Mathematical modeling of alternating injection of oxygen and steam in underground coal gasification. *International Journal of Coal Geology*. [(Download)](https://www.researchgate.net/publication/281334363_Mathematical_modeling_of_alternating_injection_of_oxygen_and_steam_in_underground_coal_gasification)
