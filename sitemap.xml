@@ -14,8 +14,12 @@
   <lastmod>2017-02-04T18:53:00Z</lastmod>
  </url>
  <url>
+  <loc>http://simulkade.com/2017/index.html</loc>
+  <lastmod>2017-03-14T20:46:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://simulkade.com/archive.html</loc>
-  <lastmod>2017-02-04T18:53:00Z</lastmod>
+  <lastmod>2017-03-14T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/capillary.html</loc>
@@ -91,11 +95,11 @@
  </url>
  <url>
   <loc>http://simulkade.com/index-1.html</loc>
-  <lastmod>2017-02-04T18:53:00Z</lastmod>
+  <lastmod>2017-03-14T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/index.html</loc>
-  <lastmod>2017-02-04T18:53:00Z</lastmod>
+  <lastmod>2017-03-14T20:46:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</loc>
@@ -116,6 +120,10 @@
  <url>
   <loc>http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html</loc>
   <lastmod>2017-02-04T18:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://simulkade.com/posts/2017-03-14-calling-phreeqc-from-julia.html</loc>
+  <lastmod>2017-03-14T20:46:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20I.html</loc>
@@ -147,7 +155,7 @@
  </url>
  <url>
   <loc>http://simulkade.com/posts/two-phase-flow-and-capillary-pressure.html</loc>
-  <lastmod>2017-02-04T18:53:00Z</lastmod>
+  <lastmod>2017-03-14T20:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/stories/about.html</loc>
