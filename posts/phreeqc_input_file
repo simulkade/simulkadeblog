@@ -1,0 +1,12 @@
+DATABASE /usr/local/share/doc/phreeqc/database/pitzer.dat
+SOLUTION 1 Pure water
+    pH      7.0
+    temp    100.0
+    pressure  250
+EQUILIBRIUM_PHASES 1
+    Anhydrite       0.0     10.0
+SELECTED_OUTPUT
+    -file   anhydrite_solubility.csv
+    -reset false
+    -totals     Ca
+END

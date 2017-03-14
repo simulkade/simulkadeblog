@@ -63,7 +63,32 @@ MathJax.Hub.Config({
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" class="u-url">Physical properties in Julia: CoolProp</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
+            <p class="dateline"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" rel="bookmark"><time class="post-date published dt-published" datetime="2014-10-25T00:37:54+01:00" title="2014-10-25 00:37">2014-10-25 00:37</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html#disqus_thread" data-disqus-identifier="cache/posts/2014-10-25-coolprop-in-julia.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Recently, I was analyzing my core-flooding experimental data in a Julia notebook, when I realize that I don't have access to a few Matlab functions that I have written (or found elsewhere), which I use regularly for the calculation of physical properties of pure components. For instance, viscosity of water (I know that you know it is 0.001 Pa.s) or density of CO2 or nitrogen at different temperatures and pressures. I know that <a href="http://www.thermo.ruhr-uni-bochum.de/en/prof-w-wagner.html">Professor Wagner</a> and his group have developed a few highly-accurate equations of state for industrial applications and I knew that there is a software called <a href="http://ascend4.org/FPROPS">FPROPS</a> which is used in <a href="http://ascend4.org/Main_Page">Ascend IV</a> package. Searching the name in google showed me a fantastic package called <a href="posts/www.coolprop.org/">CoolProp</a> which is being developed mostly in <a href="http://www.labothap.ulg.ac.be/cmsms/">thermodynamics laboratory</a> in <a href="posts/www.ulg.ac.be/">Universite de Liege</a>. The code is written in C++ but it supports many languages and environments including Matlab and Python. The Python part was interesting to me because I can call it using <a href="https://github.com/stevengj/PyCall.jl">PyCall</a> package in Julia. First I installed the <code>CoolProp</code> package using the instructions <a href="http://www.coolprop.org/HowGetIt.html">here</a>. You can do it in Ubuntu 14.04 by running the following code in terminal:</p>
+<pre class="code literal-block"><span></span>sudo apt-get install g++
+sudo apt-get install cython
+sudo apt-get install python-pip
+sudo apt-get install python-dev
+sudo pip install CoolProp
+</pre>
+
+
+<p class="more"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html">Read more…</a></p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" class="u-url">Matlab and Julia -- Part II</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AAE</span></p>
             <p class="dateline"><a href="posts/Matlab%20and%20Julia%20--%20Part%20II.html" rel="bookmark"><time class="post-date published dt-published" datetime="2014-10-02T21:43:27+01:00" title="2014-10-02 21:43">2014-10-02 21:43</time></a></p>
