@@ -17,7 +17,7 @@ import time
 
 
 # Data about this site
-BLOG_AUTHOR = "AAE"  # (translatable)
+BLOG_AUTHOR = "AA Eftekhari"  # (translatable)
 BLOG_TITLE = "SIMULKADE"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
