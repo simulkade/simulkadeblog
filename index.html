@@ -22,7 +22,7 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/2017-03-14-calling-phreeqc-from-julia.html" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/starting-with-reaktoro.html" type="text/html">
 </head>
 <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -63,7 +63,309 @@ MathJax.Hub.Config({
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017-03-14-calling-phreeqc-from-julia.html" class="u-url">Calling Phreeqc from Julia: a tutorial</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/starting-with-reaktoro.html" class="u-url">Starting with Reaktoro</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
+            <p class="dateline"><a href="posts/starting-with-reaktoro.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-05-23T09:02:37+02:00" title="2017-05-23 09:02">2017-05-23 09:02</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/starting-with-reaktoro.html#disqus_thread" data-disqus-identifier="cache/posts/2017-05-23-starting-with-reaktoro.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I recently heard about the <a href="https://bitbucket.org/reaktoro/reaktoro">Reaktoro</a> project, which is a platform for the fast calculation of geochemical reactions (both equilibrium and kinetics). I'm working mostly with the adsorption reactions, so I was not interested at the beginning although the code is very polished, clean, and readable even for me with a tiny knowledge of C++. At the end the Python interface and the <a href="http://www.ajsonline.org/content/281/10/1249.short">Helgeson-Kirkham-Flowers</a> (HKF) equation of state tempted me to give it a try. I followed the installation procedure <a href="http://reaktoro.org/installation.html">here</a> and it went very well on my Linux Mint machine. The Python package is installed in the <code>/usr/local/lib/python2.7/site-packages/</code> which is not in the python path. You need to add it manually:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/usr/local/lib/python2.7/site-packages/"</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then I looked at the Python examples and demos and found the answer to my question: calculation of (partial molar) Gibbs energy and the equilibrium constants for some electrolyte reactions, using the HKF EOS and a beautiful scripting language. It even convinced me to create a bitbucket account! As an example, the following code (that is a modified version of a Reaktoro example) is how the equilibrium constant for a reaction can be calculated:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">reaktoro</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">database</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span><span class="s2">"supcrt98.xml"</span><span class="p">)</span>
+<span class="n">thermo</span> <span class="o">=</span> <span class="n">Thermo</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am interested in the equilibrium constant of the following reaction:<br>
+$$ CaOH^+ + SO_4^{-2} = CaSO_4 + OH^-$$
+I tried different way of writing this reaction and finally the following version worked:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">reac1</span> <span class="o">=</span> <span class="s1">'CaOH+ + SO4-- = CaSO4(aq) + OH-'</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># K</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">1e5</span> <span class="c1"># Pa</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.3144598</span> <span class="c1"># J/(mol.K)</span>
+<span class="n">thermo</span><span class="o">.</span><span class="n">lnEquilibriumConstant</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reac1</span><span class="p">)</span><span class="o">.</span><span class="n">val</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.145092126874757</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's do the calculation by using the basic relation 
+$$\ln K_{eq} = \frac{-\Delta_r G}{RT} $$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dgrt</span> <span class="o">=</span> <span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarGibbsEnergy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'CaSO4(aq)'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">+</span> \
+<span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarGibbsEnergy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'OH-'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">-</span> \
+<span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarGibbsEnergy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'SO4--'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">-</span> \
+<span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarGibbsEnergy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'CaOH+'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span>
+<span class="o">-</span><span class="n">dgrt</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.1450927202641066</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is a small difference between the two values that I guess is due to the difference between the number of significant digits that I have used for the universal gas constant. Otherwise, everything works great, and the values are in agreement with what I have previously calculated myself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Van't-Hoff-equation">Van't Hoff equation<a class="anchor-link" href="posts/starting-with-reaktoro.html#Van't-Hoff-equation">¶</a>
+</h3>
+<p>Let's do something interesting. We know from <a href="https://en.wikipedia.org/wiki/Van_%27t_Hoff_equation">Van't Hoff</a> equation that
+$$\frac{\text{d}\ln K_{eq}}{\text{d}\frac{1}{T}} = -\frac{\Delta_r H}{R}.$$
+It means that if I plot $\ln K_{eq}$ versus $\frac{1}{T}$, I get (almost) an straight line with a slope of $-\frac{\Delta_r H}{R}$. Let's do the calculations in Reaktoro:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">T_range</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">25</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="mi">80</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ln_keq</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">T_range</span><span class="p">:</span>
+    <span class="n">ln_keq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thermo</span><span class="o">.</span><span class="n">lnEquilibriumConstant</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reac1</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T_range</span><span class="p">,</span> <span class="n">ln_keq</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"1/T [1/K]"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"ln(K_eq)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Compare-the-results">Compare the results<a class="anchor-link" href="posts/starting-with-reaktoro.html#Compare-the-results">¶</a>
+</h3>
+<p>We can calculate the enthalpy of reaction in different temperatures in Reaktoro and compare it with the approximate value that is the slope of the above line multiplied by -R. Let's do the calculation and plot the results:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dh_fit</span>  <span class="o">=</span> <span class="o">-</span><span class="n">polyfit</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T_range</span><span class="p">,</span> <span class="n">ln_keq</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">R</span>
+<span class="n">dh_calc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">T_range</span><span class="p">:</span>
+    <span class="n">dh_calc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarEnthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'CaSO4(aq)'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">+</span> \
+    <span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarEnthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'OH-'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">-</span> \
+    <span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarEnthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'SO4--'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="o">-</span> \
+    <span class="n">thermo</span><span class="o">.</span><span class="n">standardPartialMolarEnthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'CaOH+'</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_range</span><span class="p">,</span> <span class="n">dh_calc</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"HKF"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_range</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="n">T_range</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">*</span><span class="n">dh_fit</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Van't Hoff"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"T [K]"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"\Delta H [J/mol]"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In my opinion, it is very important for a software to enable the user to do the very basic stuff as Reaktoro helped me to do the above calculations. I still miss a few functionalities in Reaktoro: oxidation/reduction reaction and ion exchange/surface complexation models. Fortunately, Reaktoro is under active development and the new features will appear soon.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017-03-14-calling-phreeqc-from-julia.html" class="u-url">Calling Phreeqc from Julia: a tutorial</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
             <p class="dateline"><a href="posts/2017-03-14-calling-phreeqc-from-julia.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-03-14T21:27:47+01:00" title="2017-03-14 21:27">2017-03-14 21:27</time></a></p>
@@ -1439,37 +1741,6 @@ sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/cal
 <p>Run the following in a terminal:</p>
 <pre class="code literal-block"><span></span>jupyter nbextension enable calico-spell-check
 </pre>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
-            <p class="dateline"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" rel="bookmark"><time class="post-date published dt-published" datetime="2015-03-13T22:05:20+01:00" title="2015-03-13 22:05">2015-03-13 22:05</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/jfvm-a-finite-volume-tool-for-julia.html#disqus_thread" data-disqus-identifier="cache/posts/2015-03-13-jfvm-a-finite-volume-tool-for-julia.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>During the Christmass holydays, I spent some time to convert my Matlab <a href="https://github.com/simulkade/FVTool">FVTool</a> to a <a href="http://pkg.julialang.org/">Julia package</a>. The result, which I call <a href="https://github.com/simulkade/JFVM.jl">JFVM</a> is a bit Matlabesque, but the package works. In this post I'm going to show how it works.</p>
-<h3 id="Installation">Installation<a class="anchor-link" href="posts/jfvm-a-finite-volume-tool-for-julia.html#Installation">¶</a>
-</h3>
-<p>To install the package, you can use <code>Pkg.add("JFVM")</code> in Julia, or clone the most recent version (recommended). You need to have Julia installed. JFVM relies on <code>PyPlot</code>, <code>PyCall</code>, and <code>Mayavi</code> for visualization. Here's the procedure.</p>
-<p class="more"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html">Read more…</a></p>
-</div>
-</div>
-</div>
-</div>
 </div>
     </div>
     </article>

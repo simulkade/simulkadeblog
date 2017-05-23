@@ -63,7 +63,38 @@ MathJax.Hub.Config({
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" class="u-url">Physical properties in Julia: CoolProp</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
+            <p class="dateline"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" rel="bookmark"><time class="post-date published dt-published" datetime="2015-03-13T22:05:20+01:00" title="2015-03-13 22:05">2015-03-13 22:05</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/jfvm-a-finite-volume-tool-for-julia.html#disqus_thread" data-disqus-identifier="cache/posts/2015-03-13-jfvm-a-finite-volume-tool-for-julia.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>During the Christmass holydays, I spent some time to convert my Matlab <a href="https://github.com/simulkade/FVTool">FVTool</a> to a <a href="http://pkg.julialang.org/">Julia package</a>. The result, which I call <a href="https://github.com/simulkade/JFVM.jl">JFVM</a> is a bit Matlabesque, but the package works. In this post I'm going to show how it works.</p>
+<h3 id="Installation">Installation<a class="anchor-link" href="posts/jfvm-a-finite-volume-tool-for-julia.html#Installation">¶</a>
+</h3>
+<p>To install the package, you can use <code>Pkg.add("JFVM")</code> in Julia, or clone the most recent version (recommended). You need to have Julia installed. JFVM relies on <code>PyPlot</code>, <code>PyCall</code>, and <code>Mayavi</code> for visualization. Here's the procedure.</p>
+<p class="more"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html">Read more…</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" class="u-url">Physical properties in Julia: CoolProp</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
             <p class="dateline"><a href="posts/Physical%20properties%20in%20Julia%3A%20CoolProp.html" rel="bookmark"><time class="post-date published dt-published" datetime="2014-10-25T00:37:54+01:00" title="2014-10-25 00:37">2014-10-25 00:37</time></a></p>
@@ -156,7 +187,19 @@ sudo apt-get install julia
 <li class="previous">
                 <a href="index.html" rel="prev">Newer posts</a>
             </li>
-        </ul></nav><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2017         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        </ul></nav><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><footer id="footer"><p>Contents © 2017         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>
