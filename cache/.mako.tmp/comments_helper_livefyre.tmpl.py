@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1495530214.4620569
+_modified_time = 1496431862.4123824
 _enable_loop = True
 _template_filename = '/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl'
 _template_uri = 'comments_helper_livefyre.tmpl'
@@ -70,6 +70,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"uri": "comments_helper_livefyre.tmpl", "source_encoding": "utf-8", "line_map": {"65": 31, "34": 2, "35": 7, "36": 7, "37": 11, "38": 11, "71": 65, "55": 25, "44": 23, "61": 31, "16": 0, "49": 23, "50": 24, "51": 24, "52": 25, "21": 21, "22": 28, "23": 33, "54": 25, "29": 2, "53": 25}, "filename": "/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl"}
+{"source_encoding": "utf-8", "uri": "comments_helper_livefyre.tmpl", "line_map": {"65": 31, "34": 2, "35": 7, "36": 7, "37": 11, "38": 11, "71": 65, "55": 25, "44": 23, "61": 31, "16": 0, "49": 23, "50": 24, "51": 24, "52": 25, "21": 21, "22": 28, "23": 33, "54": 25, "29": 2, "53": 25}, "filename": "/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl"}
 __M_END_METADATA
 """

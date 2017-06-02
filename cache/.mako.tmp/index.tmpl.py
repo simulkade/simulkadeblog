@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1495530214.4272568
+_modified_time = 1496431862.36032
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/index.tmpl'
 _template_uri = 'index.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['content_header', 'extra_head', 'content']
+_exports = ['extra_head', 'content_header', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -20,11 +20,11 @@ def _mako_get_namespace(context, name):
         _mako_generate_namespaces(context)
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
-    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='index_helper.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'helper')] = ns
-
     ns = runtime.TemplateNamespace('comments', context._clean_inheritance_tokens(), templateuri='comments_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'comments')] = ns
+
+    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='index_helper.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'helper')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -33,21 +33,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_header():
-            return render_content_header(context._locals(__M_locals))
-        index_file = context.get('index_file', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
+        permalink = context.get('permalink', UNDEFINED)
+        posts = context.get('posts', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        def content_header():
+            return render_content_header(context._locals(__M_locals))
+        date_format = context.get('date_format', UNDEFINED)
         index_teasers = context.get('index_teasers', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
-        parent = context.get('parent', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
+        comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
-        posts = context.get('posts', UNDEFINED)
-        date_format = context.get('date_format', UNDEFINED)
+        parent = context.get('parent', UNDEFINED)
+        helper = _mako_get_namespace(context, 'helper')
+        index_file = context.get('index_file', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -67,25 +67,14 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_header(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_header():
-            return render_content_header(context)
-        __M_writer = context.writer()
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_extra_head(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         parent = context.get('parent', UNDEFINED)
-        index_file = context.get('index_file', UNDEFINED)
         def extra_head():
             return render_extra_head(context)
         posts = context.get('posts', UNDEFINED)
+        index_file = context.get('index_file', UNDEFINED)
         permalink = context.get('permalink', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    ')
@@ -100,19 +89,30 @@ def render_extra_head(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_content_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         def content_header():
             return render_content_header(context)
-        comments = _mako_get_namespace(context, 'comments')
+        __M_writer = context.writer()
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        posts = context.get('posts', UNDEFINED)
         def content():
             return render_content(context)
-        index_teasers = context.get('index_teasers', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
-        posts = context.get('posts', UNDEFINED)
+        def content_header():
+            return render_content_header(context)
         date_format = context.get('date_format', UNDEFINED)
+        index_teasers = context.get('index_teasers', UNDEFINED)
+        comments = _mako_get_namespace(context, 'comments')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        helper = _mako_get_namespace(context, 'helper')
         __M_writer = context.writer()
         __M_writer('\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_header'):
@@ -166,6 +166,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "index.tmpl", "source_encoding": "utf-8", "line_map": {"128": 19, "129": 19, "130": 19, "131": 21, "132": 21, "133": 22, "134": 22, "135": 22, "136": 22, "137": 22, "138": 22, "139": 22, "140": 22, "141": 23, "142": 24, "143": 24, "144": 24, "145": 26, "146": 28, "147": 29, "148": 30, "149": 30, "150": 31, "23": 2, "152": 33, "153": 33, "26": 3, "155": 38, "156": 39, "154": 35, "158": 40, "159": 40, "32": 0, "161": 41, "167": 161, "157": 39, "52": 2, "53": 3, "54": 4, "59": 11, "151": 32, "64": 42, "160": 41, "70": 14, "81": 6, "91": 6, "92": 7, "93": 7, "94": 8, "95": 9, "96": 9, "97": 9, "103": 13, "117": 13, "122": 14, "123": 16, "124": 17, "125": 17, "126": 17, "127": 19}, "filename": "themes/lanyon/templates/index.tmpl"}
+{"source_encoding": "utf-8", "uri": "index.tmpl", "line_map": {"128": 19, "129": 19, "130": 19, "131": 21, "132": 21, "133": 22, "134": 22, "135": 22, "136": 22, "137": 22, "138": 22, "139": 22, "140": 22, "141": 23, "142": 24, "143": 24, "144": 24, "145": 26, "146": 28, "147": 29, "148": 30, "149": 30, "150": 31, "23": 3, "152": 33, "153": 33, "26": 2, "155": 38, "156": 39, "154": 35, "158": 40, "159": 40, "32": 0, "161": 41, "167": 161, "157": 39, "52": 2, "53": 3, "54": 4, "59": 11, "151": 32, "64": 42, "160": 41, "70": 6, "80": 6, "81": 7, "82": 7, "83": 8, "84": 9, "85": 9, "86": 9, "92": 14, "103": 13, "117": 13, "122": 14, "123": 16, "124": 17, "125": 17, "126": 17, "127": 19}, "filename": "themes/lanyon/templates/index.tmpl"}
 __M_END_METADATA
 """

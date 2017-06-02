@@ -124,7 +124,7 @@ NAVIGATION_LINKS = {
  	("http://www.simulkade.com/stories/about.html", "About"),
          ("http://fvt.simulkade.com", "FVT"),
          ("http://energy.simulkade.com", "Energy"),
-         ("http://pvt.simulkade.com", "PVT"),
+         ("http://dailynote.simulkade.com", "Daily"),
          ("http://persian.simulkade.com", "فارسی"),
          ("/archive.html", "Archive"),
          ("/categories/index.html", "Tags"),

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1495530214.4702823
+_modified_time = 1496431862.4225254
 _enable_loop = True
 _template_filename = '/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl'
 _template_uri = 'comments_helper_googleplus.tmpl'
@@ -62,6 +62,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"uri": "comments_helper_googleplus.tmpl", "source_encoding": "utf-8", "line_map": {"33": 2, "34": 5, "35": 5, "41": 11, "45": 11, "46": 12, "47": 12, "16": 0, "21": 9, "22": 14, "23": 17, "57": 16, "63": 57, "29": 2, "53": 16}, "filename": "/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl"}
+{"source_encoding": "utf-8", "uri": "comments_helper_googleplus.tmpl", "line_map": {"33": 2, "34": 5, "35": 5, "41": 11, "45": 11, "46": 12, "47": 12, "16": 0, "21": 9, "22": 14, "23": 17, "57": 16, "63": 57, "29": 2, "53": 16}, "filename": "/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl"}
 __M_END_METADATA
 """
