@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>http://simulkade.com/2017/index.html</loc>
-  <lastmod>2017-06-02T19:19:00Z</lastmod>
+  <lastmod>2017-06-11T08:01:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/archive.html</loc>
-  <lastmod>2017-06-02T19:19:00Z</lastmod>
+  <lastmod>2017-06-11T07:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/categories/capillary.html</loc>
@@ -95,11 +95,11 @@
  </url>
  <url>
   <loc>http://simulkade.com/index-1.html</loc>
-  <lastmod>2017-06-02T19:19:00Z</lastmod>
+  <lastmod>2017-06-11T07:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/index.html</loc>
-  <lastmod>2017-06-02T19:19:00Z</lastmod>
+  <lastmod>2017-06-11T08:01:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</loc>
@@ -124,6 +124,10 @@
  <url>
   <loc>http://simulkade.com/posts/2017-03-14-calling-phreeqc-from-julia.html</loc>
   <lastmod>2017-06-02T19:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://simulkade.com/posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html</loc>
+  <lastmod>2017-06-11T08:01:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/Matlab%20and%20Julia%20--%20Part%20I.html</loc>
@@ -151,7 +155,7 @@
  </url>
  <url>
   <loc>http://simulkade.com/posts/starting-with-reaktoro.html</loc>
-  <lastmod>2017-06-02T19:19:00Z</lastmod>
+  <lastmod>2017-06-11T07:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://simulkade.com/posts/the-first-test-post.html</loc>
