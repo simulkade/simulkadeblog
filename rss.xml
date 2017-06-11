@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link rel="self" href="http://simulkade.com/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 23 May 2017 08:12:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Starting with Reaktoro</title><link>http://simulkade.com/posts/starting-with-reaktoro.html</link><dc:creator>AA Eftekhari</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SIMULKADE</title><link>http://simulkade.com/</link><description>A cozy kade for simulation</description><atom:link type="application/rss+xml" href="http://simulkade.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 11 Jun 2017 08:01:55 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Working with CoolProp in Excel (and vba)</title><link>http://simulkade.com/posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html</link><dc:creator>AA Eftekhari</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;a href="http://www.coolprop.org"&gt;CoolProp&lt;/a&gt; is a very useful package for the calculation of the physical (transport and thermodynamic) properties of pure fluids and mixtures. Usually, I call it from Julia or Python, but when it comes to communication with colleagues, they often prefer an excel file. I must confess, excel is not my cup of tea and I constantly make mistakes. Even when everything works fine, I suddenly run into a problem that can be solved way easier using a Python/Julia script. I'm not saying excel is a weak or bad tool; I'm just saying other tools are better!&lt;br&gt;
+Few months ago, I calculated the pressure drop of a CO2 transport pipeline and the amount of compression work that is required for the gas transport. For the pressure drop, I used the Weymouth correlation. I first calculated the isentropic work of a compressor and then divided it by the mechanical efficiency of a centrifugal compressor to estimate the real power requirement. I assumed a multi-stage compressor with inter-stage cooling and a maximum compression ratio of three to three and a half. This is something that can be probably done in an excel sheet, but can be done much easier with a few lines of code. The same hold for the calculation pf pressure drop. Gas is compressible, and as the pressure drops in the pipeline, gas expands and it linear velocity increases. Therefore, the pressure drop needs to be calculated in short segments of the pipe, where we can assume the physical properties of the gas phase are constant. This segment based calculations although fits into an excel sheet, is not something that we need to see in detail. We are only interested in the pressure drop in the whole pipeline, not in every little segment.&lt;br&gt;
+This encouraged me to overcome my excel-phobia and dive into it by writing two macros for the calculation of pressure drop in a gas pipeline and the power requirement in a compressor. I did not document the procedure, but I try my best to repeat it here with all the details.  Here's the (main part of) formulation:
+$$W_{comp} = H(T(S_{out}, p_{out}), p_{out}) - H(T_{in}, p_{in})$$
+The above equation means that the compression process is reversible, so we can calculate the temperature of the compressed gas, assuming that its entropy is equal to the entropy of the input gas stream.  &lt;/p&gt;
+&lt;h4&gt;Requirements&lt;/h4&gt;
+&lt;p&gt;A windows machine (or a windows virtual machine like mine) with Microsoft Excel installed.&lt;/p&gt;
+&lt;h4&gt;Step 1: install CoolProp for Windows&lt;/h4&gt;
+&lt;p&gt;Go to &lt;a href="https://sourceforge.net/projects/coolprop/files/CoolProp/6.1.0/Installers/Windows/"&gt;this web page&lt;/a&gt; and download the CoolProp installer (a file called &lt;code&gt;CoolProp_v6.1.0.0.exe&lt;/code&gt;). I worked with version 6.1.0. You can alternatively download the latest version from &lt;a href="https://sourceforge.net/projects/coolprop/files/CoolProp/nightly/Installers/Windows/"&gt;here&lt;/a&gt;. I installed it with all the default settings. You may want to do the same.&lt;/p&gt;
+&lt;h4&gt;Step 2: test your installation&lt;/h4&gt;
+&lt;p&gt;CoolProp installer copies a test excel file called &lt;code&gt;TestExcel.xlsx&lt;/code&gt; on your desktop. Open it and make sure that it works fine. By fine, I mean this screen-shot:
+&lt;img alt="coolprop sample calculation excel" src="http://simulkade.com/coolprop-sample-calc.png"&gt;
+If it doesn't work and you cannot see the numbers, go to the &lt;code&gt;Installation&lt;/code&gt; sheet in the same excel file and follow the instructions.&lt;/p&gt;
+&lt;h4&gt;Step 3: start writing a VBA function&lt;/h4&gt;
+&lt;p&gt;Create a new excel workbook. Then press &lt;code&gt;Alt + F11&lt;/code&gt; to open the Microsoft Visual Basic for Applications. You will see something like this:
+&lt;img alt="visual basic excel coolprop" src="http://simulkade.com/vba-excel.png"&gt;
+Right click on &lt;code&gt;VBAProject (Book1)&lt;/code&gt; and choose Insert -&amp;gt; Module:
+&lt;img alt="new-module-vba-coolprop" src="http://simulkade.com/vba-new-module-coolprop.png"&gt;
+Before writing your new function in the module, you need to tell excel that you are going to call CoolProp functions. To do that, go to &lt;code&gt;Tools -&amp;gt; References...&lt;/code&gt; and check the box next to &lt;code&gt;CoolProp&lt;/code&gt; like the following and then press OK.
+&lt;img alt="reference coolprop vba" src="http://simulkade.com/reference-coolprop-vba.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Step 4: Write your function&lt;/h4&gt;
+&lt;p&gt;This is the function I have written for the calculation of the compression work. The inputs are number of compression stages (&lt;code&gt;n_stage&lt;/code&gt;), the temperature in Kelvin after the inter-cooling stage (&lt;code&gt;T_comp&lt;/code&gt;), input and output pressure for each compressor in Pascal (&lt;code&gt;p_in&lt;/code&gt; and &lt;code&gt;p_out&lt;/code&gt;), and &lt;code&gt;gas_type&lt;/code&gt; which is the name of the fluid, e.g., "CO2". Copy and paste the function into your new module.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;Function comp_work(n_stage, T_comp, p_in, p_out, gas_type)
+w_min_transport = 0#
+comp_ratio = Exp(Log(p_out / p_in) / n_stage)
+p_comp = p_in
+p_comp_next = comp_ratio * p_comp
+  For i = 1 To n_stage
+    S_in = CoolProp.PropsSI("SMOLAR", "T", T_comp, "P", p_comp, gas_type) ' molar entropy J/(mol.K)
+    H_in = CoolProp.PropsSI("HMOLAR", "T", T_comp, "P", p_comp, gas_type) ' molar enthalpy J/mol
+    ' find the output T for isentropic compressor
+    ' S_in-CoolProp.PropsSI("SMOLAR", "T", T_comp, "P", p_out, gas_type)
+    T_out = CoolProp.PropsSI("T", "SMOLAR", S_in, "P", p_comp_next, gas_type)
+    H_out = CoolProp.PropsSI("HMOLAR", "T", T_out, "P", p_comp_next, gas_type) ' molar enthalpy J/mol
+    w_min_transport = w_min_transport + H_out - H_in ' J/mol
+    p_comp = p_comp_next
+    p_comp_next = p_comp * comp_ratio
+  Next i
+comp_work = w_min_transport
+End Function
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Step 5: test your new function&lt;/h4&gt;
+&lt;p&gt;The (macro-enabled) excel file contains the vba code and a simple test, can be downloaded &lt;a href="http://simulkade.com/compression_coolprop_test.xlsm"&gt;here&lt;/a&gt;; the final results should look like this:
+&lt;img alt="test excel vba coolprop" src="http://simulkade.com/compression_test_coolprop.png"&gt;&lt;/p&gt;&lt;/div&gt;</description><guid>http://simulkade.com/posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html</guid><pubDate>Sat, 10 Jun 2017 10:29:44 GMT</pubDate></item><item><title>Starting with Reaktoro</title><link>http://simulkade.com/posts/starting-with-reaktoro.html</link><dc:creator>AA Eftekhari</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -1468,37 +1513,4 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><category>correlation-length</category><category>Dykstra-Parsons</category><category>permeability</category><guid>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</guid><pubDate>Mon, 04 May 2015 20:24:24 GMT</pubDate></item><item><title>Spell checking in Jupyter notebooks</title><link>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</link><dc:creator>AA Eftekhari</dc:creator><description>&lt;div&gt;&lt;p&gt;This afternoon I found a nice spellchecker for Jupyter markdown cells &lt;a href="http://calicoproject.org/ICalico"&gt;here&lt;/a&gt;. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Open a terminal window and type&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Go to &lt;code&gt;~/.ipython/profile_default/static/custom&lt;/code&gt;, and add the following line to the end of &lt;code&gt;custom.js&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Start a new &lt;code&gt;ipython notebook&lt;/code&gt;. If everything goes well, you should see the following addition to the toolbar:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="ipython spellcheck toolbar" src="http://simulkade.com/ipython_toolbar_screenshot.png"&gt;&lt;/p&gt;
-&lt;h3&gt;Update (thanks to Henry Schreiner)&lt;/h3&gt;
-&lt;p&gt;In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;%%javascript&lt;/span&gt;
-&lt;span class="n"&gt;Jupyter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;notebook&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;"&lt;span class="n"&gt;load_extensions&lt;/span&gt;"&lt;span class="p"&gt;:{&lt;/span&gt;"&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;check&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                                  "&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                                  "&lt;span class="n"&gt;calico&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cell&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tools&lt;/span&gt;"&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;}})&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h3&gt;Update II (thanks to Noam Elfanbaum)&lt;/h3&gt;
-&lt;p&gt;Run the following in a terminal:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jupyter nbextension enable calico-spell-check
-&lt;/pre&gt;&lt;/div&gt;</description><guid>http://simulkade.com/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html</guid><pubDate>Tue, 07 Apr 2015 19:21:18 GMT</pubDate></item></channel></rss>
+</description><category>correlation-length</category><category>Dykstra-Parsons</category><category>permeability</category><guid>http://simulkade.com/posts/2015-05-04-log-random-permeability-field.html</guid><pubDate>Mon, 04 May 2015 20:24:24 GMT</pubDate></item></channel></rss>

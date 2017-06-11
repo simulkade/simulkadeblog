@@ -63,7 +63,56 @@ MathJax.Hub.Config({
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" class="u-url">Spell checking in Jupyter notebooks</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
+            <p class="dateline"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="bookmark"><time class="post-date published dt-published" datetime="2015-04-07T21:21:18+02:00" title="2015-04-07 21:21">2015-04-07 21:21</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html#disqus_thread" data-disqus-identifier="cache/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:</p>
+<ul>
+<li>Open a terminal window and type</li>
+</ul>
+<pre class="code literal-block"><span></span>sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
+sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
+</pre>
+
+
+<ul>
+<li>Go to <code>~/.ipython/profile_default/static/custom</code>, and add the following line to the end of <code>custom.js</code>.</li>
+</ul>
+<pre class="code literal-block"><span></span>IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+</pre>
+
+
+<ul>
+<li>Start a new <code>ipython notebook</code>. If everything goes well, you should see the following addition to the toolbar:</li>
+</ul>
+<p><img alt="ipython spellcheck toolbar" src="ipython_toolbar_screenshot.png"></p>
+<h3>Update (thanks to Henry Schreiner)</h3>
+<p>In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:</p>
+<pre class="code literal-block"><span></span><span class="c">%%javascript</span>
+<span class="n">Jupyter</span><span class="p">.</span><span class="n">notebook</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">update</span><span class="p">({</span>"<span class="n">load_extensions</span>"<span class="p">:{</span>"<span class="n">calico</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">check</span>"<span class="p">:</span><span class="n">true</span><span class="p">,</span>
+                                                  "<span class="n">calico</span><span class="o">-</span><span class="n">document</span><span class="o">-</span><span class="n">tools</span>"<span class="p">:</span><span class="n">true</span><span class="p">,</span>
+                                                  "<span class="n">calico</span><span class="o">-</span><span class="n">cell</span><span class="o">-</span><span class="n">tools</span>"<span class="p">:</span><span class="n">true</span><span class="p">}})</span>
+</pre>
+
+
+<h3>Update II (thanks to Noam Elfanbaum)</h3>
+<p>Run the following in a terminal:</p>
+<pre class="code literal-block"><span></span>jupyter nbextension enable calico-spell-check
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" class="u-url">JFVM: a finite volume tool for Julia</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
             <p class="dateline"><a href="posts/jfvm-a-finite-volume-tool-for-julia.html" rel="bookmark"><time class="post-date published dt-published" datetime="2015-03-13T22:05:20+01:00" title="2015-03-13 22:05">2015-03-13 22:05</time></a></p>

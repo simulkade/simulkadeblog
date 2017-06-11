@@ -22,7 +22,7 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/starting-with-reaktoro.html" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html" type="text/html">
 </head>
 <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -63,7 +63,68 @@ MathJax.Hub.Config({
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/starting-with-reaktoro.html" class="u-url">Starting with Reaktoro</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html" class="u-url">Working with CoolProp in Excel (and vba)</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
+            <p class="dateline"><a href="posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-06-10T12:29:44+02:00" title="2017-06-10 12:29">2017-06-10 12:29</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html#disqus_thread" data-disqus-identifier="cache/posts/2017-06-10-working-with-coolprop-in-excel-and-vba.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p><a href="http://www.coolprop.org">CoolProp</a> is a very useful package for the calculation of the physical (transport and thermodynamic) properties of pure fluids and mixtures. Usually, I call it from Julia or Python, but when it comes to communication with colleagues, they often prefer an excel file. I must confess, excel is not my cup of tea and I constantly make mistakes. Even when everything works fine, I suddenly run into a problem that can be solved way easier using a Python/Julia script. I'm not saying excel is a weak or bad tool; I'm just saying other tools are better!<br>
+Few months ago, I calculated the pressure drop of a CO2 transport pipeline and the amount of compression work that is required for the gas transport. For the pressure drop, I used the Weymouth correlation. I first calculated the isentropic work of a compressor and then divided it by the mechanical efficiency of a centrifugal compressor to estimate the real power requirement. I assumed a multi-stage compressor with inter-stage cooling and a maximum compression ratio of three to three and a half. This is something that can be probably done in an excel sheet, but can be done much easier with a few lines of code. The same hold for the calculation pf pressure drop. Gas is compressible, and as the pressure drops in the pipeline, gas expands and it linear velocity increases. Therefore, the pressure drop needs to be calculated in short segments of the pipe, where we can assume the physical properties of the gas phase are constant. This segment based calculations although fits into an excel sheet, is not something that we need to see in detail. We are only interested in the pressure drop in the whole pipeline, not in every little segment.<br>
+This encouraged me to overcome my excel-phobia and dive into it by writing two macros for the calculation of pressure drop in a gas pipeline and the power requirement in a compressor. I did not document the procedure, but I try my best to repeat it here with all the details.  Here's the (main part of) formulation:
+$$W_{comp} = H(T(S_{out}, p_{out}), p_{out}) - H(T_{in}, p_{in})$$
+The above equation means that the compression process is reversible, so we can calculate the temperature of the compressed gas, assuming that its entropy is equal to the entropy of the input gas stream.  </p>
+<h4>Requirements</h4>
+<p>A windows machine (or a windows virtual machine like mine) with Microsoft Excel installed.</p>
+<h4>Step 1: install CoolProp for Windows</h4>
+<p>Go to <a href="https://sourceforge.net/projects/coolprop/files/CoolProp/6.1.0/Installers/Windows/">this web page</a> and download the CoolProp installer (a file called <code>CoolProp_v6.1.0.0.exe</code>). I worked with version 6.1.0. You can alternatively download the latest version from <a href="https://sourceforge.net/projects/coolprop/files/CoolProp/nightly/Installers/Windows/">here</a>. I installed it with all the default settings. You may want to do the same.</p>
+<h4>Step 2: test your installation</h4>
+<p>CoolProp installer copies a test excel file called <code>TestExcel.xlsx</code> on your desktop. Open it and make sure that it works fine. By fine, I mean this screen-shot:
+<img alt="coolprop sample calculation excel" src="coolprop-sample-calc.png">
+If it doesn't work and you cannot see the numbers, go to the <code>Installation</code> sheet in the same excel file and follow the instructions.</p>
+<h4>Step 3: start writing a VBA function</h4>
+<p>Create a new excel workbook. Then press <code>Alt + F11</code> to open the Microsoft Visual Basic for Applications. You will see something like this:
+<img alt="visual basic excel coolprop" src="vba-excel.png">
+Right click on <code>VBAProject (Book1)</code> and choose Insert -&gt; Module:
+<img alt="new-module-vba-coolprop" src="vba-new-module-coolprop.png">
+Before writing your new function in the module, you need to tell excel that you are going to call CoolProp functions. To do that, go to <code>Tools -&gt; References...</code> and check the box next to <code>CoolProp</code> like the following and then press OK.
+<img alt="reference coolprop vba" src="reference-coolprop-vba.png"></p>
+<h4>Step 4: Write your function</h4>
+<p>This is the function I have written for the calculation of the compression work. The inputs are number of compression stages (<code>n_stage</code>), the temperature in Kelvin after the inter-cooling stage (<code>T_comp</code>), input and output pressure for each compressor in Pascal (<code>p_in</code> and <code>p_out</code>), and <code>gas_type</code> which is the name of the fluid, e.g., "CO2". Copy and paste the function into your new module.</p>
+<pre class="code literal-block"><span></span>Function comp_work(n_stage, T_comp, p_in, p_out, gas_type)
+w_min_transport = 0#
+comp_ratio = Exp(Log(p_out / p_in) / n_stage)
+p_comp = p_in
+p_comp_next = comp_ratio * p_comp
+  For i = 1 To n_stage
+    S_in = CoolProp.PropsSI("SMOLAR", "T", T_comp, "P", p_comp, gas_type) ' molar entropy J/(mol.K)
+    H_in = CoolProp.PropsSI("HMOLAR", "T", T_comp, "P", p_comp, gas_type) ' molar enthalpy J/mol
+    ' find the output T for isentropic compressor
+    ' S_in-CoolProp.PropsSI("SMOLAR", "T", T_comp, "P", p_out, gas_type)
+    T_out = CoolProp.PropsSI("T", "SMOLAR", S_in, "P", p_comp_next, gas_type)
+    H_out = CoolProp.PropsSI("HMOLAR", "T", T_out, "P", p_comp_next, gas_type) ' molar enthalpy J/mol
+    w_min_transport = w_min_transport + H_out - H_in ' J/mol
+    p_comp = p_comp_next
+    p_comp_next = p_comp * comp_ratio
+  Next i
+comp_work = w_min_transport
+End Function
+</pre>
+
+
+<h4>Step 5: test your new function</h4>
+<p>The (macro-enabled) excel file contains the vba code and a simple test, can be downloaded <a href="compression_coolprop_test.xlsm">here</a>; the final results should look like this:
+<img alt="test excel vba coolprop" src="compression_test_coolprop.png"></p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/starting-with-reaktoro.html" class="u-url">Starting with Reaktoro</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
             <p class="dateline"><a href="posts/starting-with-reaktoro.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-05-23T09:02:37+02:00" title="2017-05-23 09:02">2017-05-23 09:02</time></a></p>
@@ -1693,55 +1754,6 @@ I used this standard deviation and the average permeability value, $k_{ave}$, to
     </div>
   </div>
 
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" class="u-url">Spell checking in Jupyter notebooks</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">AA Eftekhari</span></p>
-            <p class="dateline"><a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html" rel="bookmark"><time class="post-date published dt-published" datetime="2015-04-07T21:21:18+02:00" title="2015-04-07 21:21">2015-04-07 21:21</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html#disqus_thread" data-disqus-identifier="cache/posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:</p>
-<ul>
-<li>Open a terminal window and type</li>
-</ul>
-<pre class="code literal-block"><span></span>sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
-sudo ipython install-nbextension https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
-</pre>
-
-
-<ul>
-<li>Go to <code>~/.ipython/profile_default/static/custom</code>, and add the following line to the end of <code>custom.js</code>.</li>
-</ul>
-<pre class="code literal-block"><span></span>IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
-</pre>
-
-
-<ul>
-<li>Start a new <code>ipython notebook</code>. If everything goes well, you should see the following addition to the toolbar:</li>
-</ul>
-<p><img alt="ipython spellcheck toolbar" src="ipython_toolbar_screenshot.png"></p>
-<h3>Update (thanks to Henry Schreiner)</h3>
-<p>In Jupyter, instead of adding the load_extension line, you can run the following code in a notebook cell:</p>
-<pre class="code literal-block"><span></span><span class="c">%%javascript</span>
-<span class="n">Jupyter</span><span class="p">.</span><span class="n">notebook</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">update</span><span class="p">({</span>"<span class="n">load_extensions</span>"<span class="p">:{</span>"<span class="n">calico</span><span class="o">-</span><span class="n">spell</span><span class="o">-</span><span class="n">check</span>"<span class="p">:</span><span class="n">true</span><span class="p">,</span>
-                                                  "<span class="n">calico</span><span class="o">-</span><span class="n">document</span><span class="o">-</span><span class="n">tools</span>"<span class="p">:</span><span class="n">true</span><span class="p">,</span>
-                                                  "<span class="n">calico</span><span class="o">-</span><span class="n">cell</span><span class="o">-</span><span class="n">tools</span>"<span class="p">:</span><span class="n">true</span><span class="p">}})</span>
-</pre>
-
-
-<h3>Update II (thanks to Noam Elfanbaum)</h3>
-<p>Run the following in a terminal:</p>
-<pre class="code literal-block"><span></span>jupyter nbextension enable calico-spell-check
-</pre>
-</div>
     </div>
     </article>
 </div>
