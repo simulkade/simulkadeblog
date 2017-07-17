@@ -129,6 +129,7 @@ NAVIGATION_LINKS = {
          ("/archive.html", "Archive"),
          ("/categories/index.html", "Tags"),
          ("/rss.xml", "RSS feed"),
+        #  ("<iframe src="https://duckduckgo.com/search.html?width=200&site=simulkade.com&prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:258px;height:40px;" frameborder="0"></iframe>"),
      ),
  }
 
@@ -822,7 +823,9 @@ FEED_TEASERS = True
 # Or a DuckDuckGo search: https://duckduckgo.com/search_box.html
 # Default is no search form.
 # (translatable)
-# SEARCH_FORM = ""
+# SEARCH_FORM = """
+#
+# """
 #
 # This search form works for any site and looks good in the "site" theme where
 # it appears on the navigation bar:
@@ -850,7 +853,7 @@ FEED_TEASERS = True
 # <input type="text" name="q" maxlength="255" results="0" placeholder="Search"/>
 # </form>
 # <!-- End of custom search -->
-#""" % SITE_URL
+# """ % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
