@@ -1,3 +1,13 @@
+<h1>Simple method</h1>
+<p>In a terminal, write</p>
+<pre class="code literal-block"><span></span>sudo add-apt-repository ppa:octave/stable
+sudo apt-get update
+sudo apt install octave
+</pre>
+
+
+<p>That's it!</p>
+<h1>Hard alternative</h1>
 <p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br>
 The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br>
 First, install these dependencies:</p>
