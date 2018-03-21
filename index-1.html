@@ -76,7 +76,18 @@ MathJax.Hub.Config({
 </div>
     </header><div class="p-summary entry-summary">
     <div>
-<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="http://calicoproject.org/ICalico">here</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:</p>
+<h2>UPDATE</h2>
+<p>The original post (see below) is terribly out of date now with broken links and deprecated procedures. To install spell checker for Jupyter, go to <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">this link</a> and follow the procedure.<br>
+Alternatively, you can install the Calico extensions that are now maintained <a href="https://github.com/Calysto/notebook-extensions">here</a>. Open a terminal window and write:</p>
+<pre class="code literal-block"><span></span>git clone https://github.com/Calysto/notebook-extensions.git
+cd notebook-extensions
+jupyter nbextension install calysto --user
+jupyter nbextension enable calysto/spell-check/main
+</pre>
+
+
+<h2>Deprecated!!!</h2>
+<p>This afternoon I found a nice spellchecker for Jupyter markdown cells <a href="posts/2015-04-07-spell-checking-in-jupyter-notebooks.html">BROKEN LINK</a>. Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:</p>
 <ul>
 <li>Open a terminal window and type</li>
 </ul>
@@ -248,7 +259,7 @@ MathJax.Hub.Config({
         styles: {'.MathJax_Display': {"margin": 0}}
     }
 });
-</script><footer id="footer"><p>Contents © 2017         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
+</script><footer id="footer"><p>Contents © 2018         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>

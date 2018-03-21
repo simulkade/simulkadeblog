@@ -2,14 +2,28 @@
 .. title: Spell checking in Jupyter notebooks
 .. slug: 2015-04-07-spell-checking-in-jupyter-notebooks
 .. date: 2015-04-07 21:21:18 UTC+02:00
-.. tags:
+.. tags: jupyter, spellchecker
 .. category:
 .. link:
 .. description:
 .. type: text
 -->
 
-This afternoon I found a nice spellchecker for Jupyter markdown cells [here](http://calicoproject.org/ICalico). Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:
+# UPDATE
+The original post (see below) is terribly out of date now with broken links and deprecated procedures. To install spell checker for Jupyter, go to [this link](https://github.com/ipython-contrib/jupyter_contrib_nbextensions) and follow the procedure.  
+Alternatively, you can install the Calico extensions that are now maintained [here](https://github.com/Calysto/notebook-extensions). Open a terminal window and write:
+
+```
+git clone https://github.com/Calysto/notebook-extensions.git
+cd notebook-extensions
+jupyter nbextension install calysto --user
+jupyter nbextension enable calysto/spell-check/main
+
+```
+
+# Deprecated!!!
+
+This afternoon I found a nice spellchecker for Jupyter markdown cells [BROKEN LINK](). Here's the step by step procedure for the installation of the spellchecker and two other usefull tools:
 
   * Open a terminal window and type
 ```

@@ -26,7 +26,17 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="SIMULKADE">
 <meta property="og:title" content="Install Octave 4.0 on Mint 17.1/Ubuntu 14.04">
 <meta property="og:url" content="http://simulkade.com/posts/2015-06-20-install-octave-40-on-mint-171ubuntu-1404.html">
-<meta property="og:description" content="Octave version 4.0 is out, and the good news is that it has a classdef feature similar to Matlab. I will soon use it to update my FVTool so that it can be used with all functionalities in Octave as we">
+<meta property="og:description" content="Simple method
+In a terminal, write
+sudo add-apt-repository ppa:octave/stable
+sudo apt-get update
+sudo apt install octave
+
+
+
+That's it!
+Hard alternative
+Octave version 4.0 is out, and the good news is ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2015-06-20T12:10:53+02:00">
 </head>
@@ -83,6 +93,16 @@ MathJax.Hub.Config({
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
+<h2>Simple method</h2>
+<p>In a terminal, write</p>
+<pre class="code literal-block"><span></span>sudo add-apt-repository ppa:octave/stable
+sudo apt-get update
+sudo apt install octave
+</pre>
+
+
+<p>That's it!</p>
+<h2>Hard alternative</h2>
 <p><a href="http://www.gnu.org/software/octave/">Octave</a> version 4.0 is out, and the good news is that it has a <code>classdef</code> feature similar to Matlab. I will soon use it to update my <a href="https://github.com/simulkade/FVTool">FVTool</a> so that it can be used with all functionalities in Octave as well.<br>
 The problem is that it takes a while before the new version of Octave comes to the software center of Ubuntu. I decided to compile and build it, although I've never had a good experience with building tools from source. This time however it worked however without any issue on my laptop and my pc. I used the procedure I found <a href="https://scivision.co/compiling-octave-4-0-on-ubuntu-14-04/">here</a>. I had to install some more libraries on my Mint 17.1 operating system.<br>
 First, install these dependencies:</p>
@@ -148,7 +168,7 @@ sudo ln -s /usr/local/bin/octave-cli octave
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2017         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        </section></article><script>var disqus_shortname="simulkade";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:a.a.eftekhari@outlook.com">AA Eftekhari</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>
